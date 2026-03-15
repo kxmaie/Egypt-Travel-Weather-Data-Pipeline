@@ -1,0 +1,1001 @@
+Restaurant ID,Restaurant Name,Category,City,Area,Longitude,Latitude
+1,30 North,Cafe,Alexandria,Gleem,29.901193,31.186937
+2,Indira,Asian Cuisine,Alexandria,Montaza,29.920624,31.206004
+3,Seoudi,Casual Dining,Cairo,Nasr City,31.245766,30.041615
+4,Paul,Bakery,Alexandria,Sidi Gaber,29.9064,31.189993
+5,Wel3a,Grill,Sharm El Sheikh,Sharks Bay,34.325296,27.906238
+6,Spectra,Casual Dining,Cairo,Zamalek,31.220995,30.060105
+7,Tabla Luna,Latin American,Alexandria,Gleem,29.914564,31.181569
+8,Seoudi,Casual Dining,Giza,Sheikh Zayed,31.195115,30.019998
+9,Maison de Curry,Indian,Sharm El Sheikh,Old Market,34.316359,27.907713
+10,Mori Sushi,Asian Cuisine,Alexandria,Stanley,29.906512,31.196692
+11,Lucille’s,American Diner,Cairo,Downtown,31.217591,30.06232
+12,The Lemon Tree,Mediterranean,Hurghada,Sahl Hasheesh,33.793687,27.251303
+13,Shawarma El Reem,Shawarma,Giza,Mohandessin,31.2095,29.996844
+14,El Doksh,Seafood,Sharm El Sheikh,Naama Bay,34.328671,27.918626
+15,Qahwa,Cafe,Hurghada,Sheraton Road,33.82976,27.270447
+16,Chicken Fil-A,Fried Chicken,Sharm El Sheikh,Old Market,34.336133,27.899199
+17,Gaby’s,European,Giza,Haram,31.22262,30.019499
+18,Caracas,Lebanese,Alexandria,Smouha,29.899615,31.202856
+19,Hossam El Refaay,Grill,Cairo,Nasr City,31.239187,30.057989
+20,Cilantro,Cafe,Alexandria,Sidi Gaber,29.925982,31.194523
+21,Crave,International,Giza,Sheikh Zayed,31.224628,30.0173
+22,Paul,Bakery,Sharm El Sheikh,Naama Bay,34.344286,27.902268
+23,Caracas,Lebanese,Hurghada,Sahl Hasheesh,33.831129,27.250859
+24,Peking,Asian Cuisine,Giza,Dokki,31.218508,30.031525
+25,El Menoufy,Grill,Giza,Dokki,31.192868,30.013545
+26,Caracas,Lebanese,Hurghada,Makadi Bay,33.82264,27.274199
+27,Qahwa,Cafe,Hurghada,Sheraton Road,33.796179,27.243494
+28,Hossam El Refaay,Grill,Hurghada,Makadi Bay,33.80088,27.250658
+29,Shawarma El Reem,Shawarma,Giza,Haram,31.193746,29.999449
+30,Starbucks,Cafe,Giza,Haram,31.194232,30.019763
+31,El Doksh,Seafood,Cairo,Zamalek,31.217268,30.047099
+32,The Smokery,Fine Dining,Cairo,Zamalek,31.225987,30.024747
+33,Maison de Curry,Indian,Hurghada,Dahar,33.792028,27.257671
+34,Butcher's Burger,Burgers,Cairo,Zamalek,31.223389,30.047763
+35,Butcher's Burger,Burgers,Sharm El Sheikh,Hadaba,34.34326,27.897028
+36,Gad,Egyptian Cuisine,Sharm El Sheikh,Old Market,34.329189,27.923652
+37,Tabla Luna,Latin American,Giza,Sheikh Zayed,31.225791,30.01277
+38,Costa Coffee,Cafe,Cairo,Heliopolis,31.255697,30.060346
+39,Chicken Fil-A,Fried Chicken,Sharm El Sheikh,Old Market,34.330483,27.905883
+40,Zooba,Egyptian Street Food,Giza,6th of October,31.203846,30.027528
+41,Paul,Bakery,Alexandria,Smouha,29.938694,31.193896
+42,The Smokery,Fine Dining,Hurghada,Dahar,33.817085,27.264051
+43,Butcher's Burger,Burgers,Cairo,Downtown,31.239342,30.047977
+44,Maison de Curry,Indian,Giza,Mohandessin,31.222768,30.00584
+45,Kazouza,Egyptian Street Food,Giza,Haram,31.221621,30.024833
+46,Le Pacha 1901,Fine Dining,Cairo,Maadi,31.226449,30.039084
+47,Chicken Fil-A,Fried Chicken,Cairo,Nasr City,31.218429,30.060781
+48,Starbucks,Cafe,Sharm El Sheikh,Sharks Bay,34.343841,27.925198
+49,Maison Thomas,Italian,Alexandria,Stanley,29.920036,31.19827
+50,Spectra,Casual Dining,Hurghada,Sahl Hasheesh,33.80077,27.256946
+51,Crave,International,Sharm El Sheikh,Naama Bay,34.328633,27.904918
+52,TBS,Bakery,Giza,Mohandessin,31.188976,30.016702
+53,Shawarma El Reem,Shawarma,Cairo,Downtown,31.24788,30.037568
+54,Starbucks,Cafe,Hurghada,El Gouna,33.819985,27.255763
+55,Paul,Bakery,Sharm El Sheikh,Naama Bay,34.339102,27.918021
+56,Seoudi,Casual Dining,Hurghada,El Gouna,33.817182,27.252443
+57,Costa Coffee,Cafe,Alexandria,Sidi Gaber,29.902828,31.190619
+58,The Smokery,Fine Dining,Cairo,Maadi,31.245194,30.031335
+59,Caracas,Lebanese,Giza,Haram,31.228219,30.014453
+60,Abou Haidar,Sandwiches,Alexandria,Smouha,29.902477,31.181833
+61,Arabiata,Egyptian Cuisine,Giza,Dokki,31.222565,30.003536
+62,Tamara,Lebanese,Alexandria,Gleem,29.922988,31.201059
+63,The Lemon Tree,Mediterranean,Alexandria,Smouha,29.902304,31.198907
+64,Makani,Grill,Hurghada,Makadi Bay,33.818437,27.256095
+65,Indira,Asian Cuisine,Alexandria,Sidi Gaber,29.900229,31.193295
+66,Maison Thomas,Italian,Cairo,Nasr City,31.222198,30.052812
+67,Fuddruckers,Burgers,Cairo,Downtown,31.225997,30.032083
+68,Tamara,Lebanese,Hurghada,Sheraton Road,33.811541,27.238232
+69,Cilantro,Cafe,Alexandria,Sidi Gaber,29.902939,31.191731
+70,El Menoufy,Grill,Giza,Dokki,31.221448,29.999984
+71,El Dahan,Egyptian Cuisine,Cairo,Zamalek,31.238305,30.063634
+72,Makani,Grill,Sharm El Sheikh,Sharks Bay,34.338991,27.925366
+73,El Doksh,Seafood,Cairo,Nasr City,31.233596,30.050267
+74,Tamara,Lebanese,Hurghada,Makadi Bay,33.820295,27.277236
+75,30 North,Cafe,Giza,Mohandessin,31.224706,29.996768
+76,Gad,Egyptian Cuisine,Hurghada,El Gouna,33.814236,27.263417
+77,Spectra,Casual Dining,Alexandria,Gleem,29.919394,31.219172
+78,Fuddruckers,Burgers,Alexandria,Sidi Gaber,29.908669,31.205421
+79,Paul,Bakery,Giza,Haram,31.193447,30.000951
+80,Makani,Grill,Sharm El Sheikh,Naama Bay,34.318691,27.919441
+81,Chicken Fil-A,Fried Chicken,Alexandria,Montaza,29.938252,31.217141
+82,Makani,Grill,Alexandria,Sidi Gaber,29.918651,31.18915
+83,Wel3a,Grill,Sharm El Sheikh,Nabq,34.313996,27.927671
+84,Indira,Asian Cuisine,Giza,6th of October,31.213128,30.007118
+85,Starbucks,Cafe,Giza,Mohandessin,31.208552,30.015253
+86,Makani,Grill,Cairo,Downtown,31.220747,30.05842
+87,Maison Thomas,Italian,Alexandria,Smouha,29.923704,31.197543
+88,Crave,International,Giza,Haram,31.204752,30.014058
+89,Mori Sushi,Asian Cuisine,Hurghada,Dahar,33.812841,27.271335
+90,Beano's,Cafe,Cairo,Heliopolis,31.220947,30.040577
+91,Paul,Bakery,Alexandria,Gleem,29.923633,31.193364
+92,Butcher's Burger,Burgers,Sharm El Sheikh,Old Market,34.324661,27.898011
+93,Koshary El Tahrir,Koshary,Cairo,Downtown,31.218437,30.031747
+94,Shawarma El Reem,Shawarma,Giza,Haram,31.214749,29.996303
+95,Mori Sushi,Asian Cuisine,Sharm El Sheikh,Sharks Bay,34.319493,27.909844
+96,Mo Bistro,Steakhouse,Giza,Dokki,31.211975,30.008475
+97,Beano's,Cafe,Hurghada,Makadi Bay,33.794379,27.248552
+98,Koshary Hend,Koshary,Giza,Dokki,31.205639,30.021493
+99,The Smokery,Fine Dining,Sharm El Sheikh,Hadaba,34.328068,27.926065
+100,Beano's,Cafe,Hurghada,Sahl Hasheesh,33.826397,27.254931
+101,Qahwa,Cafe,Cairo,Zamalek,31.250069,30.037305
+102,Buffalo Burger,Burgers,Giza,6th of October,31.211398,30.007137
+103,Fuddruckers,Burgers,Hurghada,Makadi Bay,33.82725,27.258552
+104,TBS,Bakery,Sharm El Sheikh,Naama Bay,34.317509,27.931133
+105,El Menoufy,Grill,Giza,Mohandessin,31.197674,30.000408
+106,Spectra,Casual Dining,Alexandria,Stanley,29.928769,31.186072
+107,Makani,Grill,Hurghada,El Gouna,33.791989,27.270365
+108,Fish Market,Seafood,Sharm El Sheikh,Naama Bay,34.334778,27.917209
+109,Seoudi,Casual Dining,Hurghada,Dahar,33.815551,27.254341
+110,Buffalo Burger,Burgers,Hurghada,Sheraton Road,33.805851,27.27416
+111,Gad,Egyptian Cuisine,Cairo,Downtown,31.224385,30.041198
+112,Spectra,Casual Dining,Hurghada,Dahar,33.818819,27.256709
+113,Tamara,Lebanese,Hurghada,Sahl Hasheesh,33.81423,27.273997
+114,Crave,International,Hurghada,Sahl Hasheesh,33.808759,27.271949
+115,Beano's,Cafe,Hurghada,Sheraton Road,33.814191,27.266667
+116,El Doksh,Seafood,Alexandria,Stanley,29.908066,31.18312
+117,Chicken Fil-A,Fried Chicken,Sharm El Sheikh,Old Market,34.348439,27.898256
+118,Gaby’s,European,Sharm El Sheikh,Sharks Bay,34.347999,27.909064
+119,Le Pacha 1901,Fine Dining,Giza,Mohandessin,31.210971,30.023193
+120,Paul,Bakery,Alexandria,Sidi Gaber,29.925294,31.190319
+121,Wel3a,Grill,Giza,Mohandessin,31.201063,30.008045
+122,TBS,Bakery,Cairo,Maadi,31.253418,30.043621
+123,Le Pacha 1901,Fine Dining,Alexandria,Stanley,29.911782,31.215281
+124,Indira,Asian Cuisine,Hurghada,Dahar,33.814844,27.241817
+125,Sizzler,Steakhouse,Giza,Dokki,31.213067,30.000802
+126,Tabla Luna,Latin American,Sharm El Sheikh,Hadaba,34.339934,27.919394
+127,Kazouza,Egyptian Street Food,Sharm El Sheikh,Old Market,34.330025,27.930114
+128,Lucille’s,American Diner,Sharm El Sheikh,Old Market,34.322,27.921611
+129,Abou Haidar,Sandwiches,Giza,6th of October,31.212916,30.020156
+130,Buffalo Burger,Burgers,Alexandria,Montaza,29.928613,31.190286
+131,Lucille’s,American Diner,Alexandria,Smouha,29.921642,31.217081
+132,Abou Haidar,Sandwiches,Alexandria,Sidi Gaber,29.917435,31.182461
+133,Gringo's,Mexican,Giza,Mohandessin,31.20311,30.024848
+134,Makani,Grill,Giza,Mohandessin,31.207079,30.008768
+135,Cilantro,Cafe,Alexandria,Smouha,29.916099,31.201592
+136,Le Pacha 1901,Fine Dining,Cairo,Maadi,31.218073,30.060743
+137,Koshary Hend,Koshary,Hurghada,Dahar,33.79288,27.243055
+138,Peking,Asian Cuisine,Giza,Haram,31.214392,30.031946
+139,Koshary El Tahrir,Koshary,Sharm El Sheikh,Sharks Bay,34.319128,27.914563
+140,Spectra,Casual Dining,Alexandria,Gleem,29.92027,31.210682
+141,Maison de Curry,Indian,Sharm El Sheikh,Hadaba,34.333201,27.927488
+142,Seoudi,Casual Dining,Hurghada,Makadi Bay,33.806317,27.251149
+143,Mori Sushi,Asian Cuisine,Giza,Mohandessin,31.208316,30.012396
+144,Le Pacha 1901,Fine Dining,Alexandria,Gleem,29.912763,31.206817
+145,Tamara,Lebanese,Cairo,Zamalek,31.234864,30.054474
+146,Spectra,Casual Dining,Giza,Dokki,31.213338,30.02386
+147,El Doksh,Seafood,Alexandria,Stanley,29.93069,31.199336
+148,Mori Sushi,Asian Cuisine,Giza,Mohandessin,31.201775,30.028726
+149,Costa Coffee,Cafe,Giza,Mohandessin,31.227236,30.031638
+150,Mori Sushi,Asian Cuisine,Hurghada,Sahl Hasheesh,33.813031,27.27005
+151,Gad,Egyptian Cuisine,Sharm El Sheikh,Hadaba,34.348633,27.927623
+152,Crave,International,Giza,Sheikh Zayed,31.199645,30.003544
+153,Buffalo Burger,Burgers,Alexandria,Sidi Gaber,29.937571,31.184217
+154,Kazouza,Egyptian Street Food,Hurghada,Sahl Hasheesh,33.811991,27.251447
+155,Chicken Fil-A,Fried Chicken,Cairo,Downtown,31.230242,30.041433
+156,Zooba,Egyptian Street Food,Sharm El Sheikh,Old Market,34.326964,27.925867
+157,Kazouza,Egyptian Street Food,Giza,Sheikh Zayed,31.199196,30.020491
+158,Paul,Bakery,Hurghada,Sahl Hasheesh,33.806743,27.265262
+159,Gaby’s,European,Cairo,Heliopolis,31.222823,30.037464
+160,Mo Bistro,Steakhouse,Giza,Mohandessin,31.226738,30.016837
+161,Crave,International,Alexandria,Smouha,29.90812,31.200566
+162,Mo Bistro,Steakhouse,Cairo,Zamalek,31.240669,30.027838
+163,Fish Market,Seafood,Hurghada,El Gouna,33.820713,27.269782
+164,Seoudi,Casual Dining,Sharm El Sheikh,Naama Bay,34.322909,27.929047
+165,TBS,Bakery,Sharm El Sheikh,Nabq,34.321366,27.917197
+166,Chicken Fil-A,Fried Chicken,Hurghada,Makadi Bay,33.798841,27.25947
+167,Koshary El Tahrir,Koshary,Alexandria,Stanley,29.902394,31.220097
+168,Costa Coffee,Cafe,Sharm El Sheikh,Old Market,34.312222,27.927721
+169,Mori Sushi,Asian Cuisine,Sharm El Sheikh,Naama Bay,34.321212,27.918182
+170,Sizzler,Steakhouse,Sharm El Sheikh,Sharks Bay,34.330303,27.901342
+171,Peking,Asian Cuisine,Hurghada,Sheraton Road,33.799681,27.252896
+172,Sizzler,Steakhouse,Sharm El Sheikh,Sharks Bay,34.34874,27.908946
+173,Spectra,Casual Dining,Cairo,Heliopolis,31.22701,30.043995
+174,Tamara,Lebanese,Alexandria,Smouha,29.924985,31.19237
+175,Le Pacha 1901,Fine Dining,Giza,Haram,31.228204,30.013688
+176,Peking,Asian Cuisine,Sharm El Sheikh,Sharks Bay,34.343414,27.908293
+177,Paul,Bakery,Cairo,Zamalek,31.227134,30.05987
+178,Makani,Grill,Giza,Sheikh Zayed,31.189158,30.009747
+179,The Smokery,Fine Dining,Sharm El Sheikh,Old Market,34.320688,27.931729
+180,TBS,Bakery,Cairo,Maadi,31.247127,30.049578
+181,Fuddruckers,Burgers,Sharm El Sheikh,Sharks Bay,34.321793,27.926879
+182,Chicken Fil-A,Fried Chicken,Hurghada,Dahar,33.795096,27.266336
+183,El Dahan,Egyptian Cuisine,Giza,Mohandessin,31.200716,30.013043
+184,Crave,International,Alexandria,Montaza,29.900776,31.19004
+185,Makani,Grill,Cairo,Maadi,31.254879,30.026647
+186,Pier 88,Seafood,Sharm El Sheikh,Naama Bay,34.338802,27.933069
+187,Butcher's Burger,Burgers,Alexandria,Smouha,29.909416,31.200404
+188,Gad,Egyptian Cuisine,Sharm El Sheikh,Hadaba,34.348144,27.915978
+189,Makani,Grill,Sharm El Sheikh,Naama Bay,34.33336,27.897376
+190,El Menoufy,Grill,Giza,Sheikh Zayed,31.205149,30.006253
+191,Bazooka,Burgers,Sharm El Sheikh,Naama Bay,34.329163,27.920785
+192,Mori Sushi,Asian Cuisine,Sharm El Sheikh,Old Market,34.341902,27.927231
+193,Paul,Bakery,Sharm El Sheikh,Old Market,34.332934,27.906415
+194,Zooba,Egyptian Street Food,Hurghada,Makadi Bay,33.824217,27.242572
+195,Beano's,Cafe,Giza,6th of October,31.207994,30.030105
+196,Gringo's,Mexican,Hurghada,Sahl Hasheesh,33.827767,27.263235
+197,Cilantro,Cafe,Alexandria,Smouha,29.915939,31.190508
+198,Le Pacha 1901,Fine Dining,Sharm El Sheikh,Naama Bay,34.338722,27.910713
+199,El Menoufy,Grill,Hurghada,El Gouna,33.82974,27.269685
+200,Costa Coffee,Cafe,Alexandria,Stanley,29.92876,31.187403
+201,Tabla Luna,Latin American,Cairo,Zamalek,31.248681,30.063144
+202,El Dahan,Egyptian Cuisine,Cairo,Heliopolis,31.236798,30.055785
+203,The Lemon Tree,Mediterranean,Alexandria,Gleem,29.905778,31.188181
+204,Makani,Grill,Sharm El Sheikh,Hadaba,34.321652,27.922145
+205,Crave,International,Sharm El Sheikh,Hadaba,34.334682,27.904928
+206,El Doksh,Seafood,Cairo,Zamalek,31.253829,30.046959
+207,Peking,Asian Cuisine,Alexandria,Smouha,29.915883,31.188248
+208,Butcher's Burger,Burgers,Giza,Mohandessin,31.21992,30.001428
+209,Buffalo Burger,Burgers,Sharm El Sheikh,Old Market,34.317365,27.914597
+210,30 North,Cafe,Sharm El Sheikh,Naama Bay,34.329173,27.905714
+211,Butcher's Burger,Burgers,Giza,Haram,31.224287,30.02773
+212,Gad,Egyptian Cuisine,Sharm El Sheikh,Old Market,34.343176,27.930547
+213,Makani,Grill,Cairo,Nasr City,31.249265,30.047784
+214,Costa Coffee,Cafe,Alexandria,Stanley,29.934814,31.191519
+215,Tabla Luna,Latin American,Hurghada,El Gouna,33.800247,27.257189
+216,Peking,Asian Cuisine,Alexandria,Stanley,29.901361,31.195511
+217,30 North,Cafe,Cairo,Maadi,31.243941,30.027804
+218,Peking,Asian Cuisine,Giza,Haram,31.218469,30.026137
+219,Peking,Asian Cuisine,Hurghada,Dahar,33.816234,27.26112
+220,Chicken Fil-A,Fried Chicken,Alexandria,Montaza,29.920948,31.20386
+221,The Lemon Tree,Mediterranean,Alexandria,Smouha,29.913117,31.208714
+222,30 North,Cafe,Sharm El Sheikh,Hadaba,34.332344,27.92381
+223,Koshary Hend,Koshary,Sharm El Sheikh,Naama Bay,34.316734,27.902554
+224,Lucille’s,American Diner,Alexandria,Stanley,29.911587,31.204543
+225,Starbucks,Cafe,Alexandria,Sidi Gaber,29.92656,31.185085
+226,Indira,Asian Cuisine,Hurghada,Sheraton Road,33.808039,27.257515
+227,30 North,Cafe,Sharm El Sheikh,Old Market,34.324084,27.922325
+228,Buffalo Burger,Burgers,Sharm El Sheikh,Naama Bay,34.329158,27.916795
+229,Maison Thomas,Italian,Alexandria,Montaza,29.911613,31.195815
+230,30 North,Cafe,Hurghada,Sahl Hasheesh,33.818974,27.239426
+231,Maison Thomas,Italian,Alexandria,Montaza,29.929416,31.207423
+232,Mori Sushi,Asian Cuisine,Hurghada,Dahar,33.807406,27.271391
+233,Shawarma El Reem,Shawarma,Hurghada,Sahl Hasheesh,33.811199,27.241065
+234,Le Pacha 1901,Fine Dining,Giza,Sheikh Zayed,31.217924,29.999582
+235,Caracas,Lebanese,Alexandria,Gleem,29.92871,31.193937
+236,Hossam El Refaay,Grill,Cairo,Zamalek,31.251662,30.038643
+237,Starbucks,Cafe,Cairo,Zamalek,31.227592,30.047515
+238,Tabla Luna,Latin American,Giza,Dokki,31.224261,30.032845
+239,Koshary Hend,Koshary,Cairo,Nasr City,31.238144,30.033481
+240,Hossam El Refaay,Grill,Cairo,Downtown,31.243387,30.047517
+241,Fish Market,Seafood,Cairo,Heliopolis,31.247259,30.039477
+242,Sizzler,Steakhouse,Cairo,Heliopolis,31.250666,30.047362
+243,Abou Haidar,Sandwiches,Hurghada,El Gouna,33.804834,27.266509
+244,Butcher's Burger,Burgers,Hurghada,Sahl Hasheesh,33.806392,27.261601
+245,30 North,Cafe,Hurghada,Makadi Bay,33.813503,27.253307
+246,Le Pacha 1901,Fine Dining,Giza,Mohandessin,31.222472,30.03043
+247,Costa Coffee,Cafe,Alexandria,Sidi Gaber,29.918608,31.216664
+248,Arabiata,Egyptian Cuisine,Cairo,Maadi,31.229356,30.036387
+249,Buffalo Burger,Burgers,Alexandria,Smouha,29.938521,31.195985
+250,The Smokery,Fine Dining,Hurghada,Dahar,33.806454,27.239134
+251,Seoudi,Casual Dining,Giza,Sheikh Zayed,31.211894,30.024897
+252,Seoudi,Casual Dining,Giza,Sheikh Zayed,31.223306,30.003442
+253,Zooba,Egyptian Street Food,Cairo,Nasr City,31.218411,30.052578
+254,TBS,Bakery,Alexandria,Sidi Gaber,29.934206,31.181743
+255,Lucille’s,American Diner,Giza,Mohandessin,31.228469,29.997325
+256,El Menoufy,Grill,Giza,Haram,31.2093,30.008457
+257,Fish Market,Seafood,Sharm El Sheikh,Naama Bay,34.3354,27.920414
+258,Starbucks,Cafe,Alexandria,Stanley,29.916523,31.187917
+259,Koshary Hend,Koshary,Giza,Dokki,31.208879,29.995916
+260,Gringo's,Mexican,Sharm El Sheikh,Nabq,34.313444,27.923044
+261,Mori Sushi,Asian Cuisine,Giza,Haram,31.208249,30.002025
+262,TBS,Bakery,Giza,Sheikh Zayed,31.210461,30.0328
+263,Maison de Curry,Indian,Sharm El Sheikh,Old Market,34.325297,27.916679
+264,Gaby’s,European,Hurghada,Sahl Hasheesh,33.813394,27.263733
+265,Gringo's,Mexican,Sharm El Sheikh,Naama Bay,34.333616,27.905797
+266,Paul,Bakery,Cairo,Zamalek,31.227137,30.041451
+267,Paul,Bakery,Alexandria,Smouha,29.900852,31.216647
+268,Peking,Asian Cuisine,Alexandria,Gleem,29.914183,31.199586
+269,Gaby’s,European,Alexandria,Sidi Gaber,29.906771,31.212156
+270,Costa Coffee,Cafe,Alexandria,Gleem,29.919008,31.186884
+271,Chicken Fil-A,Fried Chicken,Cairo,Nasr City,31.234469,30.049631
+272,The Smokery,Fine Dining,Sharm El Sheikh,Hadaba,34.328073,27.933881
+273,Sizzler,Steakhouse,Alexandria,Stanley,29.907641,31.212362
+274,Crave,International,Sharm El Sheikh,Sharks Bay,34.329201,27.914674
+275,Koshary El Tahrir,Koshary,Giza,Haram,31.223631,30.03282
+276,El Menoufy,Grill,Hurghada,Dahar,33.810494,27.25237
+277,Tabla Luna,Latin American,Hurghada,Makadi Bay,33.792312,27.252405
+278,Chicken Fil-A,Fried Chicken,Sharm El Sheikh,Sharks Bay,34.327246,27.911654
+279,Butcher's Burger,Burgers,Sharm El Sheikh,Nabq,34.325229,27.906845
+280,Koshary El Tahrir,Koshary,Alexandria,Gleem,29.932707,31.195983
+281,Koshary El Tahrir,Koshary,Alexandria,Stanley,29.900907,31.198121
+282,Paul,Bakery,Giza,Sheikh Zayed,31.204052,30.030439
+283,Butcher's Burger,Burgers,Hurghada,Makadi Bay,33.813568,27.248995
+284,Qahwa,Cafe,Hurghada,Sahl Hasheesh,33.818533,27.275311
+285,Indira,Asian Cuisine,Cairo,Nasr City,31.246735,30.024765
+286,Kazouza,Egyptian Street Food,Giza,Sheikh Zayed,31.189106,30.005866
+287,Lucille’s,American Diner,Sharm El Sheikh,Nabq,34.325404,27.922964
+288,Makani,Grill,Hurghada,Makadi Bay,33.791889,27.238657
+289,Qahwa,Cafe,Sharm El Sheikh,Hadaba,34.340125,27.904288
+290,Abou Haidar,Sandwiches,Giza,Mohandessin,31.206833,30.010167
+291,Gad,Egyptian Cuisine,Cairo,Maadi,31.223084,30.056096
+292,Abou Haidar,Sandwiches,Sharm El Sheikh,Sharks Bay,34.328329,27.896538
+293,Abou Haidar,Sandwiches,Alexandria,Montaza,29.9081,31.182993
+294,Koshary El Tahrir,Koshary,Hurghada,Sheraton Road,33.820694,27.255987
+295,Arabiata,Egyptian Cuisine,Cairo,Heliopolis,31.219936,30.059667
+296,Mori Sushi,Asian Cuisine,Alexandria,Montaza,29.899629,31.219197
+297,Mo Bistro,Steakhouse,Hurghada,Sheraton Road,33.806169,27.254174
+298,Qahwa,Cafe,Alexandria,Stanley,29.912242,31.205621
+299,Buffalo Burger,Burgers,Alexandria,Montaza,29.900536,31.185898
+300,30 North,Cafe,Hurghada,Dahar,33.799683,27.26821
+301,Zooba,Egyptian Street Food,Alexandria,Smouha,29.910469,31.217262
+302,El Doksh,Seafood,Sharm El Sheikh,Sharks Bay,34.311372,27.900589
+303,Fish Market,Seafood,Sharm El Sheikh,Hadaba,34.346008,27.897166
+304,Koshary Hend,Koshary,Cairo,Downtown,31.219521,30.024744
+305,Maison Thomas,Italian,Giza,6th of October,31.228797,30.020426
+306,Koshary Hend,Koshary,Hurghada,Dahar,33.822548,27.267879
+307,Koshary Hend,Koshary,Hurghada,Sheraton Road,33.803359,27.241025
+308,Chicken Fil-A,Fried Chicken,Alexandria,Smouha,29.92275,31.212951
+309,Koshary Hend,Koshary,Cairo,Downtown,31.230609,30.059997
+310,The Lemon Tree,Mediterranean,Alexandria,Smouha,29.901244,31.183098
+311,Makani,Grill,Hurghada,Sahl Hasheesh,33.802631,27.271245
+312,Chicken Fil-A,Fried Chicken,Alexandria,Sidi Gaber,29.902959,31.20669
+313,Sizzler,Steakhouse,Alexandria,Sidi Gaber,29.906361,31.193255
+314,Buffalo Burger,Burgers,Sharm El Sheikh,Nabq,34.315317,27.915244
+315,Seoudi,Casual Dining,Hurghada,Sheraton Road,33.814262,27.241385
+316,Maison Thomas,Italian,Sharm El Sheikh,Nabq,34.342443,27.899295
+317,Pier 88,Seafood,Cairo,Downtown,31.231772,30.059005
+318,Fish Market,Seafood,Sharm El Sheikh,Sharks Bay,34.32609,27.929206
+319,Chicken Fil-A,Fried Chicken,Cairo,Nasr City,31.23261,30.042087
+320,Sizzler,Steakhouse,Sharm El Sheikh,Hadaba,34.321635,27.896892
+321,Maison Thomas,Italian,Alexandria,Smouha,29.933117,31.217677
+322,Gaby’s,European,Hurghada,Sheraton Road,33.82704,27.258346
+323,Kazouza,Egyptian Street Food,Hurghada,El Gouna,33.814716,27.239519
+324,Makani,Grill,Cairo,Nasr City,31.250549,30.03306
+325,Shawarma El Reem,Shawarma,Hurghada,Sheraton Road,33.812805,27.258887
+326,Maison de Curry,Indian,Sharm El Sheikh,Sharks Bay,34.326095,27.900663
+327,Fuddruckers,Burgers,Sharm El Sheikh,Old Market,34.323709,27.916542
+328,Seoudi,Casual Dining,Alexandria,Stanley,29.911688,31.206045
+329,30 North,Cafe,Cairo,Zamalek,31.222674,30.037801
+330,Mori Sushi,Asian Cuisine,Sharm El Sheikh,Naama Bay,34.332696,27.913765
+331,Maison de Curry,Indian,Hurghada,Sheraton Road,33.794901,27.241092
+332,Shawarma El Reem,Shawarma,Hurghada,Sheraton Road,33.823872,27.245762
+333,Chicken Fil-A,Fried Chicken,Cairo,Nasr City,31.223998,30.055853
+334,Starbucks,Cafe,Cairo,Maadi,31.228444,30.028901
+335,Maison de Curry,Indian,Cairo,Nasr City,31.240579,30.039135
+336,Shawarma El Reem,Shawarma,Cairo,Maadi,31.232141,30.030358
+337,Abou Haidar,Sandwiches,Alexandria,Gleem,29.92017,31.20165
+338,Chicken Fil-A,Fried Chicken,Giza,Mohandessin,31.191169,30.012303
+339,Abou Haidar,Sandwiches,Sharm El Sheikh,Nabq,34.336091,27.93179
+340,Qahwa,Cafe,Alexandria,Sidi Gaber,29.908176,31.204159
+341,El Doksh,Seafood,Hurghada,Dahar,33.825538,27.251354
+342,Koshary El Tahrir,Koshary,Cairo,Zamalek,31.228515,30.030899
+343,Tamara,Lebanese,Hurghada,Dahar,33.81495,27.265206
+344,Seoudi,Casual Dining,Cairo,Heliopolis,31.222633,30.046685
+345,Indira,Asian Cuisine,Sharm El Sheikh,Nabq,34.337112,27.907443
+346,Butcher's Burger,Burgers,Sharm El Sheikh,Naama Bay,34.337589,27.933603
+347,Koshary Hend,Koshary,Cairo,Maadi,31.241696,30.045678
+348,Tamara,Lebanese,Cairo,Downtown,31.253341,30.047523
+349,Beano's,Cafe,Alexandria,Montaza,29.913386,31.19115
+350,Buffalo Burger,Burgers,Sharm El Sheikh,Hadaba,34.325864,27.925097
+351,The Lemon Tree,Mediterranean,Cairo,Maadi,31.226725,30.033213
+352,Mo Bistro,Steakhouse,Cairo,Zamalek,31.225819,30.031919
+353,The Smokery,Fine Dining,Alexandria,Smouha,29.916483,31.192763
+354,Chicken Fil-A,Fried Chicken,Cairo,Heliopolis,31.224245,30.06194
+355,Wel3a,Grill,Sharm El Sheikh,Hadaba,34.332809,27.899238
+356,Maison Thomas,Italian,Cairo,Nasr City,31.242034,30.041659
+357,Chicken Fil-A,Fried Chicken,Giza,Haram,31.196492,30.002701
+358,Arabiata,Egyptian Cuisine,Sharm El Sheikh,Old Market,34.315916,27.914238
+359,Maison Thomas,Italian,Cairo,Downtown,31.255416,30.063772
+360,Fuddruckers,Burgers,Sharm El Sheikh,Old Market,34.348675,27.918084
+361,The Lemon Tree,Mediterranean,Hurghada,El Gouna,33.814775,27.273102
+362,Hossam El Refaay,Grill,Hurghada,Sahl Hasheesh,33.799165,27.249705
+363,Lucille’s,American Diner,Sharm El Sheikh,Naama Bay,34.336336,27.912042
+364,Spectra,Casual Dining,Hurghada,El Gouna,33.819499,27.277374
+365,Gad,Egyptian Cuisine,Sharm El Sheikh,Old Market,34.335286,27.925128
+366,Mori Sushi,Asian Cuisine,Alexandria,Smouha,29.932563,31.198495
+367,Buffalo Burger,Burgers,Alexandria,Montaza,29.930027,31.190597
+368,Seoudi,Casual Dining,Hurghada,Sahl Hasheesh,33.80984,27.241434
+369,Bazooka,Burgers,Sharm El Sheikh,Sharks Bay,34.341687,27.916407
+370,Shawarma El Reem,Shawarma,Giza,Haram,31.194692,30.020471
+371,Wel3a,Grill,Alexandria,Montaza,29.910008,31.186322
+372,Koshary El Tahrir,Koshary,Hurghada,El Gouna,33.800561,27.26634
+373,Koshary Hend,Koshary,Alexandria,Stanley,29.918839,31.183249
+374,Sizzler,Steakhouse,Alexandria,Montaza,29.902456,31.2157
+375,Koshary El Tahrir,Koshary,Cairo,Zamalek,31.245469,30.038218
+376,Gad,Egyptian Cuisine,Alexandria,Sidi Gaber,29.900228,31.212194
+377,Cilantro,Cafe,Cairo,Zamalek,31.249983,30.062053
+378,Mo Bistro,Steakhouse,Hurghada,El Gouna,33.825944,27.271596
+379,Gringo's,Mexican,Hurghada,El Gouna,33.812484,27.268635
+380,The Smokery,Fine Dining,Alexandria,Gleem,29.92397,31.180867
+381,El Dahan,Egyptian Cuisine,Sharm El Sheikh,Nabq,34.3312,27.918715
+382,Gaby’s,European,Giza,Haram,31.203528,30.023406
+383,Arabiata,Egyptian Cuisine,Sharm El Sheikh,Hadaba,34.332578,27.934291
+384,Makani,Grill,Giza,Dokki,31.21589,29.995558
+385,Shawarma El Reem,Shawarma,Giza,Dokki,31.195151,30.005943
+386,Buffalo Burger,Burgers,Cairo,Zamalek,31.255076,30.044873
+387,Butcher's Burger,Burgers,Sharm El Sheikh,Naama Bay,34.349531,27.926556
+388,Bazooka,Burgers,Cairo,Nasr City,31.239193,30.036448
+389,TBS,Bakery,Sharm El Sheikh,Hadaba,34.321524,27.916586
+390,Maison de Curry,Indian,Sharm El Sheikh,Nabq,34.345177,27.906048
+391,Lucille’s,American Diner,Giza,Mohandessin,31.189915,30.00593
+392,Gad,Egyptian Cuisine,Alexandria,Gleem,29.922898,31.185284
+393,Caracas,Lebanese,Cairo,Nasr City,31.237546,30.052748
+394,Chicken Fil-A,Fried Chicken,Sharm El Sheikh,Naama Bay,34.347134,27.924811
+395,Buffalo Burger,Burgers,Sharm El Sheikh,Old Market,34.314787,27.909995
+396,Cilantro,Cafe,Cairo,Nasr City,31.232067,30.055228
+397,Gad,Egyptian Cuisine,Cairo,Heliopolis,31.247731,30.055421
+398,Tamara,Lebanese,Cairo,Nasr City,31.228386,30.051563
+399,Cilantro,Cafe,Hurghada,Dahar,33.809147,27.24916
+400,Qahwa,Cafe,Cairo,Maadi,31.255152,30.058623
+401,30 North,Cafe,Giza,Dokki,31.223312,30.021567
+402,Le Pacha 1901,Fine Dining,Alexandria,Smouha,29.90682,31.204029
+403,Buffalo Burger,Burgers,Hurghada,Dahar,33.826482,27.275574
+404,Sizzler,Steakhouse,Giza,Mohandessin,31.190637,30.004102
+405,Seoudi,Casual Dining,Sharm El Sheikh,Nabq,34.348537,27.90217
+406,Starbucks,Cafe,Giza,Mohandessin,31.215055,30.031872
+407,Crave,International,Alexandria,Stanley,29.899155,31.180429
+408,Abou Haidar,Sandwiches,Cairo,Maadi,31.217827,30.04419
+409,El Dahan,Egyptian Cuisine,Hurghada,Makadi Bay,33.795315,27.264291
+410,El Menoufy,Grill,Giza,Sheikh Zayed,31.203368,30.0022
+411,Makani,Grill,Sharm El Sheikh,Old Market,34.320013,27.927247
+412,Maison Thomas,Italian,Cairo,Downtown,31.249134,30.050602
+413,El Menoufy,Grill,Alexandria,Gleem,29.910891,31.217315
+414,Spectra,Casual Dining,Hurghada,Makadi Bay,33.809212,27.256482
+415,Maison Thomas,Italian,Hurghada,Sheraton Road,33.822063,27.243727
+416,The Lemon Tree,Mediterranean,Sharm El Sheikh,Hadaba,34.322184,27.927044
+417,Butcher's Burger,Burgers,Alexandria,Smouha,29.938273,31.219483
+418,Lucille’s,American Diner,Alexandria,Stanley,29.913946,31.194577
+419,Arabiata,Egyptian Cuisine,Sharm El Sheikh,Nabq,34.348874,27.914201
+420,30 North,Cafe,Sharm El Sheikh,Hadaba,34.342195,27.904137
+421,Lucille’s,American Diner,Cairo,Maadi,31.22276,30.062209
+422,Mo Bistro,Steakhouse,Sharm El Sheikh,Sharks Bay,34.341062,27.900419
+423,Zooba,Egyptian Street Food,Alexandria,Smouha,29.923623,31.213035
+424,Qahwa,Cafe,Alexandria,Smouha,29.932558,31.218699
+425,Hossam El Refaay,Grill,Sharm El Sheikh,Old Market,34.322361,27.900665
+426,Tabla Luna,Latin American,Sharm El Sheikh,Hadaba,34.33011,27.928921
+427,Kazouza,Egyptian Street Food,Giza,Sheikh Zayed,31.227764,30.011554
+428,Spectra,Casual Dining,Hurghada,Sahl Hasheesh,33.810745,27.241384
+429,Costa Coffee,Cafe,Alexandria,Smouha,29.929802,31.205086
+430,Arabiata,Egyptian Cuisine,Sharm El Sheikh,Old Market,34.31249,27.914147
+431,Mo Bistro,Steakhouse,Alexandria,Montaza,29.908741,31.182289
+432,Makani,Grill,Alexandria,Stanley,29.904105,31.206555
+433,Koshary El Tahrir,Koshary,Sharm El Sheikh,Old Market,34.323867,27.92012
+434,Abou Haidar,Sandwiches,Cairo,Zamalek,31.243384,30.054349
+435,Koshary El Tahrir,Koshary,Hurghada,Sheraton Road,33.80568,27.250985
+436,Maison Thomas,Italian,Alexandria,Montaza,29.899814,31.206855
+437,Gaby’s,European,Alexandria,Stanley,29.908739,31.181304
+438,Hossam El Refaay,Grill,Sharm El Sheikh,Nabq,34.32952,27.933045
+439,El Doksh,Seafood,Giza,6th of October,31.216135,30.015833
+440,Peking,Asian Cuisine,Sharm El Sheikh,Hadaba,34.32445,27.903889
+441,Pier 88,Seafood,Giza,Dokki,31.227529,30.016037
+442,The Smokery,Fine Dining,Hurghada,Dahar,33.825555,27.258676
+443,Sizzler,Steakhouse,Cairo,Zamalek,31.250399,30.028031
+444,TBS,Bakery,Giza,Haram,31.225392,30.028329
+445,Koshary El Tahrir,Koshary,Giza,Mohandessin,31.227024,30.010838
+446,Maison de Curry,Indian,Alexandria,Stanley,29.927131,31.217751
+447,Kazouza,Egyptian Street Food,Hurghada,Sahl Hasheesh,33.821893,27.277412
+448,Indira,Asian Cuisine,Alexandria,Gleem,29.899702,31.199721
+449,Crave,International,Hurghada,Makadi Bay,33.805501,27.272843
+450,Gringo's,Mexican,Hurghada,Makadi Bay,33.797412,27.243556
+451,Gaby’s,European,Giza,Haram,31.210702,30.011482
+452,Buffalo Burger,Burgers,Hurghada,Sheraton Road,33.830197,27.261473
+453,Tamara,Lebanese,Hurghada,Dahar,33.806727,27.249158
+454,Mo Bistro,Steakhouse,Alexandria,Stanley,29.930091,31.20747
+455,Makani,Grill,Cairo,Zamalek,31.22471,30.031772
+456,Seoudi,Casual Dining,Sharm El Sheikh,Nabq,34.340847,27.925523
+457,Indira,Asian Cuisine,Hurghada,Sahl Hasheesh,33.820177,27.254698
+458,Makani,Grill,Cairo,Downtown,31.236344,30.037474
+459,El Menoufy,Grill,Cairo,Downtown,31.231803,30.03674
+460,Abou Haidar,Sandwiches,Alexandria,Montaza,29.913166,31.195931
+461,The Lemon Tree,Mediterranean,Hurghada,Makadi Bay,33.819111,27.251233
+462,Qahwa,Cafe,Cairo,Heliopolis,31.250796,30.055497
+463,El Doksh,Seafood,Hurghada,Sahl Hasheesh,33.825447,27.255736
+464,Indira,Asian Cuisine,Alexandria,Stanley,29.934159,31.212857
+465,El Doksh,Seafood,Alexandria,Sidi Gaber,29.924612,31.217548
+466,Pier 88,Seafood,Alexandria,Stanley,29.903251,31.19462
+467,TBS,Bakery,Sharm El Sheikh,Naama Bay,34.325291,27.935641
+468,Fuddruckers,Burgers,Alexandria,Smouha,29.908226,31.212467
+469,The Lemon Tree,Mediterranean,Cairo,Nasr City,31.245004,30.046436
+470,Zooba,Egyptian Street Food,Giza,Sheikh Zayed,31.210598,30.023999
+471,Indira,Asian Cuisine,Cairo,Heliopolis,31.218548,30.047067
+472,Shawarma El Reem,Shawarma,Alexandria,Gleem,29.903266,31.217725
+473,Sizzler,Steakhouse,Cairo,Downtown,31.248451,30.025819
+474,Seoudi,Casual Dining,Hurghada,Dahar,33.827028,27.251343
+475,Mori Sushi,Asian Cuisine,Hurghada,Sahl Hasheesh,33.791617,27.247285
+476,Koshary Hend,Koshary,Cairo,Heliopolis,31.241085,30.051771
+477,Costa Coffee,Cafe,Giza,Mohandessin,31.202689,30.013762
+478,Fish Market,Seafood,Alexandria,Sidi Gaber,29.908991,31.1807
+479,The Smokery,Fine Dining,Hurghada,Dahar,33.806608,27.264644
+480,Cilantro,Cafe,Cairo,Zamalek,31.24085,30.063325
+481,Hossam El Refaay,Grill,Giza,Dokki,31.225457,29.99891
+482,Lucille’s,American Diner,Cairo,Heliopolis,31.233622,30.057408
+483,The Lemon Tree,Mediterranean,Sharm El Sheikh,Old Market,34.349397,27.911098
+484,Butcher's Burger,Burgers,Giza,Sheikh Zayed,31.218839,30.005988
+485,El Doksh,Seafood,Cairo,Maadi,31.250633,30.024752
+486,Mo Bistro,Steakhouse,Sharm El Sheikh,Sharks Bay,34.34224,27.916145
+487,Hossam El Refaay,Grill,Sharm El Sheikh,Old Market,34.333818,27.924001
+488,El Dahan,Egyptian Cuisine,Sharm El Sheikh,Hadaba,34.329244,27.909107
+489,Caracas,Lebanese,Hurghada,El Gouna,33.81597,27.272984
+490,Tabla Luna,Latin American,Sharm El Sheikh,Old Market,34.325355,27.927152
+491,Starbucks,Cafe,Alexandria,Gleem,29.90609,31.20517
+492,Koshary El Tahrir,Koshary,Cairo,Nasr City,31.251504,30.025051
+493,Shawarma El Reem,Shawarma,Cairo,Nasr City,31.25546,30.063831
+494,Starbucks,Cafe,Sharm El Sheikh,Naama Bay,34.333274,27.909376
+495,Fuddruckers,Burgers,Sharm El Sheikh,Sharks Bay,34.34427,27.918694
+496,Butcher's Burger,Burgers,Sharm El Sheikh,Nabq,34.349944,27.901561
+497,Qahwa,Cafe,Hurghada,Dahar,33.795123,27.271888
+498,Seoudi,Casual Dining,Sharm El Sheikh,Old Market,34.347631,27.92047
+499,Arabiata,Egyptian Cuisine,Sharm El Sheikh,Old Market,34.335884,27.902115
+500,Tamara,Lebanese,Alexandria,Sidi Gaber,29.907117,31.189543
+501,Costa Coffee,Cafe,Hurghada,El Gouna,33.823432,27.23968
+502,Sizzler,Steakhouse,Giza,6th of October,31.224688,30.024664
+503,Sizzler,Steakhouse,Hurghada,Sahl Hasheesh,33.803105,27.241378
+504,Buffalo Burger,Burgers,Giza,Dokki,31.189664,30.002234
+505,Tamara,Lebanese,Cairo,Maadi,31.254404,30.049251
+506,The Smokery,Fine Dining,Sharm El Sheikh,Nabq,34.313491,27.924182
+507,Spectra,Casual Dining,Alexandria,Stanley,29.911299,31.180479
+508,Koshary El Tahrir,Koshary,Cairo,Maadi,31.252648,30.044637
+509,Koshary El Tahrir,Koshary,Giza,Haram,31.207036,30.029716
+510,El Dahan,Egyptian Cuisine,Hurghada,Dahar,33.808325,27.244279
+511,Sizzler,Steakhouse,Cairo,Heliopolis,31.235586,30.044126
+512,Lucille’s,American Diner,Cairo,Maadi,31.244795,30.052444
+513,Buffalo Burger,Burgers,Hurghada,Sheraton Road,33.809839,27.255897
+514,30 North,Cafe,Hurghada,Sahl Hasheesh,33.828891,27.257162
+515,Costa Coffee,Cafe,Giza,Haram,31.191819,30.002343
+516,Koshary Hend,Koshary,Sharm El Sheikh,Naama Bay,34.34499,27.929137
+517,Sizzler,Steakhouse,Sharm El Sheikh,Hadaba,34.314656,27.925732
+518,Peking,Asian Cuisine,Sharm El Sheikh,Sharks Bay,34.31629,27.913959
+519,Bazooka,Burgers,Sharm El Sheikh,Hadaba,34.342398,27.905203
+520,Gaby’s,European,Alexandria,Smouha,29.92545,31.182458
+521,Paul,Bakery,Alexandria,Montaza,29.917166,31.192189
+522,Mo Bistro,Steakhouse,Sharm El Sheikh,Hadaba,34.339252,27.91801
+523,Sizzler,Steakhouse,Hurghada,Sheraton Road,33.825722,27.26718
+524,Bazooka,Burgers,Hurghada,Dahar,33.800618,27.252205
+525,Paul,Bakery,Giza,6th of October,31.220965,30.028061
+526,Fuddruckers,Burgers,Cairo,Nasr City,31.245244,30.033565
+527,Indira,Asian Cuisine,Sharm El Sheikh,Naama Bay,34.329769,27.913544
+528,Starbucks,Cafe,Cairo,Nasr City,31.237947,30.048551
+529,Indira,Asian Cuisine,Sharm El Sheikh,Nabq,34.340384,27.924488
+530,Fish Market,Seafood,Sharm El Sheikh,Sharks Bay,34.318089,27.914952
+531,Koshary El Tahrir,Koshary,Alexandria,Sidi Gaber,29.927036,31.217565
+532,Gaby’s,European,Cairo,Zamalek,31.238526,30.060517
+533,Mori Sushi,Asian Cuisine,Cairo,Maadi,31.2441,30.055866
+534,Seoudi,Casual Dining,Alexandria,Montaza,29.914079,31.213484
+535,Tamara,Lebanese,Giza,Dokki,31.212327,30.017214
+536,Sizzler,Steakhouse,Giza,Sheikh Zayed,31.204268,30.026353
+537,Gad,Egyptian Cuisine,Alexandria,Smouha,29.90955,31.211197
+538,The Smokery,Fine Dining,Alexandria,Gleem,29.923867,31.219889
+539,Indira,Asian Cuisine,Giza,Haram,31.216588,30.018876
+540,Fish Market,Seafood,Hurghada,Sahl Hasheesh,33.805397,27.24727
+541,Arabiata,Egyptian Cuisine,Hurghada,Sheraton Road,33.793148,27.263136
+542,Maison de Curry,Indian,Cairo,Downtown,31.220075,30.048998
+543,Tabla Luna,Latin American,Cairo,Zamalek,31.250893,30.026719
+544,El Menoufy,Grill,Alexandria,Stanley,29.905208,31.18434
+545,Gaby’s,European,Giza,Sheikh Zayed,31.226472,30.016194
+546,Beano's,Cafe,Alexandria,Montaza,29.935019,31.188026
+547,Gringo's,Mexican,Hurghada,Makadi Bay,33.805346,27.248902
+548,Shawarma El Reem,Shawarma,Sharm El Sheikh,Naama Bay,34.350829,27.916521
+549,Starbucks,Cafe,Hurghada,Sahl Hasheesh,33.801991,27.270751
+550,The Smokery,Fine Dining,Hurghada,Sheraton Road,33.826482,27.249489
+551,Fish Market,Seafood,Hurghada,El Gouna,33.799858,27.276544
+552,Maison de Curry,Indian,Sharm El Sheikh,Hadaba,34.312059,27.899433
+553,The Smokery,Fine Dining,Giza,Dokki,31.226551,30.024308
+554,Abou Haidar,Sandwiches,Alexandria,Montaza,29.90814,31.20525
+555,Makani,Grill,Giza,Haram,31.201853,30.028161
+556,Fish Market,Seafood,Giza,Dokki,31.216529,30.019059
+557,Costa Coffee,Cafe,Giza,Sheikh Zayed,31.206248,30.026619
+558,Beano's,Cafe,Sharm El Sheikh,Hadaba,34.330446,27.899426
+559,Fish Market,Seafood,Sharm El Sheikh,Old Market,34.335348,27.904651
+560,Mo Bistro,Steakhouse,Sharm El Sheikh,Nabq,34.3307,27.90768
+561,Cilantro,Cafe,Alexandria,Montaza,29.924236,31.198239
+562,Buffalo Burger,Burgers,Giza,Dokki,31.193148,30.019207
+563,Koshary Hend,Koshary,Sharm El Sheikh,Nabq,34.341196,27.935769
+564,Caracas,Lebanese,Sharm El Sheikh,Sharks Bay,34.330686,27.919052
+565,Seoudi,Casual Dining,Giza,Mohandessin,31.214274,29.997303
+566,Koshary El Tahrir,Koshary,Cairo,Nasr City,31.244236,30.060907
+567,TBS,Bakery,Giza,Sheikh Zayed,31.192575,30.022452
+568,Starbucks,Cafe,Alexandria,Montaza,29.90031,31.201693
+569,Koshary El Tahrir,Koshary,Cairo,Nasr City,31.222298,30.037638
+570,Koshary Hend,Koshary,Hurghada,Dahar,33.796788,27.260249
+571,El Doksh,Seafood,Cairo,Heliopolis,31.249438,30.062259
+572,Peking,Asian Cuisine,Alexandria,Montaza,29.935328,31.181083
+573,El Doksh,Seafood,Giza,6th of October,31.207489,29.999802
+574,Gaby’s,European,Giza,Dokki,31.211693,30.007787
+575,Koshary Hend,Koshary,Hurghada,El Gouna,33.830099,27.243651
+576,Mo Bistro,Steakhouse,Hurghada,Sahl Hasheesh,33.806859,27.265378
+577,The Smokery,Fine Dining,Giza,6th of October,31.210711,29.99973
+578,Sizzler,Steakhouse,Cairo,Nasr City,31.251787,30.048041
+579,Gad,Egyptian Cuisine,Cairo,Maadi,31.218384,30.064074
+580,Mo Bistro,Steakhouse,Sharm El Sheikh,Hadaba,34.311656,27.929272
+581,Mori Sushi,Asian Cuisine,Giza,Dokki,31.228224,30.024677
+582,Gad,Egyptian Cuisine,Alexandria,Smouha,29.900928,31.190585
+583,Maison de Curry,Indian,Sharm El Sheikh,Sharks Bay,34.319936,27.920686
+584,Kazouza,Egyptian Street Food,Giza,Mohandessin,31.191629,30.016496
+585,Cilantro,Cafe,Alexandria,Smouha,29.924059,31.183875
+586,The Smokery,Fine Dining,Alexandria,Montaza,29.933854,31.195429
+587,Kazouza,Egyptian Street Food,Alexandria,Montaza,29.911581,31.203287
+588,Maison de Curry,Indian,Hurghada,Sahl Hasheesh,33.817551,27.266928
+589,Pier 88,Seafood,Hurghada,Dahar,33.810622,27.254245
+590,Mo Bistro,Steakhouse,Giza,Mohandessin,31.216494,30.027096
+591,The Lemon Tree,Mediterranean,Hurghada,Sahl Hasheesh,33.829144,27.255853
+592,Gringo's,Mexican,Sharm El Sheikh,Old Market,34.336839,27.900122
+593,Gad,Egyptian Cuisine,Giza,6th of October,31.2236,29.99752
+594,Bazooka,Burgers,Hurghada,Sahl Hasheesh,33.796257,27.265739
+595,30 North,Cafe,Sharm El Sheikh,Sharks Bay,34.326837,27.916126
+596,Chicken Fil-A,Fried Chicken,Alexandria,Smouha,29.92753,31.200955
+597,Zooba,Egyptian Street Food,Alexandria,Montaza,29.93003,31.215684
+598,Beano's,Cafe,Hurghada,El Gouna,33.830292,27.276835
+599,Maison Thomas,Italian,Cairo,Zamalek,31.249687,30.052251
+600,Hossam El Refaay,Grill,Giza,Mohandessin,31.202897,30.008852
+601,Qahwa,Cafe,Sharm El Sheikh,Nabq,34.344562,27.931814
+602,Sizzler,Steakhouse,Hurghada,Sahl Hasheesh,33.795795,27.241801
+603,Wel3a,Grill,Cairo,Downtown,31.255535,30.026332
+604,Pier 88,Seafood,Cairo,Downtown,31.238702,30.04116
+605,30 North,Cafe,Alexandria,Smouha,29.927055,31.182141
+606,Cilantro,Cafe,Giza,6th of October,31.204691,30.017519
+607,Mori Sushi,Asian Cuisine,Giza,Sheikh Zayed,31.190926,29.993506
+608,Costa Coffee,Cafe,Sharm El Sheikh,Nabq,34.347192,27.904654
+609,Lucille’s,American Diner,Giza,Dokki,31.217508,30.000376
+610,Crave,International,Giza,Dokki,31.195915,30.02742
+611,The Lemon Tree,Mediterranean,Giza,6th of October,31.215022,30.011627
+612,Buffalo Burger,Burgers,Alexandria,Montaza,29.924866,31.209384
+613,Peking,Asian Cuisine,Hurghada,El Gouna,33.792698,27.255069
+614,Shawarma El Reem,Shawarma,Cairo,Maadi,31.243043,30.058556
+615,Lucille’s,American Diner,Sharm El Sheikh,Sharks Bay,34.319836,27.909131
+616,TBS,Bakery,Giza,6th of October,31.220062,30.001477
+617,Gringo's,Mexican,Hurghada,Dahar,33.801154,27.24095
+618,Sizzler,Steakhouse,Cairo,Heliopolis,31.245752,30.030813
+619,Costa Coffee,Cafe,Hurghada,Makadi Bay,33.804825,27.252796
+620,Beano's,Cafe,Alexandria,Stanley,29.917692,31.198903
+621,Peking,Asian Cuisine,Cairo,Downtown,31.224732,30.045526
+622,Pier 88,Seafood,Sharm El Sheikh,Old Market,34.338891,27.927211
+623,Costa Coffee,Cafe,Sharm El Sheikh,Sharks Bay,34.335385,27.93483
+624,El Dahan,Egyptian Cuisine,Sharm El Sheikh,Nabq,34.328612,27.927661
+625,Maison de Curry,Indian,Giza,Haram,31.205176,30.00922
+626,Tamara,Lebanese,Sharm El Sheikh,Old Market,34.328699,27.916725
+627,Pier 88,Seafood,Hurghada,El Gouna,33.79849,27.270574
+628,Maison Thomas,Italian,Giza,6th of October,31.213551,30.005086
+629,Sizzler,Steakhouse,Alexandria,Stanley,29.905473,31.207095
+630,30 North,Cafe,Hurghada,Sheraton Road,33.791633,27.275835
+631,Starbucks,Cafe,Alexandria,Stanley,29.917889,31.216485
+632,30 North,Cafe,Sharm El Sheikh,Old Market,34.333472,27.922269
+633,Beano's,Cafe,Hurghada,Makadi Bay,33.82221,27.269178
+634,Sizzler,Steakhouse,Sharm El Sheikh,Sharks Bay,34.330006,27.905706
+635,Shawarma El Reem,Shawarma,Sharm El Sheikh,Old Market,34.321594,27.900891
+636,Gad,Egyptian Cuisine,Hurghada,Sahl Hasheesh,33.826209,27.262615
+637,TBS,Bakery,Alexandria,Montaza,29.934054,31.186012
+638,Indira,Asian Cuisine,Hurghada,Makadi Bay,33.817881,27.262722
+639,Paul,Bakery,Giza,Sheikh Zayed,31.226431,29.999299
+640,Paul,Bakery,Alexandria,Sidi Gaber,29.928376,31.217395
+641,Paul,Bakery,Giza,6th of October,31.222104,30.006502
+642,Costa Coffee,Cafe,Alexandria,Smouha,29.938163,31.188688
+643,TBS,Bakery,Cairo,Zamalek,31.221414,30.041118
+644,Hossam El Refaay,Grill,Alexandria,Stanley,29.915358,31.185995
+645,Shawarma El Reem,Shawarma,Hurghada,Makadi Bay,33.801241,27.273683
+646,Makani,Grill,Cairo,Downtown,31.242394,30.051415
+647,Seoudi,Casual Dining,Alexandria,Stanley,29.907981,31.186885
+648,The Smokery,Fine Dining,Cairo,Heliopolis,31.244546,30.031654
+649,Maison Thomas,Italian,Alexandria,Gleem,29.911944,31.192413
+650,Caracas,Lebanese,Sharm El Sheikh,Naama Bay,34.320095,27.907374
+651,Mo Bistro,Steakhouse,Hurghada,El Gouna,33.809462,27.268671
+652,Buffalo Burger,Burgers,Hurghada,Sheraton Road,33.809546,27.240095
+653,Gad,Egyptian Cuisine,Giza,6th of October,31.215607,29.993867
+654,Gaby’s,European,Cairo,Zamalek,31.248473,30.027302
+655,El Menoufy,Grill,Cairo,Heliopolis,31.220987,30.047729
+656,Kazouza,Egyptian Street Food,Alexandria,Smouha,29.913411,31.210083
+657,The Lemon Tree,Mediterranean,Alexandria,Gleem,29.91533,31.204186
+658,Koshary El Tahrir,Koshary,Hurghada,Sheraton Road,33.801321,27.25975
+659,Maison Thomas,Italian,Giza,Dokki,31.202795,30.003936
+660,Chicken Fil-A,Fried Chicken,Sharm El Sheikh,Naama Bay,34.324228,27.900297
+661,Peking,Asian Cuisine,Hurghada,Sheraton Road,33.805435,27.256506
+662,Maison Thomas,Italian,Giza,Dokki,31.202084,30.005255
+663,El Doksh,Seafood,Sharm El Sheikh,Nabq,34.323753,27.920411
+664,Tamara,Lebanese,Giza,Sheikh Zayed,31.19769,29.995676
+665,Crave,International,Giza,Haram,31.21111,30.016772
+666,Indira,Asian Cuisine,Sharm El Sheikh,Old Market,34.313439,27.917793
+667,Shawarma El Reem,Shawarma,Cairo,Maadi,31.254968,30.035174
+668,El Menoufy,Grill,Hurghada,Makadi Bay,33.824449,27.266241
+669,Arabiata,Egyptian Cuisine,Giza,Haram,31.204476,30.010526
+670,Costa Coffee,Cafe,Cairo,Zamalek,31.241298,30.055808
+671,Lucille’s,American Diner,Cairo,Heliopolis,31.239035,30.046783
+672,Pier 88,Seafood,Sharm El Sheikh,Naama Bay,34.325484,27.931685
+673,Maison de Curry,Indian,Alexandria,Smouha,29.905056,31.180144
+674,Tamara,Lebanese,Cairo,Zamalek,31.240049,30.037451
+675,Butcher's Burger,Burgers,Alexandria,Sidi Gaber,29.914732,31.208801
+676,Arabiata,Egyptian Cuisine,Giza,Haram,31.226871,30.011223
+677,Lucille’s,American Diner,Cairo,Downtown,31.23864,30.046482
+678,Kazouza,Egyptian Street Food,Cairo,Nasr City,31.235176,30.026964
+679,Chicken Fil-A,Fried Chicken,Cairo,Nasr City,31.219642,30.033662
+680,Mori Sushi,Asian Cuisine,Cairo,Zamalek,31.239958,30.025397
+681,Lucille’s,American Diner,Alexandria,Gleem,29.900499,31.183284
+682,Chicken Fil-A,Fried Chicken,Cairo,Zamalek,31.234932,30.04291
+683,Caracas,Lebanese,Hurghada,Dahar,33.82815,27.255594
+684,Lucille’s,American Diner,Alexandria,Montaza,29.911128,31.182546
+685,Maison de Curry,Indian,Giza,Haram,31.195281,30.007676
+686,Koshary Hend,Koshary,Giza,6th of October,31.201507,30.028847
+687,Tabla Luna,Latin American,Sharm El Sheikh,Hadaba,34.326901,27.921549
+688,Mo Bistro,Steakhouse,Hurghada,Makadi Bay,33.797745,27.239397
+689,Starbucks,Cafe,Giza,6th of October,31.22184,30.026761
+690,Shawarma El Reem,Shawarma,Cairo,Nasr City,31.23474,30.054821
+691,Chicken Fil-A,Fried Chicken,Cairo,Zamalek,31.216639,30.036275
+692,El Doksh,Seafood,Cairo,Heliopolis,31.247293,30.046355
+693,Butcher's Burger,Burgers,Cairo,Heliopolis,31.227358,30.059995
+694,Mo Bistro,Steakhouse,Cairo,Maadi,31.253857,30.025374
+695,Mori Sushi,Asian Cuisine,Cairo,Heliopolis,31.24391,30.033414
+696,Pier 88,Seafood,Sharm El Sheikh,Old Market,34.333164,27.933269
+697,Fish Market,Seafood,Cairo,Downtown,31.239302,30.035531
+698,TBS,Bakery,Giza,6th of October,31.203096,30.015187
+699,Indira,Asian Cuisine,Alexandria,Sidi Gaber,29.905508,31.213363
+700,Beano's,Cafe,Hurghada,Dahar,33.824634,27.264986
+701,Fuddruckers,Burgers,Hurghada,El Gouna,33.808351,27.27085
+702,Lucille’s,American Diner,Hurghada,Sheraton Road,33.826578,27.254683
+703,Arabiata,Egyptian Cuisine,Cairo,Heliopolis,31.237701,30.047285
+704,Wel3a,Grill,Giza,Mohandessin,31.214959,30.019554
+705,El Menoufy,Grill,Sharm El Sheikh,Hadaba,34.337823,27.93379
+706,Arabiata,Egyptian Cuisine,Alexandria,Stanley,29.923702,31.21961
+707,Fish Market,Seafood,Sharm El Sheikh,Hadaba,34.350148,27.932579
+708,Wel3a,Grill,Giza,Haram,31.20124,30.032713
+709,Costa Coffee,Cafe,Giza,Dokki,31.195702,30.013547
+710,Makani,Grill,Alexandria,Smouha,29.927712,31.183908
+711,Makani,Grill,Hurghada,Sahl Hasheesh,33.795561,27.269591
+712,Maison Thomas,Italian,Giza,Mohandessin,31.20374,30.028099
+713,Fish Market,Seafood,Alexandria,Gleem,29.927485,31.210247
+714,Makani,Grill,Giza,Haram,31.19279,29.993216
+715,TBS,Bakery,Alexandria,Stanley,29.928676,31.193553
+716,Gaby’s,European,Giza,6th of October,31.196059,30.017771
+717,Beano's,Cafe,Cairo,Downtown,31.233049,30.030973
+718,Costa Coffee,Cafe,Sharm El Sheikh,Old Market,34.314239,27.914152
+719,Crave,International,Alexandria,Sidi Gaber,29.928505,31.209969
+720,Makani,Grill,Alexandria,Stanley,29.916559,31.202351
+721,TBS,Bakery,Alexandria,Stanley,29.923598,31.209697
+722,Fish Market,Seafood,Alexandria,Smouha,29.901923,31.217341
+723,Cilantro,Cafe,Cairo,Zamalek,31.242513,30.059476
+724,Cilantro,Cafe,Alexandria,Stanley,29.907623,31.181816
+725,Le Pacha 1901,Fine Dining,Alexandria,Gleem,29.920807,31.197421
+726,Tabla Luna,Latin American,Sharm El Sheikh,Hadaba,34.34195,27.921243
+727,Crave,International,Giza,Sheikh Zayed,31.201802,30.030252
+728,El Menoufy,Grill,Cairo,Heliopolis,31.254826,30.0574
+729,Hossam El Refaay,Grill,Hurghada,El Gouna,33.829637,27.243796
+730,Gad,Egyptian Cuisine,Giza,Haram,31.200328,30.025184
+731,Pier 88,Seafood,Giza,6th of October,31.220733,29.996568
+732,Qahwa,Cafe,Giza,Haram,31.226453,29.998265
+733,The Lemon Tree,Mediterranean,Hurghada,Sahl Hasheesh,33.802332,27.269449
+734,Maison Thomas,Italian,Alexandria,Smouha,29.937703,31.181574
+735,Butcher's Burger,Burgers,Sharm El Sheikh,Hadaba,34.346603,27.898399
+736,Peking,Asian Cuisine,Sharm El Sheikh,Naama Bay,34.346804,27.90194
+737,Mo Bistro,Steakhouse,Cairo,Maadi,31.226453,30.059219
+738,Hossam El Refaay,Grill,Alexandria,Smouha,29.92023,31.217075
+739,30 North,Cafe,Sharm El Sheikh,Nabq,34.344178,27.921071
+740,The Lemon Tree,Mediterranean,Alexandria,Gleem,29.906175,31.199868
+741,Cilantro,Cafe,Giza,Mohandessin,31.191181,30.003082
+742,Fuddruckers,Burgers,Giza,Mohandessin,31.199122,30.008619
+743,Gringo's,Mexican,Cairo,Downtown,31.223765,30.063002
+744,Mori Sushi,Asian Cuisine,Cairo,Downtown,31.233018,30.062409
+745,Gad,Egyptian Cuisine,Giza,Sheikh Zayed,31.195258,30.023284
+746,Sizzler,Steakhouse,Hurghada,El Gouna,33.804606,27.256356
+747,Koshary El Tahrir,Koshary,Sharm El Sheikh,Sharks Bay,34.328704,27.906208
+748,Crave,International,Sharm El Sheikh,Old Market,34.326064,27.933962
+749,Wel3a,Grill,Hurghada,El Gouna,33.825048,27.27786
+750,Seoudi,Casual Dining,Alexandria,Stanley,29.925747,31.194533
+751,Arabiata,Egyptian Cuisine,Cairo,Heliopolis,31.233237,30.031088
+752,Sizzler,Steakhouse,Sharm El Sheikh,Nabq,34.350158,27.921522
+753,Tabla Luna,Latin American,Alexandria,Gleem,29.924384,31.211718
+754,Gad,Egyptian Cuisine,Alexandria,Smouha,29.922236,31.197186
+755,Seoudi,Casual Dining,Giza,Haram,31.217954,30.032071
+756,Indira,Asian Cuisine,Sharm El Sheikh,Hadaba,34.339882,27.902928
+757,Peking,Asian Cuisine,Alexandria,Montaza,29.905371,31.214956
+758,El Menoufy,Grill,Cairo,Maadi,31.244573,30.045191
+759,Koshary Hend,Koshary,Giza,Sheikh Zayed,31.190806,30.013467
+760,Starbucks,Cafe,Hurghada,Makadi Bay,33.823587,27.254955
+761,Butcher's Burger,Burgers,Alexandria,Sidi Gaber,29.921446,31.199784
+762,Buffalo Burger,Burgers,Sharm El Sheikh,Sharks Bay,34.349347,27.918817
+763,Abou Haidar,Sandwiches,Giza,Sheikh Zayed,31.202551,30.022803
+764,Koshary El Tahrir,Koshary,Sharm El Sheikh,Naama Bay,34.333792,27.930928
+765,Beano's,Cafe,Giza,Mohandessin,31.221767,30.013248
+766,Butcher's Burger,Burgers,Giza,Haram,31.206092,30.008051
+767,Kazouza,Egyptian Street Food,Cairo,Zamalek,31.234333,30.061798
+768,Cilantro,Cafe,Hurghada,Dahar,33.806231,27.257153
+769,Makani,Grill,Alexandria,Sidi Gaber,29.900505,31.199305
+770,Le Pacha 1901,Fine Dining,Alexandria,Smouha,29.937633,31.204172
+771,Lucille’s,American Diner,Hurghada,Sahl Hasheesh,33.796922,27.254108
+772,Fish Market,Seafood,Giza,Mohandessin,31.226031,30.007613
+773,Hossam El Refaay,Grill,Sharm El Sheikh,Sharks Bay,34.344131,27.919658
+774,Maison Thomas,Italian,Sharm El Sheikh,Old Market,34.318621,27.909216
+775,Mo Bistro,Steakhouse,Cairo,Maadi,31.22558,30.029352
+776,Wel3a,Grill,Giza,Dokki,31.213158,30.006613
+777,Zooba,Egyptian Street Food,Alexandria,Montaza,29.931554,31.201272
+778,Sizzler,Steakhouse,Alexandria,Montaza,29.913283,31.184262
+779,Paul,Bakery,Cairo,Heliopolis,31.242679,30.052604
+780,Koshary Hend,Koshary,Sharm El Sheikh,Naama Bay,34.335891,27.920186
+781,Fuddruckers,Burgers,Cairo,Downtown,31.24066,30.051671
+782,Caracas,Lebanese,Giza,6th of October,31.189284,30.014482
+783,Zooba,Egyptian Street Food,Giza,Mohandessin,31.226453,30.029407
+784,Seoudi,Casual Dining,Cairo,Heliopolis,31.225752,30.047358
+785,The Lemon Tree,Mediterranean,Hurghada,El Gouna,33.811898,27.243794
+786,Kazouza,Egyptian Street Food,Alexandria,Montaza,29.926365,31.182278
+787,Maison Thomas,Italian,Giza,Dokki,31.195365,30.002556
+788,Makani,Grill,Alexandria,Smouha,29.926825,31.217159
+789,Paul,Bakery,Cairo,Zamalek,31.232714,30.026991
+790,Koshary Hend,Koshary,Alexandria,Stanley,29.934675,31.181828
+791,Lucille’s,American Diner,Sharm El Sheikh,Naama Bay,34.318695,27.908761
+792,Zooba,Egyptian Street Food,Giza,Mohandessin,31.195811,30.012898
+793,Crave,International,Giza,6th of October,31.206138,30.014513
+794,Abou Haidar,Sandwiches,Hurghada,Sahl Hasheesh,33.801832,27.253356
+795,Bazooka,Burgers,Sharm El Sheikh,Nabq,34.315944,27.917215
+796,Seoudi,Casual Dining,Giza,Haram,31.214011,29.998097
+797,Fish Market,Seafood,Giza,Mohandessin,31.228156,30.004371
+798,Indira,Asian Cuisine,Cairo,Downtown,31.24702,30.060789
+799,Fish Market,Seafood,Alexandria,Montaza,29.921367,31.208384
+800,El Dahan,Egyptian Cuisine,Alexandria,Sidi Gaber,29.930367,31.189296
+801,Fish Market,Seafood,Giza,Haram,31.202107,30.027748
+802,Starbucks,Cafe,Giza,Mohandessin,31.216019,30.0072
+803,Bazooka,Burgers,Giza,Haram,31.208761,30.015101
+804,Chicken Fil-A,Fried Chicken,Cairo,Maadi,31.252293,30.026405
+805,Paul,Bakery,Sharm El Sheikh,Old Market,34.330135,27.93575
+806,Pier 88,Seafood,Cairo,Nasr City,31.229286,30.037788
+807,Qahwa,Cafe,Sharm El Sheikh,Old Market,34.336654,27.914061
+808,Arabiata,Egyptian Cuisine,Sharm El Sheikh,Nabq,34.346331,27.916333
+809,Seoudi,Casual Dining,Cairo,Maadi,31.229986,30.030447
+810,TBS,Bakery,Alexandria,Sidi Gaber,29.932432,31.201069
+811,30 North,Cafe,Alexandria,Sidi Gaber,29.933424,31.219015
+812,Koshary Hend,Koshary,Giza,Haram,31.215088,30.012383
+813,Beano's,Cafe,Giza,Mohandessin,31.20383,30.004193
+814,Tamara,Lebanese,Giza,Dokki,31.200065,30.00977
+815,Koshary Hend,Koshary,Giza,6th of October,31.228624,30.016861
+816,Mo Bistro,Steakhouse,Sharm El Sheikh,Naama Bay,34.323259,27.916979
+817,Kazouza,Egyptian Street Food,Giza,Sheikh Zayed,31.189234,30.033065
+818,Qahwa,Cafe,Cairo,Maadi,31.251924,30.034207
+819,Mo Bistro,Steakhouse,Cairo,Downtown,31.222649,30.025308
+820,Sizzler,Steakhouse,Cairo,Nasr City,31.251114,30.026294
+821,Fuddruckers,Burgers,Alexandria,Smouha,29.91181,31.191684
+822,Pier 88,Seafood,Giza,Haram,31.210713,30.020908
+823,Pier 88,Seafood,Giza,6th of October,31.210304,30.026297
+824,Paul,Bakery,Alexandria,Gleem,29.922155,31.196599
+825,Beano's,Cafe,Sharm El Sheikh,Nabq,34.314816,27.916517
+826,Cilantro,Cafe,Giza,Sheikh Zayed,31.227591,30.018383
+827,El Menoufy,Grill,Sharm El Sheikh,Naama Bay,34.332177,27.910116
+828,Zooba,Egyptian Street Food,Cairo,Heliopolis,31.238319,30.031413
+829,Fuddruckers,Burgers,Cairo,Zamalek,31.220837,30.044145
+830,Beano's,Cafe,Alexandria,Sidi Gaber,29.934144,31.206179
+831,Gad,Egyptian Cuisine,Sharm El Sheikh,Naama Bay,34.348369,27.924204
+832,Gad,Egyptian Cuisine,Giza,Mohandessin,31.226083,30.017081
+833,Crave,International,Hurghada,Sheraton Road,33.811495,27.261087
+834,Sizzler,Steakhouse,Sharm El Sheikh,Old Market,34.349572,27.911775
+835,Mo Bistro,Steakhouse,Alexandria,Sidi Gaber,29.935728,31.19552
+836,Sizzler,Steakhouse,Cairo,Downtown,31.229647,30.032006
+837,Mori Sushi,Asian Cuisine,Sharm El Sheikh,Naama Bay,34.324874,27.921626
+838,Chicken Fil-A,Fried Chicken,Alexandria,Stanley,29.918914,31.212793
+839,TBS,Bakery,Hurghada,El Gouna,33.815903,27.247442
+840,Kazouza,Egyptian Street Food,Giza,Dokki,31.221255,30.001358
+841,Peking,Asian Cuisine,Alexandria,Gleem,29.928013,31.192749
+842,The Smokery,Fine Dining,Cairo,Nasr City,31.241234,30.024872
+843,Arabiata,Egyptian Cuisine,Giza,Dokki,31.203333,30.018494
+844,Peking,Asian Cuisine,Giza,Haram,31.218457,29.993632
+845,Hossam El Refaay,Grill,Alexandria,Smouha,29.918717,31.2181
+846,Arabiata,Egyptian Cuisine,Sharm El Sheikh,Nabq,34.325207,27.911168
+847,Caracas,Lebanese,Cairo,Heliopolis,31.241904,30.044505
+848,Zooba,Egyptian Street Food,Giza,Sheikh Zayed,31.194385,30.013106
+849,Gringo's,Mexican,Sharm El Sheikh,Naama Bay,34.337445,27.922712
+850,Sizzler,Steakhouse,Giza,6th of October,31.20126,29.997573
+851,The Lemon Tree,Mediterranean,Hurghada,Dahar,33.796181,27.243677
+852,Maison de Curry,Indian,Hurghada,Dahar,33.797148,27.274566
+853,Bazooka,Burgers,Giza,Haram,31.192905,30.029965
+854,TBS,Bakery,Giza,Mohandessin,31.218229,30.021866
+855,Wel3a,Grill,Giza,6th of October,31.212438,30.032115
+856,The Lemon Tree,Mediterranean,Cairo,Downtown,31.243897,30.038077
+857,Fuddruckers,Burgers,Cairo,Downtown,31.232842,30.056563
+858,Makani,Grill,Alexandria,Stanley,29.925849,31.200942
+859,Costa Coffee,Cafe,Giza,Mohandessin,31.225561,30.018401
+860,El Doksh,Seafood,Alexandria,Sidi Gaber,29.926391,31.189705
+861,Koshary El Tahrir,Koshary,Sharm El Sheikh,Hadaba,34.338369,27.898236
+862,Mori Sushi,Asian Cuisine,Sharm El Sheikh,Sharks Bay,34.345082,27.902333
+863,Spectra,Casual Dining,Hurghada,Dahar,33.818118,27.253359
+864,Abou Haidar,Sandwiches,Alexandria,Stanley,29.937035,31.197197
+865,The Lemon Tree,Mediterranean,Alexandria,Smouha,29.909358,31.190713
+866,Sizzler,Steakhouse,Sharm El Sheikh,Sharks Bay,34.339915,27.928844
+867,Costa Coffee,Cafe,Sharm El Sheikh,Nabq,34.334209,27.929359
+868,Abou Haidar,Sandwiches,Alexandria,Smouha,29.903061,31.186521
+869,TBS,Bakery,Giza,6th of October,31.198816,30.015569
+870,Chicken Fil-A,Fried Chicken,Cairo,Downtown,31.224688,30.051579
+871,Gringo's,Mexican,Hurghada,Sheraton Road,33.813772,27.254158
+872,Tamara,Lebanese,Alexandria,Montaza,29.910201,31.202758
+873,Paul,Bakery,Giza,Haram,31.227532,30.03307
+874,Makani,Grill,Alexandria,Smouha,29.898847,31.186861
+875,Makani,Grill,Cairo,Heliopolis,31.23684,30.052391
+876,The Smokery,Fine Dining,Hurghada,Sahl Hasheesh,33.823333,27.249666
+877,Paul,Bakery,Alexandria,Sidi Gaber,29.933818,31.18814
+878,Le Pacha 1901,Fine Dining,Giza,Dokki,31.226228,30.013285
+879,Qahwa,Cafe,Sharm El Sheikh,Nabq,34.341623,27.927742
+880,Koshary El Tahrir,Koshary,Hurghada,El Gouna,33.820695,27.255194
+881,Starbucks,Cafe,Hurghada,El Gouna,33.809455,27.272088
+882,Butcher's Burger,Burgers,Sharm El Sheikh,Naama Bay,34.317891,27.93211
+883,The Smokery,Fine Dining,Giza,Haram,31.190856,30.005392
+884,El Doksh,Seafood,Cairo,Maadi,31.233762,30.043761
+885,Koshary Hend,Koshary,Alexandria,Gleem,29.89912,31.211901
+886,Qahwa,Cafe,Giza,Sheikh Zayed,31.201297,30.014367
+887,Chicken Fil-A,Fried Chicken,Giza,Dokki,31.204125,30.026401
+888,Buffalo Burger,Burgers,Alexandria,Gleem,29.923872,31.194055
+889,The Lemon Tree,Mediterranean,Hurghada,Dahar,33.810354,27.272853
+890,Beano's,Cafe,Cairo,Downtown,31.233676,30.034959
+891,El Doksh,Seafood,Alexandria,Smouha,29.930809,31.200824
+892,Mori Sushi,Asian Cuisine,Sharm El Sheikh,Old Market,34.320158,27.928698
+893,Maison Thomas,Italian,Cairo,Nasr City,31.218186,30.06136
+894,Caracas,Lebanese,Cairo,Maadi,31.250091,30.037862
+895,Gad,Egyptian Cuisine,Cairo,Zamalek,31.241175,30.03921
+896,Makani,Grill,Hurghada,El Gouna,33.820562,27.267071
+897,Makani,Grill,Giza,Mohandessin,31.222106,30.015956
+898,Butcher's Burger,Burgers,Sharm El Sheikh,Old Market,34.328042,27.928502
+899,El Menoufy,Grill,Sharm El Sheikh,Hadaba,34.314894,27.919829
+900,Wel3a,Grill,Hurghada,Dahar,33.802951,27.260976
+901,Makani,Grill,Alexandria,Sidi Gaber,29.917698,31.190146
+902,Qahwa,Cafe,Hurghada,El Gouna,33.792276,27.240373
+903,Lucille’s,American Diner,Sharm El Sheikh,Naama Bay,34.32736,27.919328
+904,Indira,Asian Cuisine,Sharm El Sheikh,Hadaba,34.346422,27.906607
+905,Beano's,Cafe,Sharm El Sheikh,Old Market,34.313536,27.920561
+906,Beano's,Cafe,Hurghada,Sahl Hasheesh,33.8258,27.252595
+907,Maison Thomas,Italian,Giza,6th of October,31.208403,30.029716
+908,Zooba,Egyptian Street Food,Alexandria,Gleem,29.929966,31.188669
+909,Gaby’s,European,Hurghada,Dahar,33.802724,27.257932
+910,Mo Bistro,Steakhouse,Sharm El Sheikh,Nabq,34.325196,27.909512
+911,Caracas,Lebanese,Hurghada,Dahar,33.799286,27.259662
+912,Tamara,Lebanese,Cairo,Downtown,31.233096,30.036382
+913,Makani,Grill,Sharm El Sheikh,Sharks Bay,34.31612,27.923648
+914,Tamara,Lebanese,Hurghada,Dahar,33.820488,27.254534
+915,Lucille’s,American Diner,Sharm El Sheikh,Hadaba,34.319625,27.907188
+916,Caracas,Lebanese,Hurghada,El Gouna,33.795768,27.262682
+917,Le Pacha 1901,Fine Dining,Giza,6th of October,31.19127,29.996041
+918,Caracas,Lebanese,Cairo,Heliopolis,31.215892,30.031189
+919,Costa Coffee,Cafe,Alexandria,Gleem,29.907054,31.199899
+920,Tamara,Lebanese,Hurghada,Sheraton Road,33.800878,27.276645
+921,Paul,Bakery,Sharm El Sheikh,Naama Bay,34.321946,27.917541
+922,Mo Bistro,Steakhouse,Cairo,Heliopolis,31.253012,30.043373
+923,Shawarma El Reem,Shawarma,Alexandria,Gleem,29.907113,31.188834
+924,Sizzler,Steakhouse,Giza,Dokki,31.219174,29.998803
+925,El Dahan,Egyptian Cuisine,Cairo,Zamalek,31.248007,30.053537
+926,Bazooka,Burgers,Sharm El Sheikh,Hadaba,34.344916,27.907607
+927,Butcher's Burger,Burgers,Cairo,Heliopolis,31.235014,30.06101
+928,Pier 88,Seafood,Hurghada,Sahl Hasheesh,33.809606,27.255122
+929,Lucille’s,American Diner,Hurghada,Makadi Bay,33.815138,27.257546
+930,Le Pacha 1901,Fine Dining,Giza,Haram,31.189227,30.019854
+931,Butcher's Burger,Burgers,Hurghada,Sahl Hasheesh,33.823052,27.239944
+932,The Smokery,Fine Dining,Hurghada,Makadi Bay,33.807414,27.271296
+933,Gringo's,Mexican,Alexandria,Sidi Gaber,29.935281,31.202875
+934,Starbucks,Cafe,Cairo,Maadi,31.221849,30.044128
+935,Abou Haidar,Sandwiches,Alexandria,Gleem,29.924683,31.211317
+936,Costa Coffee,Cafe,Cairo,Zamalek,31.242469,30.043533
+937,Bazooka,Burgers,Cairo,Zamalek,31.241822,30.027337
+938,Caracas,Lebanese,Cairo,Nasr City,31.253154,30.038667
+939,Pier 88,Seafood,Giza,6th of October,31.191428,30.017318
+940,Kazouza,Egyptian Street Food,Hurghada,Makadi Bay,33.799526,27.268987
+941,Mori Sushi,Asian Cuisine,Alexandria,Gleem,29.927362,31.211962
+942,Makani,Grill,Sharm El Sheikh,Nabq,34.329407,27.934191
+943,Kazouza,Egyptian Street Food,Hurghada,Dahar,33.792616,27.244356
+944,Pier 88,Seafood,Hurghada,Dahar,33.806192,27.238693
+945,Zooba,Egyptian Street Food,Cairo,Maadi,31.21886,30.035121
+946,Butcher's Burger,Burgers,Sharm El Sheikh,Hadaba,34.311187,27.901587
+947,Makani,Grill,Sharm El Sheikh,Old Market,34.319408,27.897502
+948,Gaby’s,European,Sharm El Sheikh,Naama Bay,34.339384,27.934857
+949,Kazouza,Egyptian Street Food,Sharm El Sheikh,Naama Bay,34.31748,27.899443
+950,Costa Coffee,Cafe,Cairo,Maadi,31.227367,30.047107
+951,Wel3a,Grill,Cairo,Heliopolis,31.218451,30.049346
+952,30 North,Cafe,Alexandria,Gleem,29.903337,31.218165
+953,Indira,Asian Cuisine,Cairo,Maadi,31.231867,30.050966
+954,Caracas,Lebanese,Sharm El Sheikh,Sharks Bay,34.346831,27.927986
+955,Cilantro,Cafe,Alexandria,Smouha,29.914147,31.198179
+956,Shawarma El Reem,Shawarma,Alexandria,Stanley,29.90531,31.207089
+957,Gaby’s,European,Alexandria,Gleem,29.918349,31.190964
+958,Hossam El Refaay,Grill,Giza,6th of October,31.189402,30.020546
+959,Spectra,Casual Dining,Cairo,Nasr City,31.220681,30.049178
+960,Gaby’s,European,Alexandria,Sidi Gaber,29.918765,31.189877
+961,Crave,International,Giza,Sheikh Zayed,31.19548,30.023701
+962,Shawarma El Reem,Shawarma,Hurghada,El Gouna,33.805899,27.251248
+963,Tabla Luna,Latin American,Alexandria,Montaza,29.928943,31.209631
+964,Bazooka,Burgers,Cairo,Nasr City,31.217697,30.024557
+965,Buffalo Burger,Burgers,Alexandria,Stanley,29.911662,31.18481
+966,Peking,Asian Cuisine,Hurghada,El Gouna,33.794182,27.263897
+967,Koshary El Tahrir,Koshary,Cairo,Zamalek,31.252749,30.053236
+968,Spectra,Casual Dining,Sharm El Sheikh,Old Market,34.323958,27.911223
+969,Qahwa,Cafe,Alexandria,Montaza,29.928933,31.197823
+970,Abou Haidar,Sandwiches,Hurghada,Dahar,33.800999,27.255553
+971,Buffalo Burger,Burgers,Alexandria,Smouha,29.912448,31.191419
+972,Le Pacha 1901,Fine Dining,Hurghada,Sheraton Road,33.802268,27.243857
+973,Sizzler,Steakhouse,Hurghada,Dahar,33.80972,27.248004
+974,Pier 88,Seafood,Sharm El Sheikh,Nabq,34.338132,27.922488
+975,Mori Sushi,Asian Cuisine,Sharm El Sheikh,Old Market,34.318515,27.914547
+976,Sizzler,Steakhouse,Cairo,Heliopolis,31.248095,30.062805
+977,Fish Market,Seafood,Hurghada,El Gouna,33.808093,27.256203
+978,Koshary El Tahrir,Koshary,Hurghada,Sahl Hasheesh,33.803059,27.248072
+979,Spectra,Casual Dining,Alexandria,Montaza,29.900402,31.219372
+980,Mo Bistro,Steakhouse,Cairo,Downtown,31.232377,30.034033
+981,Maison Thomas,Italian,Cairo,Nasr City,31.238657,30.0482
+982,Abou Haidar,Sandwiches,Alexandria,Gleem,29.923027,31.219559
+983,Butcher's Burger,Burgers,Sharm El Sheikh,Nabq,34.31305,27.897369
+984,Makani,Grill,Sharm El Sheikh,Old Market,34.326439,27.927666
+985,Seoudi,Casual Dining,Cairo,Heliopolis,31.246391,30.047735
+986,Maison de Curry,Indian,Alexandria,Montaza,29.932767,31.208056
+987,Chicken Fil-A,Fried Chicken,Sharm El Sheikh,Naama Bay,34.338947,27.897057
+988,Arabiata,Egyptian Cuisine,Sharm El Sheikh,Nabq,34.314092,27.927559
+989,Caracas,Lebanese,Hurghada,Makadi Bay,33.797339,27.255282
+990,Fuddruckers,Burgers,Sharm El Sheikh,Naama Bay,34.314957,27.909497
+991,Peking,Asian Cuisine,Alexandria,Stanley,29.935127,31.21994
+992,Arabiata,Egyptian Cuisine,Cairo,Zamalek,31.220889,30.049586
+993,Fuddruckers,Burgers,Giza,6th of October,31.200177,30.031704
+994,Mo Bistro,Steakhouse,Cairo,Heliopolis,31.233387,30.029913
+995,Butcher's Burger,Burgers,Hurghada,Makadi Bay,33.824853,27.260307
+996,Koshary Hend,Koshary,Giza,Dokki,31.217653,30.022743
+997,Abou Haidar,Sandwiches,Hurghada,El Gouna,33.814798,27.261863
+998,Maison de Curry,Indian,Cairo,Heliopolis,31.240446,30.026338
+999,Arabiata,Egyptian Cuisine,Cairo,Downtown,31.228161,30.045418
+1000,Koshary El Tahrir,Koshary,Alexandria,Montaza,29.920102,31.191278
