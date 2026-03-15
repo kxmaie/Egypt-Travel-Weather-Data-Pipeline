@@ -1,5 +1,6 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+from airflow.sensors.external_task import ExternalTaskSensor
 from datetime import datetime, timedelta
 import pendulum
 
@@ -25,6 +26,14 @@ with DAG(
   catchup=False,
   dagrun_timeout=timedelta(minutes=30)
 ) as dag:
+    wait_for_transform = ExternalTaskSensor(
+    task_id="wait_for_transform",
+    external_dag_id="transformation_dag",
+    external_task_id=None,
+    mode="reschedule",
+    poke_interval=60,
+    timeout=600
+)
     load_hotels_to_snowflake = PythonOperator(
         task_id="load_hotels_to_snowflake",
         python_callable=transfer_table_hotels_to_snowflake
@@ -54,12 +63,11 @@ with DAG(
         task_id="load_hourly_weather_to_snowflake",
         python_callable=transfer_table_hourly_weather_to_snowflake
     )
-
-[
-load_hotels_to_snowflake,
-load_restaurants_to_snowflake,
-load_landmarks_to_snowflake,
-load_current_weather_to_snowflake,
+wait_for_transform >> [
+    load_hotels_to_snowflake,
+    load_restaurants_to_snowflake,
+    load_landmarks_to_snowflake,
+    load_current_weather_to_snowflake,
 load_daily_weather_to_snowflake,
 load_hourly_weather_to_snowflake
 ]
