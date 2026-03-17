@@ -1,0 +1,13 @@
+dbt_project:
+  outputs:
+    dev:
+      account: bt81902.me_central2.gcp
+      database: RENTAL_WEATHER_DB
+      password: "AsA12345@@"
+      role: AIRFLOW_ROLE
+      schema: RAW_DATA
+      threads: 1
+      type: snowflake
+      user: AIRFLOW_USER
+      warehouse: AIRFLOW_WH
+  target: dev
