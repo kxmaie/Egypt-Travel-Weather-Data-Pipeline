@@ -42,13 +42,13 @@ def transfer_tables_resturant_to_snowflake():
 
 def transfer_table_famous_landmark_to_snowflake():
     mssql_hook=MsSqlHook(mssql_conn_id='sql_server_conn')
-    df=mssql_hook.get_pandas_df("SELECT * FROM Bronze_famous_landmark_data")
+    df=mssql_hook.get_pandas_df("SELECT * FROM Silver_famous_landmark_data")
     print(f"Fetched {len(df)} rows from SQL")
     df.columns = [x.upper() for x in df.columns]
     df['INGESTED_AT'] = pd.to_datetime(df['INGESTED_AT'])
     snowflake_hook = SnowflakeHook(snowflake_conn_id='conn_snowflake')
     conn=snowflake_hook.get_conn()
-    write_pandas(df=df, table_name="Bronze_famous_landmark_data",
+    write_pandas(df=df, table_name="Silver_famous_landmark_data",
                                 conn=conn,
                                 database="RENTAL_WEATHER_DB", 
                                 schema="RAW_DATA",

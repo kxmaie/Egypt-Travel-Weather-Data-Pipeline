@@ -23,7 +23,7 @@ default_args = {
 with DAG(
   dag_id="transformation_dag",
   description="A DAG to transform data",
-  schedule="0 0 * * *",
+  schedule="0 12 * * *",
   default_args=default_args,
   catchup=False,
   dagrun_timeout=timedelta(minutes=30)
@@ -31,6 +31,7 @@ with DAG(
     wait_for_ingestion=ExternalTaskSensor(
     task_id="wait_for_ingestion",
     external_dag_id="ingestion_dag",
+    execution_delta=timedelta(minutes=5),
     external_task_id=None,
     mode="reschedule",
     poke_interval=60,
