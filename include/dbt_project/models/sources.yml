@@ -1,0 +1,24 @@
+version: 2
+sources:
+  - name: raw_data
+    database: RENTAL_WEATHER_DB
+    schema: RAW_DATA
+    tables:
+      - name: Silver_famous_landmark_data
+        description: "Table containing silver-level famous landmark data"
+        identifier: '"Silver_famous_landmark_data"'
+      - name: Bronze_hotel_data
+        description: "Table containing bronze-level hotel data"
+        identifier: '"Bronze_hotel_data"'
+      - name: Bronze_restaurant_data
+        description: "Table containing bronze-level restaurant data"
+        identifier: '"Bronze_restaurant_data"'
+      - name: Bronze_current_weather_data
+        description: "Table containing bronze-level current weather data"
+        identifier: '"Bronze_current_weather_data"'
+      - name: Bronze_daily_weather_data
+        description: "Table containing bronze-level daily weather data"
+        identifier: '"Bronze_daily_weather_data"'
+      - name: Bronze_hourly_weather_data
+        description: "Table containing bronze-level hourly weather data"
+        identifier: '"Bronze_hourly_weather_data"'
