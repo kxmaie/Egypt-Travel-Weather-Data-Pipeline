@@ -20,6 +20,12 @@ def load_resturants_csv_files_to_sql(file_path):
     END
     '''
     mssql_hook.run(create_table)
+    mssql_hook.run(
+        """
+        IF OBJECT_ID('Bronze_restaurant_data', 'U') IS NOT NULL
+            TRUNCATE TABLE Bronze_restaurant_data;
+        """
+    )
 
     df=pd.read_csv(file_path,encoding="utf-8")
     df=df.rename(columns={
@@ -68,6 +74,12 @@ def load_hotels_csv_to_sql(file_path):
     END
     '''
     mssql_hook.run(create_table)
+    mssql_hook.run(
+        """
+        IF OBJECT_ID('Bronze_hotel_data', 'U') IS NOT NULL
+            TRUNCATE TABLE Bronze_hotel_data;
+        """
+    )
     df=pd.read_csv(file_path,encoding="utf-8")
     df=df.rename(columns={
         "Type":"type",

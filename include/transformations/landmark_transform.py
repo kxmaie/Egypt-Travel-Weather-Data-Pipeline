@@ -1,6 +1,18 @@
 import pandas as pd
 import json
 from airflow.providers.microsoft.mssql.hooks.mssql import MsSqlHook
+
+
+def _delete_landmark_batch(mssql_hook, df: pd.DataFrame) -> None:
+    if df.empty:
+        return
+    cities = df["city"].unique().tolist()
+    ph = ",".join(["%s"] * len(cities))
+    sql = (
+        f"DELETE FROM Silver_famous_landmark_data WHERE city IN ({ph}) "
+        "AND ingested_at >= DATEADD(day, -1, GETDATE())"
+    )
+    mssql_hook.run(sql, parameters=tuple(cities))
 def create_famous_landmark_table():
     mssql_hook = MsSqlHook(mssql_conn_id='sql_server_conn')
     create_table = '''
@@ -54,6 +66,17 @@ def bronze_to_silver_famous_landmark():
             "distance": dist,
             "ingested_at": row["ingested_at"]
         })
-    df_silver=pd.DataFrame(records)
-    df_silver.to_sql("Silver_famous_landmark_data", mssql_hook.get_sqlalchemy_engine(), if_exists="append", index=False)
+    df_silver = pd.DataFrame(records)
+    if not df_silver.empty:
+        df_silver = df_silver.drop_duplicates(
+            subset=["city", "landmark_name"], keep="last"
+        )
+    _delete_landmark_batch(mssql_hook, df_silver)
+    if not df_silver.empty:
+        df_silver.to_sql(
+            "Silver_famous_landmark_data",
+            mssql_hook.get_sqlalchemy_engine(),
+            if_exists="append",
+            index=False,
+        )
     print(" ✅تم نقل بيانات المعالم السياحية من جدول Bronze إلى جدول Silver بنجاح.")

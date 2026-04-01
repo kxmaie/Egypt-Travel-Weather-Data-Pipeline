@@ -1,6 +1,51 @@
 import pandas as pd
 import json
 from airflow.providers.microsoft.mssql.hooks.mssql import MsSqlHook
+
+def _append_silver(mssql_hook, table: str, df: pd.DataFrame) -> None:
+    if df.empty:
+        return
+    df.to_sql(table, mssql_hook.get_sqlalchemy_engine(), if_exists="append", index=False)
+
+
+def _delete_daily_keys(mssql_hook, df: pd.DataFrame) -> None:
+    if df.empty:
+        return
+    cities = df["city"].unique().tolist()
+    dmin, dmax = df["date"].min(), df["date"].max()
+    ph = ",".join(["%s"] * len(cities))
+    sql = (
+        f"DELETE FROM Silver_weather_daily_data WHERE city IN ({ph}) "
+        "AND date >= %s AND date <= %s"
+    )
+    mssql_hook.run(sql, parameters=tuple(cities) + (dmin, dmax))
+
+
+def _delete_hourly_keys(mssql_hook, df: pd.DataFrame) -> None:
+    if df.empty:
+        return
+    cities = df["city"].unique().tolist()
+    dmin, dmax = df["date"].min(), df["date"].max()
+    ph = ",".join(["%s"] * len(cities))
+    sql = (
+        f"DELETE FROM Silver_weather_hourly_data WHERE city IN ({ph}) "
+        "AND date >= %s AND date <= %s"
+    )
+    mssql_hook.run(sql, parameters=tuple(cities) + (dmin, dmax))
+
+
+def _delete_current_keys(mssql_hook, df: pd.DataFrame) -> None:
+    if df.empty:
+        return
+    cities = df["city"].unique().tolist()
+    ph = ",".join(["%s"] * len(cities))
+    sql = (
+        f"DELETE FROM Silver_weather_current_data WHERE city IN ({ph}) "
+        "AND ingested_at >= DATEADD(day, -1, GETDATE())"
+    )
+    mssql_hook.run(sql, parameters=tuple(cities))
+
+
 def create_silver_weather_daily_table():
     mssql_hook=MsSqlHook(mssql_conn_id='sql_server_conn')
     
@@ -46,8 +91,12 @@ def bronze_to_silver_daily_weather():
                 "weather_code": daily["weather_code"][i],
                 "ingested_at": row["ingested_at"]
             })
-    df_silver=pd.DataFrame(records)
-    df_silver.to_sql("Silver_weather_daily_data", mssql_hook.get_sqlalchemy_engine(), if_exists="append", index=False)
+    df_silver = pd.DataFrame(records)
+    if not df_silver.empty:
+        df_silver["date"] = pd.to_datetime(df_silver["date"]).dt.date
+        df_silver = df_silver.drop_duplicates(subset=["city", "date"], keep="last")
+    _delete_daily_keys(mssql_hook, df_silver)
+    _append_silver(mssql_hook, "Silver_weather_daily_data", df_silver)
     print("تم نقل البيانات من جدول Bronze_weather_raw إلى جدول Silver_weather_data بنجاح.")
 
 def create_silver_weather_hourly_table():
@@ -100,9 +149,12 @@ def bronze_to_silver_weather_hourly():
                 "weather_code": hourly["weather_code"][i],
                 "ingested_at": row["ingested_at"]
             })
-    df_silver=pd.DataFrame(records)
-    df_silver['date'] = pd.to_datetime(df_silver['date'])
-    df_silver.to_sql("Silver_weather_hourly_data", mssql_hook.get_sqlalchemy_engine(), if_exists="append", index=False)
+    df_silver = pd.DataFrame(records)
+    if not df_silver.empty:
+        df_silver["date"] = pd.to_datetime(df_silver["date"])
+        df_silver = df_silver.drop_duplicates(subset=["city", "date"], keep="last")
+    _delete_hourly_keys(mssql_hook, df_silver)
+    _append_silver(mssql_hook, "Silver_weather_hourly_data", df_silver)
     print("✅تم نقل البيانات من جدول Bronze_weather_raw إلى جدول Silver_weather_hourly_data بنجاح.")
 
 def create_silver_weather_current_table():
@@ -159,7 +211,10 @@ def bronze_to_silver_weather_current():
             "ingested_at": row["ingested_at"]
         })
     
-    df_silver=pd.DataFrame(records)
-    df_silver["date"]=pd.to_datetime(df_silver["date"])
-    df_silver.to_sql("Silver_weather_current_data", mssql_hook.get_sqlalchemy_engine(), if_exists="append", index=False)
+    df_silver = pd.DataFrame(records)
+    if not df_silver.empty:
+        df_silver["date"] = pd.to_datetime(df_silver["date"])
+        df_silver = df_silver.drop_duplicates(subset=["city"], keep="last")
+    _delete_current_keys(mssql_hook, df_silver)
+    _append_silver(mssql_hook, "Silver_weather_current_data", df_silver)
     print("✅تم نقل البيانات من جدول Bronze_weather_raw إلى جدول Silver_weather_current_data بنجاح.")
