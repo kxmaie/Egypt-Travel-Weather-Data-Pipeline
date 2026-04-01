@@ -18,7 +18,7 @@ default_args = {
 with DAG(
   dag_id="ingestion_dag",
   description="A DAG to ingest weather data",
-  schedule="*/15 * * * *",
+  schedule="*/20 * * * *",
   default_args=default_args,
   catchup=False,
   dagrun_timeout=timedelta(minutes=30)

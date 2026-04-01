@@ -21,7 +21,7 @@ default_args = {
 with DAG(
   dag_id="loader_dag",
   description="A DAG to load data into the warehouse",
-  schedule="*/15 * * * *",
+  schedule="*/20 * * * *",
   default_args=default_args,
   catchup=False,
   dagrun_timeout=timedelta(minutes=30)
@@ -29,7 +29,7 @@ with DAG(
     wait_for_transform = ExternalTaskSensor(
     task_id="wait_for_transform",
     external_dag_id="transformation_dag",
-    execution_delta=timedelta(minutes=5),
+    execution_delta=timedelta(minutes=7),
     external_task_id=None,
     mode="reschedule",
     poke_interval=60,

@@ -1,23 +1,35 @@
-{{config (schema='silver_layer')}}
+{{ config(schema='silver_layer') }}
 
-with raw_data as(
-    SELECT * FROM {{ source('raw_data', 'Silver_famous_landmark_data')}}
+WITH raw_data AS (
+    SELECT * FROM {{ source('raw_data', 'Silver_famous_landmark_data') }}
 ),
 
-cleaned_data as (
-        SELECT 
-        CAST(id AS INT) as landmark_id,
-        TRIM(landmark_name) as landmark_name,
-        UPPER(city) as city,
+cleaned_data AS (
+    SELECT
+        CAST(id AS INT) AS landmark_id,
+        TRIM(landmark_name) AS landmark_name,
+        UPPER(TRIM(city)) AS city,
         category,
         address,
         latitude,
         longitude,
-        -- التحويل دا عشان كان فى مشكله اما التاريخ انتقل من SQL الى SNOWFLAKE كان بيطلع التاريخ بشكل مش مظبوط
-        TO_TIMESTAMP(ingested_at / 1000000000) as ingested_at
+        TO_TIMESTAMP_NTZ(ingested_at / 1000000000) AS ingested_at
     FROM raw_data
+),
+
+deduped AS (
+    SELECT *
+    FROM cleaned_data
+    QUALIFY ROW_NUMBER() OVER (
+        PARTITION BY city, TRIM(landmark_name)
+        ORDER BY ingested_at DESC NULLS LAST
+    ) = 1
 )
 
-SELECT * , COUNT(*) OVER (PARTITION BY city, category ORDER BY landmark_id) as rank_in_category
-FROM cleaned_data
-QUALIFY ROW_NUMBER() OVER (PARTITION BY landmark_id ORDER BY ingested_at DESC) = 1
+SELECT
+    *,
+    ROW_NUMBER() OVER (
+        PARTITION BY city, COALESCE(category, '')
+        ORDER BY landmark_id
+    ) AS rank_in_category
+FROM deduped
