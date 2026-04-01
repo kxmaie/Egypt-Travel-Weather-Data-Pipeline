@@ -16,8 +16,8 @@ default_args = {
     "owner": "momen",
     "depends_on_past": False,
     "start_date": pendulum.datetime(2026, 3, 4, tz=local_tz),
-    "retries": 1, 
-    "retry_delay": timedelta(minutes=5)
+    "retries": 2,
+    "retry_delay": timedelta(minutes=5),
 }
 
 with DAG(
@@ -26,7 +26,8 @@ with DAG(
   schedule="*/20 * * * *",
   default_args=default_args,
   catchup=False,
-  dagrun_timeout=timedelta(minutes=30)
+  dagrun_timeout=timedelta(minutes=30),
+  tags=["etl", "transform", "weather_hospitality"],
 ) as dag:
     wait_for_ingestion=ExternalTaskSensor(
     task_id="wait_for_ingestion",

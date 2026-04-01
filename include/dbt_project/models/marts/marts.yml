@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: mart_city_destination_profile
+    description: >
+      City-level profile: latest daily forecast, current conditions, landmark and
+      restaurant counts. Grain: one row per city string (see model comment on naming).
+    columns:
+      - name: city
+        tests:
+          - not_null
+          - unique

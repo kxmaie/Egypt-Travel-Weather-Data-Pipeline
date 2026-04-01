@@ -2,27 +2,97 @@ version: 2
 
 models:
   - name: stg_hotel_data
-    description: "Silver-layer staging model for hotel data (cleaned, typed, deduplicated)."
+    description: >
+      Hotels from Snowflake RAW; cleaned and deduplicated by
+      lower(trim(hotel_name)), latitude, longitude (latest ingested_at).
     columns:
       - name: hotel_id
-        description: "Unique hotel identifier."
+        description: "Source identity from bronze load (not a stable business key across full reloads)."
         tests:
           - not_null
-          - unique
+      - name: hotel_name
+        tests:
+          - not_null
+      - name: latitude
+        tests:
+          - not_null
+      - name: longitude
+        tests:
+          - not_null
+      - name: ingested_at
+        tests:
+          - not_null
 
   - name: stg_famous_landmark_data
-    description: "Silver-layer staging model for famous landmark data (cleaned, typed, deduplicated)."
+    description: >
+      Landmarks; deduplicated by city and landmark_name (latest ingested_at).
     columns:
       - name: landmark_id
-        description: "Unique landmark identifier."
+        tests:
+          - not_null
+      - name: city
+        tests:
+          - not_null
+      - name: landmark_name
+        tests:
+          - not_null
+      - name: ingested_at
+        tests:
+          - not_null
+
+  - name: stg_current_weather_data
+    description: >
+      Current weather snapshot; one row per city (latest ingested_at).
+    columns:
+      - name: city
         tests:
           - not_null
           - unique
-
-  - name: stg_current_weather_data
-    description: "Silver-layer staging model for current weather data (typed timestamp for ingestion)."
-    columns:
       - name: ingested_at
-        description: "Ingestion timestamp converted from epoch nanoseconds."
+        tests:
+          - not_null
+
+  - name: stg_daily_weather_data
+    description: >
+      Daily forecast rows; deduplicated by city and daily_date (latest ingested_at).
+    columns:
+      - name: city
+        tests:
+          - not_null
+      - name: daily_date
+        tests:
+          - not_null
+      - name: ingested_at
+        tests:
+          - not_null
+
+  - name: stg_hourly_weather_data
+    description: >
+      Hourly weather; deduplicated by city and observation timestamp (latest ingested_at).
+    columns:
+      - name: city
+        tests:
+          - not_null
+      - name: "date"
+        tests:
+          - not_null
+      - name: ingested_at
+        tests:
+          - not_null
+
+  - name: stg_restaurant_data
+    description: >
+      Restaurants from Snowflake RAW; deduplicated by source restaurant id and city.
+    columns:
+      - name: restaurant_source_id
+        tests:
+          - not_null
+      - name: city
+        tests:
+          - not_null
+      - name: restaurant_name
+        tests:
+          - not_null
+      - name: ingested_at
         tests:
           - not_null
