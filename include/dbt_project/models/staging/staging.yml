@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_hotel_data
+    description: "Silver-layer staging model for hotel data (cleaned, typed, deduplicated)."
+    columns:
+      - name: hotel_id
+        description: "Unique hotel identifier."
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_famous_landmark_data
+    description: "Silver-layer staging model for famous landmark data (cleaned, typed, deduplicated)."
+    columns:
+      - name: landmark_id
+        description: "Unique landmark identifier."
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_current_weather_data
+    description: "Silver-layer staging model for current weather data (typed timestamp for ingestion)."
+    columns:
+      - name: ingested_at
+        description: "Ingestion timestamp converted from epoch nanoseconds."
+        tests:
+          - not_null

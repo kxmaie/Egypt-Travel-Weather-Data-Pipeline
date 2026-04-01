@@ -21,7 +21,7 @@ default_args = {
 with DAG(
   dag_id="loader_dag",
   description="A DAG to load data into the warehouse",
-  schedule="0 12 * * *",
+  schedule="*/15 * * * *",
   default_args=default_args,
   catchup=False,
   dagrun_timeout=timedelta(minutes=30)
@@ -33,7 +33,7 @@ with DAG(
     external_task_id=None,
     mode="reschedule",
     poke_interval=60,
-    timeout=600
+    timeout=1500
 )
     load_hotels_to_snowflake = PythonOperator(
         task_id="load_hotels_to_snowflake",

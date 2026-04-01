@@ -23,7 +23,7 @@ default_args = {
 with DAG(
   dag_id="transformation_dag",
   description="A DAG to transform data",
-  schedule="0 12 * * *",
+  schedule="*/15 * * * *",
   default_args=default_args,
   catchup=False,
   dagrun_timeout=timedelta(minutes=30)
@@ -35,7 +35,7 @@ with DAG(
     external_task_id=None,
     mode="reschedule",
     poke_interval=60,
-    timeout=600
+    timeout=1500
 )
     create_silver_daily_weather_table_task= PythonOperator(
         task_id="create_silver_daily_weather_table",
