@@ -2,21 +2,60 @@
 
 End-to-end ELT built on **Astronomer Airflow**: ingest APIs and CSV files into **Microsoft SQL Server** (bronze/silver), load into **Snowflake**, then model with **dbt** (staging in `silver_layer`, marts in `gold_layer`).
 
-## Architecture
+## System Architecture
 
-```text
+![System Architecture](assets/architecture.svg)
+
+<details>
+<summary>📷 Text version of the architecture</summary>
+
+```
 Open-Meteo (weather) ──┐
 TomTom (landmarks)  ───┼──► SQL Server (Bronze → Silver) ──► Snowflake RAW_DATA ──► dbt staging ──► dbt marts (gold)
 CSV (hotels / restaurants) ─┘
 ```
 
+</details>
+
+**8 cities** · 947 hotels · ~1000 restaurants · 3 dbt marts · 4 Streamlit dashboards · 3 CI/CD workflows
+
+## Streamlit Dashboard Previews
+
+### 📊 Tourism Index
+
+![Tourism Index Dashboard](assets/dashboard_tourism.svg)
+
+Composite city scores (0–100) combining weather comfort, landmark density, restaurant variety, and hotel value — with component breakdown per city.
+
+### 🏨 Hotel Analysis
+
+![Hotel Analysis Dashboard](assets/dashboard_hotels.svg)
+
+Price vs rating scatter (sized by amenities, colored by tier), price tier pie chart, avg price per city, and a top-value hotel ranking table.
+
+### 🌡️ Weather Dashboard
+
+![Weather Dashboard](assets/dashboard_weather.svg)
+
+Current temperature bar chart, humidity & wind grouped bars, and a multi-day temperature forecast line chart per city.
+
+### 🍽️ Dining & Landmarks
+
+![Dining & Landmarks Dashboard](assets/dashboard_dining.svg)
+
+Restaurant category distribution, landmarks by city, top landmarks by score, and detailed data tables for both.
+
+---
+
+## How It Works
+
 Airflow DAGs (scheduled every 20 minutes):
 
-1. **`ingestion_dag`** — weather, landmarks, restaurants CSV, hotels CSV
+1. **`ingestion_dag`** — weather (Open-Meteo), landmarks (TomTom), restaurants CSV, hotels CSV → Bronze tables in SQL Server
 2. **`transformation_dag`** — builds silver tables from bronze (Python + pandas), after `ExternalTaskSensor` on ingestion
 3. **`loader_dag`** — copies silver/bronze tables to Snowflake with `write_pandas`, after sensor on transformation
 
-`ExternalTaskSensor` uses `execution_delta` to align logical dates between DAGs; tune it if you change schedules.
+`ExternalTaskSensor` uses `execution_delta` to align logical dates between DAGs.
 
 ## Repository layout
 
@@ -28,7 +67,9 @@ Airflow DAGs (scheduled every 20 minutes):
 | `include/loaders/` | SQL Server → Snowflake loader (DRY helper) |
 | `include/dbt_project/` | dbt project: staging, marts, tests, seeds |
 | `include/*.csv` | Sample static files (paths in DAGs assume Astro `/usr/local/airflow/include/`) |
-| `INSIGHTS_DASHBOARD.md` | Comprehensive insights & dashboard SQL guide |
+| `dashboard/` | Streamlit interactive dashboards (4 pages) |
+| `assets/` | Architecture diagram + dashboard preview images |
+| `INSIGHTS_DASHBOARD.md` | Comprehensive SQL-based insights guide |
 
 ## dbt Models
 
@@ -46,13 +87,12 @@ Airflow DAGs (scheduled every 20 minutes):
 - `mart_city_tourism_index` — composite tourism score (0–100) per city with tier label
 
 ### Seeds
-- `city_name_mapping` — maps Arabic ↔ English city names for cross-source joins
+- `city_name_mapping` — maps Arabic ↔ English city names for cross-source joins (8 cities)
 
 ### Tests
 - `models/staging/staging.yml` — not_null tests on key columns
 - `models/marts/marts.yml` — not_null + unique on mart grains
-- `tests/staging/` — singular SQL dedup assertions (5 tables)
-- `tests/staging/assert_no_duplicate_hotel_id.sql` — dedup on hotel mart
+- `tests/staging/` — singular SQL dedup assertions (6 tests)
 
 ## Prerequisites
 
@@ -106,20 +146,16 @@ dbt test          # staging + mart tests + singular dedup tests
 - **Profile**: `profiles.yml` uses `env_var()` for all secrets — never commit real credentials.
 - **Sources**: `models/sources.yml` → Snowflake `RENTAL_WEATHER_DB.RAW_DATA`.
 
-## Insights & Dashboards
+## Streamlit Dashboards
 
-### SQL-based insights
-See [`INSIGHTS_DASHBOARD.md`](INSIGHTS_DASHBOARD.md) for:
-- Architecture diagram & data relationships
-- City tourism index methodology
-- Hotel analysis SQL queries
-- Weather × tourism cross-analysis
-- Restaurant & landmark breakdowns
-- Key insights and data gaps
+```bash
+cd dashboard
+pip install -r requirements.txt
+cp .env.example .env   # fill in Snowflake credentials
+streamlit run app.py
+```
 
-### Interactive Streamlit Dashboard
-
-The [`dashboard/`](dashboard/) folder contains a full **Streamlit** app with 4 interactive pages:
+Open [http://localhost:8501](http://localhost:8501) — 4 interactive pages:
 
 | Page | Description |
 |------|-------------|
@@ -128,12 +164,15 @@ The [`dashboard/`](dashboard/) folder contains a full **Streamlit** app with 4 i
 | 🌡️ Weather Dashboard | Current conditions + multi-day forecasts |
 | 🍽️ Dining & Landmarks | Restaurant categories + landmark scores |
 
-```bash
-cd dashboard
-pip install -r requirements.txt
-cp .env.example .env   # fill in Snowflake credentials
-streamlit run app.py
-```
+## Insights & Dashboards (SQL)
+
+See [`INSIGHTS_DASHBOARD.md`](INSIGHTS_DASHBOARD.md) for:
+- Architecture diagram & data relationships
+- City tourism index methodology
+- Hotel analysis SQL queries
+- Weather × tourism cross-analysis
+- Restaurant & landmark breakdowns
+- Key insights and data gaps
 
 ## CI/CD (GitHub Actions)
 

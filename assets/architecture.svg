@@ -1,0 +1,215 @@
+<svg viewBox="0 0 1200 720" width="1200" height="720" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F6F7F8"/>
+      <stop offset="100%" stop-color="#E8ECF0"/>
+    </linearGradient>
+    <linearGradient id="dagGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0868E0"/>
+      <stop offset="100%" stop-color="#0550B0"/>
+    </linearGradient>
+    <linearGradient id="sfGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#29B5E8"/>
+      <stop offset="100%" stop-color="#1A9DD0"/>
+    </linearGradient>
+    <linearGradient id="dbtGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FF6944"/>
+      <stop offset="100%" stop-color="#E0532E"/>
+    </linearGradient>
+    <linearGradient id="dashGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7B61FF"/>
+      <stop offset="100%" stop-color="#6045E0"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 Z" fill="#5A6B7A"/>
+    </marker>
+    <marker id="arrowDash" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 Z" fill="#909090"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#00000020"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="720" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#18212B">Egypt Travel &amp; Weather — ELT System Architecture</text>
+  <text x="600" y="58" text-anchor="middle" font-size="13" fill="#5A6B7A">Airflow → SQL Server (Bronze/Silver) → Snowflake → dbt → Streamlit Dashboards</text>
+
+  <!-- ── Layer labels ── -->
+  <text x="130" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#8895A5" letter-spacing="2">SOURCES</text>
+  <text x="380" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#8895A5" letter-spacing="2">AIRFLOW DAGs</text>
+  <text x="630" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#8895A5" letter-spacing="2">SQL SERVER</text>
+  <text x="850" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#8895A5" letter-spacing="2">SNOWFLAKE</text>
+  <text x="1050" y="95" text-anchor="middle" font-size="11" font-weight="600" fill="#8895A5" letter-spacing="2">dbt + STREAMLIT</text>
+
+  <!-- ── Source boxes ── -->
+  <!-- Open-Meteo -->
+  <rect x="50" y="110" width="160" height="60" rx="10" fill="#2ECC71" filter="url(#shadow)"/>
+  <text x="130" y="135" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF">🌤️ Open-Meteo</text>
+  <text x="130" y="153" text-anchor="middle" font-size="10" fill="#E8FAEE">Weather API — 8 cities</text>
+
+  <!-- TomTom -->
+  <rect x="50" y="195" width="160" height="60" rx="10" fill="#9B59B6" filter="url(#shadow)"/>
+  <text x="130" y="220" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF">📍 TomTom</text>
+  <text x="130" y="238" text-anchor="middle" font-size="10" fill="#F2E4FB">Landmarks API — 40km</text>
+
+  <!-- Hotels CSV -->
+  <rect x="50" y="280" width="160" height="60" rx="10" fill="#F39C12" filter="url(#shadow)"/>
+  <text x="130" y="305" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF">🏨 Hotels CSV</text>
+  <text x="130" y="323" text-anchor="middle" font-size="10" fill="#FFF5E0">947 properties</text>
+
+  <!-- Restaurants CSV -->
+  <rect x="50" y="365" width="160" height="60" rx="10" fill="#E74C3C" filter="url(#shadow)"/>
+  <text x="130" y="390" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF">🍽️ Restaurants CSV</text>
+  <text x="130" y="408" text-anchor="middle" font-size="10" fill="#FBE4E0">~1000 restaurants</text>
+
+  <!-- ── Airflow DAGs ── -->
+  <!-- ingestion_dag -->
+  <rect x="300" y="115" width="160" height="130" rx="10" fill="url(#dagGrad)" filter="url(#shadow)"/>
+  <text x="380" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF">🔄 ingestion_dag</text>
+  <line x1="320" y1="145" x2="440" y2="145" stroke="#FFFFFF30" stroke-width="1"/>
+  <text x="380" y="162" text-anchor="middle" font-size="10" fill="#D0E4FF">• weather_ingestion</text>
+  <text x="380" y="178" text-anchor="middle" font-size="10" fill="#D0E4FF">• landmarks_ingestion</text>
+  <text x="380" y="194" text-anchor="middle" font-size="10" fill="#D0E4FF">• restaurants_ingestion</text>
+  <text x="380" y="210" text-anchor="middle" font-size="10" fill="#D0E4FF">• hotels_ingestion</text>
+  <text x="380" y="230" text-anchor="middle" font-size="9" fill="#FFD700">⏱ every 20 min</text>
+
+  <!-- transformation_dag -->
+  <rect x="300" y="265" width="160" height="130" rx="10" fill="url(#dagGrad)" filter="url(#shadow)"/>
+  <text x="380" y="288" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF">⚙️ transformation_dag</text>
+  <line x1="320" y1="295" x2="440" y2="295" stroke="#FFFFFF30" stroke-width="1"/>
+  <text x="380" y="312" text-anchor="middle" font-size="10" fill="#D0E4FF">• daily weather → Silver</text>
+  <text x="380" y="328" text-anchor="middle" font-size="10" fill="#D0E4FF">• hourly weather → Silver</text>
+  <text x="380" y="344" text-anchor="middle" font-size="10" fill="#D0E4FF">• current weather → Silver</text>
+  <text x="380" y="360" text-anchor="middle" font-size="10" fill="#D0E4FF">• landmarks → Silver</text>
+  <text x="380" y="380" text-anchor="middle" font-size="9" fill="#FFD700">📡 ExternalTaskSensor</text>
+
+  <!-- loader_dag -->
+  <rect x="300" y="415" width="160" height="110" rx="10" fill="url(#dagGrad)" filter="url(#shadow)"/>
+  <text x="380" y="438" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF">📤 loader_dag</text>
+  <line x1="320" y1="445" x2="440" y2="445" stroke="#FFFFFF30" stroke-width="1"/>
+  <text x="380" y="462" text-anchor="middle" font-size="10" fill="#D0E4FF">• write_pandas → Snowflake</text>
+  <text x="380" y="478" text-anchor="middle" font-size="10" fill="#D0E4FF">• 6 tables (DRY helper)</text>
+  <text x="380" y="500" text-anchor="middle" font-size="9" fill="#FFD700">📡 ExternalTaskSensor</text>
+
+  <!-- ── SQL Server ── -->
+  <rect x="550" y="110" width="160" height="260" rx="10" fill="#C66A36" filter="url(#shadow)"/>
+  <text x="630" y="135" text-anchor="middle" font-size="14" font-weight="700" fill="#FFF">🗄️ SQL Server</text>
+  <line x1="570" y1="142" x2="690" y2="142" stroke="#FFFFFF30" stroke-width="1"/>
+  <text x="630" y="162" text-anchor="middle" font-size="11" font-weight="600" fill="#FFE0CC">🟫 Bronze Layer</text>
+  <text x="630" y="180" text-anchor="middle" font-size="9" fill="#F8D5C0">Bronze_weather_raw</text>
+  <text x="630" y="194" text-anchor="middle" font-size="9" fill="#F8D5C0">Bronze_famous_landmark</text>
+  <text x="630" y="208" text-anchor="middle" font-size="9" fill="#F8D5C0">Bronze_hotel_data</text>
+  <text x="630" y="222" text-anchor="middle" font-size="9" fill="#F8D5C0">Bronze_restaurant_data</text>
+  <line x1="570" y1="235" x2="690" y2="235" stroke="#FFFFFF30" stroke-width="1"/>
+  <text x="630" y="255" text-anchor="middle" font-size="11" font-weight="600" fill="#E0F0E8">🟪 Silver Layer</text>
+  <text x="630" y="273" text-anchor="middle" font-size="9" fill="#D8E8F0">Silver_weather_daily</text>
+  <text x="630" y="287" text-anchor="middle" font-size="9" fill="#D8E8F0">Silver_weather_hourly</text>
+  <text x="630" y="301" text-anchor="middle" font-size="9" fill="#D8E8F0">Silver_weather_current</text>
+  <text x="630" y="315" text-anchor="middle" font-size="9" fill="#D8E8F0">Silver_famous_landmark</text>
+  <text x="630" y="335" text-anchor="middle" font-size="9" fill="#FFD700">pandas transforms</text>
+  <text x="630" y="350" text-anchor="middle" font-size="9" fill="#FFD700">+ dedup + upsert</text>
+
+  <!-- ── Snowflake ── -->
+  <rect x="775" y="110" width="160" height="260" rx="10" fill="url(#sfGrad)" filter="url(#shadow)"/>
+  <text x="855" y="135" text-anchor="middle" font-size="14" font-weight="700" fill="#FFF">❄️ Snowflake</text>
+  <line x1="795" y1="142" x2="915" y2="142" stroke="#FFFFFF30" stroke-width="1"/>
+  <text x="855" y="162" text-anchor="middle" font-size="11" font-weight="600" fill="#D0F0FF">RENTAL_WEATHER_DB</text>
+  <text x="855" y="180" text-anchor="middle" font-size="10" fill="#B0E8FF">RAW_DATA schema</text>
+  <line x1="795" y1="190" x2="915" y2="190" stroke="#FFFFFF30" stroke-width="1"/>
+  <text x="855" y="208" text-anchor="middle" font-size="9" fill="#D0F0FF">Bronze_daily_weather</text>
+  <text x="855" y="222" text-anchor="middle" font-size="9" fill="#D0F0FF">Bronze_hourly_weather</text>
+  <text x="855" y="236" text-anchor="middle" font-size="9" fill="#D0F0FF">Bronze_current_weather</text>
+  <text x="855" y="250" text-anchor="middle" font-size="9" fill="#D0F0FF">Bronze_hotel_data</text>
+  <text x="855" y="264" text-anchor="middle" font-size="9" fill="#D0F0FF">Bronze_restaurant_data</text>
+  <text x="855" y="278" text-anchor="middle" font-size="9" fill="#D0F0FF">Silver_famous_landmark</text>
+  <text x="855" y="300" text-anchor="middle" font-size="9" fill="#FFD700">auto_create_table</text>
+  <text x="855" y="314" text-anchor="middle" font-size="9" fill="#FFD700">overwrite=True</text>
+
+  <!-- ── dbt + Streamlit ── -->
+  <!-- dbt staging -->
+  <rect x="980" y="110" width="200" height="130" rx="10" fill="url(#dbtGrad)" filter="url(#shadow)"/>
+  <text x="1080" y="133" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF">🔧 dbt Staging</text>
+  <line x1="1000" y1="140" x2="1160" y2="140" stroke="#FFFFFF30" stroke-width="1"/>
+  <text x="1080" y="158" text-anchor="middle" font-size="9" fill="#FFE0D0">stg_daily_weather · stg_hourly_weather</text>
+  <text x="1080" y="172" text-anchor="middle" font-size="9" fill="#FFE0D0">stg_current_weather · stg_hotel_data</text>
+  <text x="1080" y="186" text-anchor="middle" font-size="9" fill="#FFE0D0">stg_restaurant_data · stg_landmark_data</text>
+  <text x="1080" y="208" text-anchor="middle" font-size="9" fill="#FFD700">city_name_mapping (seed)</text>
+  <text x="1080" y="222" text-anchor="middle" font-size="9" fill="#FFD700">dedup + tests + docs</text>
+
+  <!-- dbt marts -->
+  <rect x="980" y="255" width="200" height="115" rx="10" fill="url(#dbtGrad)" filter="url(#shadow)"/>
+  <text x="1080" y="278" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF">📊 dbt Marts (Gold)</text>
+  <line x1="1000" y1="285" x2="1160" y2="285" stroke="#FFFFFF30" stroke-width="1"/>
+  <text x="1080" y="303" text-anchor="middle" font-size="10" fill="#FFE0D0">mart_city_destination_profile</text>
+  <text x="1080" y="319" text-anchor="middle" font-size="10" fill="#FFE0D0">mart_hotel_analysis</text>
+  <text x="1080" y="335" text-anchor="middle" font-size="10" fill="#FFE0D0">mart_city_tourism_index</text>
+  <text x="1080" y="356" text-anchor="middle" font-size="9" fill="#FFD700">silver_layer + gold_layer</text>
+
+  <!-- Streamlit -->
+  <rect x="980" y="385" width="200" height="110" rx="10" fill="url(#dashGrad)" filter="url(#shadow)"/>
+  <text x="1080" y="410" text-anchor="middle" font-size="13" font-weight="700" fill="#FFF">📈 Streamlit Dashboards</text>
+  <line x1="1000" y1="417" x2="1160" y2="417" stroke="#FFFFFF30" stroke-width="1"/>
+  <text x="1080" y="435" text-anchor="middle" font-size="9" fill="#E0D8FF">📊 Tourism Index</text>
+  <text x="1080" y="449" text-anchor="middle" font-size="9" fill="#E0D8FF">🏨 Hotel Analysis</text>
+  <text x="1080" y="463" text-anchor="middle" font-size="9" fill="#E0D8FF">🌡️ Weather Dashboard</text>
+  <text x="1080" y="477" text-anchor="middle" font-size="9" fill="#E0D8FF">🍽️ Dining &amp; Landmarks</text>
+
+  <!-- ── Arrows: Sources → ingestion ── -->
+  <line x1="210" y1="140" x2="298" y2="160" stroke="#5A6B7A" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="210" y1="225" x2="298" y2="180" stroke="#5A6B7A" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="210" y1="310" x2="298" y2="200" stroke="#5A6B7A" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <line x1="210" y1="395" x2="298" y2="215" stroke="#5A6B7A" stroke-width="1.8" marker-end="url(#arrow)"/>
+
+  <!-- ingestion → SQL Server (Bronze) -->
+  <line x1="460" y1="180" x2="548" y2="200" stroke="#5A6B7A" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="504" y="172" text-anchor="middle" font-size="10" fill="#5A6B7A" font-weight="500">Bronze</text>
+
+  <!-- ingestion → transformation (sensor) -->
+  <line x1="380" y1="245" x2="380" y2="263" stroke="#7A8898" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowDash)"/>
+  <text x="445" y="258" text-anchor="middle" font-size="10" fill="#7A8898" font-weight="500">sensor</text>
+
+  <!-- transformation → SQL Server (Silver) -->
+  <line x1="460" y1="300" x2="548" y2="280" stroke="#5A6B7A" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="504" y="293" text-anchor="middle" font-size="10" fill="#5A6B7A" font-weight="500">Silver</text>
+
+  <!-- transformation → loader (sensor) -->
+  <line x1="380" y1="395" x2="380" y2="413" stroke="#7A8898" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowDash)"/>
+  <text x="445" y="408" text-anchor="middle" font-size="10" fill="#7A8898" font-weight="500">sensor</text>
+
+  <!-- loader reads silver from SQL Server -->
+  <line x1="550" y1="370" x2="460" y2="450" stroke="#7A8898" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowDash)"/>
+  <text x="490" y="418" text-anchor="middle" font-size="10" fill="#7A8898" font-weight="500">reads</text>
+
+  <!-- loader → Snowflake (route below SQL Server box) -->
+  <path d="M 460 490 L 460 530 L 855 530 L 855 372" fill="none" stroke="#5A6B7A" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="655" y="522" text-anchor="middle" font-size="10" fill="#5A6B7A" font-weight="500">write_pandas → RAW_DATA</text>
+
+  <!-- Snowflake → dbt staging -->
+  <line x1="935" y1="180" x2="978" y2="180" stroke="#5A6B7A" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text x="957" y="170" text-anchor="middle" font-size="10" fill="#5A6B7A" font-weight="500">sources</text>
+
+  <!-- dbt staging → dbt marts -->
+  <line x1="1080" y1="240" x2="1080" y2="253" stroke="#7A8898" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowDash)"/>
+  <text x="1120" y="250" text-anchor="middle" font-size="10" fill="#7A8898" font-weight="500">ref()</text>
+
+  <!-- dbt marts → Streamlit -->
+  <line x1="1080" y1="370" x2="1080" y2="383" stroke="#7A8898" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowDash)"/>
+  <text x="1120" y="380" text-anchor="middle" font-size="10" fill="#7A8898" font-weight="500">query</text>
+
+  <!-- ── CI/CD badge ── -->
+  <rect x="50" y="550" width="1130" height="70" rx="10" fill="#18212B" filter="url(#shadow)"/>
+  <text x="80" y="575" font-size="12" font-weight="700" fill="#0868E0">⚙️ CI/CD — GitHub Actions</text>
+  <line x1="80" y1="582" x2="1150" y2="582" stroke="#FFFFFF15" stroke-width="1"/>
+  <text x="80" y="600" font-size="10" fill="#9CBFDF">✅ dbt CI: seed → run → test + artifact upload</text>
+  <text x="320" y="600" font-size="10" fill="#9CBFDF">✅ DAG Validation: imports + tags + retries + pytest</text>
+  <text x="640" y="600" font-size="10" fill="#9CBFDF">✅ Python Lint: Ruff check + format</text>
+  <text x="880" y="600" font-size="10" fill="#FFD700">⏱ triggers on push/PR to master</text>
+
+  <!-- ── Footer ── -->
+  <text x="600" y="675" text-anchor="middle" font-size="10" fill="#8895A5">8 cities · 947 hotels · ~1000 restaurants · 3 dbt marts · 4 dashboards · 3 CI/CD workflows</text>
+  <text x="600" y="695" text-anchor="middle" font-size="9" fill="#A0AEC0">https://github.com/kxmaie/Egypt-Travel-Weather-Data-Pipeline</text>
+</svg>

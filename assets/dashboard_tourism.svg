@@ -1,0 +1,112 @@
+<svg viewBox="0 0 1000 600" width="1000" height="600" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="shadow1" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000015"/>
+    </filter>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0868E0"/>
+      <stop offset="100%" stop-color="#29B5E8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#F5F7FA" rx="8"/>
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="60" height="600" fill="#1A1F2E"/>
+  <text x="30" y="40" text-anchor="middle" font-size="20" fill="#FFD700">🏜️</text>
+  <circle cx="30" cy="80" r="16" fill="#0868E0" filter="url(#shadow1)"/>
+  <text x="30" y="85" text-anchor="middle" font-size="14" fill="#FFF">📊</text>
+  <circle cx="30" cy="120" r="16" fill="#2A3045"/>
+  <text x="30" y="125" text-anchor="middle" font-size="14" fill="#8895A5">🏨</text>
+  <circle cx="30" cy="160" r="16" fill="#2A3045"/>
+  <text x="30" y="165" text-anchor="middle" font-size="14" fill="#8895A5">🌡️</text>
+  <circle cx="30" cy="200" r="16" fill="#2A3045"/>
+  <text x="30" y="205" text-anchor="middle" font-size="14" fill="#8895A5">🍽️</text>
+  <text x="30" y="580" text-anchor="middle" font-size="8" fill="#4A5568">v1.0</text>
+
+  <!-- Header -->
+  <text x="80" y="35" font-size="18" font-weight="700" fill="#18212B">📊 City Tourism Index</text>
+  <text x="80" y="52" font-size="11" fill="#8895A5">Composite score per city — weather, landmarks, restaurants, hotel value</text>
+
+  <!-- KPI Cards -->
+  <rect x="80" y="65" width="200" height="70" rx="8" fill="#FFF" filter="url(#shadow1)"/>
+  <text x="100" y="88" font-size="11" fill="#8895A5">Cities Analyzed</text>
+  <text x="100" y="118" font-size="28" font-weight="700" fill="#0868E0">8</text>
+
+  <rect x="295" y="65" width="200" height="70" rx="8" fill="#FFF" filter="url(#shadow1)"/>
+  <text x="315" y="88" font-size="11" fill="#8895A5">Top Destination</text>
+  <text x="315" y="118" font-size="24" font-weight="700" fill="#2ECC71">Cairo</text>
+
+  <rect x="510" y="65" width="200" height="70" rx="8" fill="#FFF" filter="url(#shadow1)"/>
+  <text x="530" y="88" font-size="11" fill="#8895A5">Highest Index</text>
+  <text x="530" y="118" font-size="28" font-weight="700" fill="#F39C12">85.3</text>
+
+  <rect x="725" y="65" width="200" height="70" rx="8" fill="#FFF" filter="url(#shadow1)"/>
+  <text x="745" y="88" font-size="11" fill="#8895A5">Total Landmarks</text>
+  <text x="745" y="118" font-size="28" font-weight="700" fill="#9B59B6">142</text>
+
+  <!-- Tourism Index Bar Chart -->
+  <rect x="80" y="155" width="845" height="200" rx="8" fill="#FFF" filter="url(#shadow1)"/>
+  <text x="100" y="180" font-size="13" font-weight="600" fill="#18212B">Tourism Index by City (0–100)</text>
+
+  <!-- Bars -->
+  <rect x="100" y="195" width="650" height="22" rx="4" fill="url(#barGrad)"/>
+  <text x="760" y="212" font-size="11" font-weight="600" fill="#0868E0">85.3</text>
+  <text x="100" y="234" font-size="10" fill="#5A6B7A">Cairo</text>
+
+  <rect x="100" y="240" width="590" height="22" rx="4" fill="url(#barGrad)" opacity="0.92"/>
+  <text x="700" y="257" font-size="11" font-weight="600" fill="#0868E0">77.8</text>
+  <text x="100" y="279" font-size="10" fill="#5A6B7A">Giza</text>
+
+  <rect x="100" y="285" width="520" height="22" rx="4" fill="url(#barGrad)" opacity="0.82"/>
+  <text x="630" y="302" font-size="11" font-weight="600" fill="#0868E0">68.5</text>
+  <text x="100" y="324" font-size="10" fill="#5A6B7A">Alexandria</text>
+
+  <rect x="100" y="330" width="410" height="22" rx="4" fill="url(#barGrad)" opacity="0.7"/>
+  <text x="520" y="347" font-size="11" font-weight="600" fill="#0868E0">54.0</text>
+  <text x="100" y="369" font-size="10" fill="#5A6B7A">Luxor</text>
+
+  <!-- Component Scores Group Bar -->
+  <rect x="80" y="375" width="845" height="200" rx="8" fill="#FFF" filter="url(#shadow1)"/>
+  <text x="100" y="400" font-size="13" font-weight="600" fill="#18212B">Score Components by City</text>
+
+  <!-- Legend -->
+  <rect x="100" y="410" width="12" height="12" rx="2" fill="#3498DB"/>
+  <text x="118" y="421" font-size="9" fill="#5A6B7A">Weather</text>
+  <rect x="180" y="410" width="12" height="12" rx="2" fill="#E74C3C"/>
+  <text x="198" y="421" font-size="9" fill="#5A6B7A">Landmarks</text>
+  <rect x="270" y="410" width="12" height="12" rx="2" fill="#2ECC71"/>
+  <text x="288" y="421" font-size="9" fill="#5A6B7A">Restaurants</text>
+  <rect x="360" y="410" width="12" height="12" rx="2" fill="#F39C12"/>
+  <text x="378" y="421" font-size="9" fill="#5A6B7A">Hotel Value</text>
+
+  <!-- Group bars: 4 cities x 4 components -->
+  <!-- Cairo -->
+  <rect x="110" y="435" width="30" height="95" rx="3" fill="#3498DB"/><text x="125" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">92</text>
+  <rect x="145" y="460" width="30" height="70" rx="3" fill="#E74C3C"/><text x="160" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">70</text>
+  <rect x="180" y="445" width="30" height="85" rx="3" fill="#2ECC71"/><text x="195" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">85</text>
+  <rect x="215" y="470" width="30" height="60" rx="3" fill="#F39C12"/><text x="230" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">60</text>
+  <text x="170" y="560" text-anchor="middle" font-size="10" font-weight="600" fill="#18212B">Cairo</text>
+
+  <!-- Giza -->
+  <rect x="320" y="440" width="30" height="90" rx="3" fill="#3498DB"/><text x="335" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">88</text>
+  <rect x="355" y="430" width="30" height="100" rx="3" fill="#E74C3C"/><text x="370" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">100</text>
+  <rect x="390" y="470" width="30" height="60" rx="3" fill="#2ECC71"/><text x="405" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">60</text>
+  <rect x="425" y="465" width="30" height="65" rx="3" fill="#F39C12"/><text x="440" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">65</text>
+  <text x="380" y="560" text-anchor="middle" font-size="10" font-weight="600" fill="#18212B">Giza</text>
+
+  <!-- Alexandria -->
+  <rect x="530" y="435" width="30" height="95" rx="3" fill="#3498DB"/><text x="545" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">95</text>
+  <rect x="565" y="480" width="30" height="50" rx="3" fill="#E74C3C"/><text x="580" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">50</text>
+  <rect x="600" y="430" width="30" height="100" rx="3" fill="#2ECC71"/><text x="615" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">100</text>
+  <rect x="635" y="475" width="30" height="55" rx="3" fill="#F39C12"/><text x="650" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">55</text>
+  <text x="590" y="560" text-anchor="middle" font-size="10" font-weight="600" fill="#18212B">Alexandria</text>
+
+  <!-- Luxor -->
+  <rect x="740" y="450" width="30" height="80" rx="3" fill="#3498DB"/><text x="755" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">80</text>
+  <rect x="775" y="435" width="30" height="95" rx="3" fill="#E74C3C"/><text x="790" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">95</text>
+  <rect x="810" y="520" width="30" height="10" rx="3" fill="#2ECC71"/><text x="825" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">0</text>
+  <rect x="845" y="465" width="30" height="65" rx="3" fill="#F39C12"/><text x="860" y="545" text-anchor="middle" font-size="8" fill="#5A6B7A">65</text>
+  <text x="800" y="560" text-anchor="middle" font-size="10" font-weight="600" fill="#18212B">Luxor</text>
+</svg>

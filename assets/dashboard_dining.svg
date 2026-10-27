@@ -1,0 +1,171 @@
+<svg viewBox="0 0 1000 600" width="1000" height="600" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <filter id="shadow4" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000015"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="600" fill="#F5F7FA" rx="8"/>
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="60" height="600" fill="#1A1F2E"/>
+  <text x="30" y="40" text-anchor="middle" font-size="20" fill="#FFD700">🏜️</text>
+  <circle cx="30" cy="80" r="16" fill="#2A3045"/>
+  <text x="30" y="85" text-anchor="middle" font-size="14" fill="#8895A5">📊</text>
+  <circle cx="30" cy="120" r="16" fill="#2A3045"/>
+  <text x="30" y="125" text-anchor="middle" font-size="14" fill="#8895A5">🏨</text>
+  <circle cx="30" cy="160" r="16" fill="#2A3045"/>
+  <text x="30" y="165" text-anchor="middle" font-size="14" fill="#8895A5">🌡️</text>
+  <circle cx="30" cy="200" r="16" fill="#0868E0" filter="url(#shadow4)"/>
+  <text x="30" y="205" text-anchor="middle" font-size="14" fill="#FFF">🍽️</text>
+
+  <!-- Header -->
+  <text x="80" y="35" font-size="18" font-weight="700" fill="#18212B">🍽️ Dining &amp; Landmarks</text>
+  <text x="80" y="52" font-size="11" fill="#8895A5">Restaurant categories and tourist landmarks by city</text>
+
+  <!-- Left column: Restaurants -->
+  <rect x="80" y="65" width="430" height="260" rx="8" fill="#FFF" filter="url(#shadow4)"/>
+  <text x="100" y="90" font-size="14" font-weight="700" fill="#E74C3C">🍽️ Restaurants</text>
+
+  <rect x="100" y="100" width="120" height="40" rx="6" fill="#F5F7FA"/>
+  <text x="110" y="118" font-size="9" fill="#8895A5">Total Restaurants</text>
+  <text x="110" y="133" font-size="16" font-weight="700" fill="#E74C3C">1000</text>
+  <rect x="230" y="100" width="120" height="40" rx="6" fill="#F5F7FA"/>
+  <text x="240" y="118" font-size="9" fill="#8895A5">Cities</text>
+  <text x="240" y="133" font-size="16" font-weight="700" fill="#0868E0">5</text>
+
+  <text x="100" y="160" font-size="11" font-weight="600" fill="#18212B">Top 15 Restaurant Categories</text>
+
+  <!-- Horizontal bars -->
+  <rect x="200" y="170" width="230" height="12" rx="2" fill="#E74C3C" opacity="0.9"/>
+  <text x="195" y="180" text-anchor="end" font-size="8" fill="#5A6B7A">Casual Dining</text>
+  <rect x="200" y="186" width="190" height="12" rx="2" fill="#E74C3C" opacity="0.8"/>
+  <text x="195" y="196" text-anchor="end" font-size="8" fill="#5A6B7A">Cafe</text>
+  <rect x="200" y="202" width="160" height="12" rx="2" fill="#E74C3C" opacity="0.75"/>
+  <text x="195" y="212" text-anchor="end" font-size="8" fill="#5A6B7A">Asian</text>
+  <rect x="200" y="218" width="140" height="12" rx="2" fill="#E74C3C" opacity="0.7"/>
+  <text x="195" y="228" text-anchor="end" font-size="8" fill="#5A6B7A">Grill</text>
+  <rect x="200" y="234" width="120" height="12" rx="2" fill="#E74C3C" opacity="0.65"/>
+  <text x="195" y="244" text-anchor="end" font-size="8" fill="#5A6B7A">Seafood</text>
+  <rect x="200" y="250" width="100" height="12" rx="2" fill="#E74C3C" opacity="0.6"/>
+  <text x="195" y="260" text-anchor="end" font-size="8" fill="#5A6B7A">Bakery</text>
+  <rect x="200" y="266" width="90" height="12" rx="2" fill="#E74C3C" opacity="0.55"/>
+  <text x="195" y="276" text-anchor="end" font-size="8" fill="#5A6B7A">Indian</text>
+  <rect x="200" y="282" width="80" height="12" rx="2" fill="#E74C3C" opacity="0.5"/>
+  <text x="195" y="292" text-anchor="end" font-size="8" fill="#5A6B7A">Diner</text>
+
+  <text x="100" y="312" font-size="11" font-weight="600" fill="#18212B">Restaurants by City</text>
+  <rect x="100" y="318" width="180" height="8" rx="2" fill="#0868E0" opacity="0.9"/>
+  <text x="288" y="324" font-size="8" fill="#5A6B7A">300</text>
+  <text x="95" y="324" text-anchor="end" font-size="8" fill="#5A6B7A">Alex</text>
+  <rect x="100" y="328" width="120" height="8" rx="2" fill="#0868E0" opacity="0.8"/>
+  <text x="228" y="334" font-size="8" fill="#5A6B7A">200</text>
+  <text x="95" y="334" text-anchor="end" font-size="8" fill="#5A6B7A">Cairo</text>
+  <rect x="100" y="338" width="60" height="8" rx="2" fill="#0868E0" opacity="0.7"/>
+  <text x="168" y="344" font-size="8" fill="#5A6B7A">100</text>
+  <text x="95" y="344" text-anchor="end" font-size="8" fill="#5A6B7A">Giza</text>
+  <rect x="100" y="348" width="45" height="8" rx="2" fill="#0868E0" opacity="0.6"/>
+  <text x="153" y="354" font-size="8" fill="#5A6B7A">75</text>
+  <text x="95" y="354" text-anchor="end" font-size="8" fill="#5A6B7A">Sharm</text>
+  <rect x="100" y="358" width="30" height="8" rx="2" fill="#0868E0" opacity="0.5"/>
+  <text x="138" y="364" font-size="8" fill="#5A6B7A">50</text>
+  <text x="95" y="364" text-anchor="end" font-size="8" fill="#5A6B7A">Hurg.</text>
+
+  <!-- Right column: Landmarks -->
+  <rect x="525" y="65" width="430" height="260" rx="8" fill="#FFF" filter="url(#shadow4)"/>
+  <text x="545" y="90" font-size="14" font-weight="700" fill="#9B59B6">📍 Landmarks</text>
+
+  <rect x="545" y="100" width="120" height="40" rx="6" fill="#F5F7FA"/>
+  <text x="555" y="118" font-size="9" fill="#8895A5">Total Landmarks</text>
+  <text x="555" y="133" font-size="16" font-weight="700" fill="#9B59B6">142</text>
+  <rect x="675" y="100" width="120" height="40" rx="6" fill="#F5F7FA"/>
+  <text x="685" y="118" font-size="9" fill="#8895A5">Cities</text>
+  <text x="685" y="133" font-size="16" font-weight="700" fill="#9B59B6">8</text>
+
+  <text x="545" y="160" font-size="11" font-weight="600" fill="#18212B">Landmarks by City</text>
+  <rect x="545" y="170" width="200" height="10" rx="2" fill="#9B59B6" opacity="0.9"/>
+  <text x="753" y="178" font-size="8" fill="#5A6B7A">40</text>
+  <text x="540" y="178" text-anchor="end" font-size="8" fill="#5A6B7A">Giza</text>
+  <rect x="545" y="184" width="170" height="10" rx="2" fill="#9B59B6" opacity="0.8"/>
+  <text x="723" y="192" font-size="8" fill="#5A6B7A">35</text>
+  <text x="540" y="192" text-anchor="end" font-size="8" fill="#5A6B7A">Luxor</text>
+  <rect x="545" y="198" width="130" height="10" rx="2" fill="#9B59B6" opacity="0.7"/>
+  <text x="683" y="206" font-size="8" fill="#5A6B7A">25</text>
+  <text x="540" y="206" text-anchor="end" font-size="8" fill="#5A6B7A">Cairo</text>
+  <rect x="545" y="212" width="90" height="10" rx="2" fill="#9B59B6" opacity="0.6"/>
+  <text x="643" y="220" font-size="8" fill="#5A6B7A">18</text>
+  <text x="540" y="220" text-anchor="end" font-size="8" fill="#5A6B7A">Alex</text>
+  <rect x="545" y="226" width="70" height="10" rx="2" fill="#9B59B6" opacity="0.5"/>
+  <text x="623" y="234" font-size="8" fill="#5A6B7A">14</text>
+  <text x="540" y="234" text-anchor="end" font-size="8" fill="#5A6B7A">Sharm</text>
+  <rect x="545" y="240" width="50" height="10" rx="2" fill="#9B59B6" opacity="0.4"/>
+  <text x="603" y="248" font-size="8" fill="#5A6B7A">10</text>
+  <text x="540" y="248" text-anchor="end" font-size="8" fill="#5A6B7A">Aswan</text>
+
+  <text x="545" y="275" font-size="11" font-weight="600" fill="#18212B">Top 15 Landmarks by Score</text>
+  <rect x="545" y="285" width="160" height="8" rx="2" fill="#9B59B6" opacity="0.95"/>
+  <text x="540" y="292" text-anchor="end" font-size="7" fill="#5A6B7A">Great Pyramids</text>
+  <rect x="545" y="295" width="155" height="8" rx="2" fill="#9B59B6" opacity="0.9"/>
+  <text x="540" y="302" text-anchor="end" font-size="7" fill="#5A6B7A">Karnak Temple</text>
+  <rect x="545" y="305" width="150" height="8" rx="2" fill="#9B59B6" opacity="0.85"/>
+  <text x="540" y="312" text-anchor="end" font-size="7" fill="#5A6B7A">Luxor Temple</text>
+  <rect x="545" y="315" width="145" height="8" rx="2" fill="#9B59B6" opacity="0.8"/>
+  <text x="540" y="322" text-anchor="end" font-size="7" fill="#5A6B7A">Sphinx</text>
+
+  <!-- Data tables -->
+  <rect x="80" y="340" width="430" height="240" rx="8" fill="#FFF" filter="url(#shadow4)"/>
+  <text x="100" y="365" font-size="12" font-weight="600" fill="#18212B">📋 Restaurant Details</text>
+  <line x1="100" y1="370" x2="490" y2="370" stroke="#EBF0F5" stroke-width="1"/>
+  <text x="100" y="385" font-size="9" font-weight="600" fill="#8895A5">Name</text>
+  <text x="280" y="385" font-size="9" font-weight="600" fill="#8895A5">Category</text>
+  <text x="370" y="385" font-size="9" font-weight="600" fill="#8895A5">City</text>
+  <text x="440" y="385" font-size="9" font-weight="600" fill="#8895A5">Area</text>
+  <text x="100" y="403" font-size="8" fill="#18212B">30 North</text>
+  <text x="280" y="403" font-size="8" fill="#5A6B7A">Cafe</text>
+  <text x="370" y="403" font-size="8" fill="#5A6B7A">Alexandria</text>
+  <text x="440" y="403" font-size="8" fill="#5A6B7A">Gleem</text>
+  <text x="100" y="420" font-size="8" fill="#18212B">Indira</text>
+  <text x="280" y="420" font-size="8" fill="#5A6B7A">Asian</text>
+  <text x="370" y="420" font-size="8" fill="#5A6B7A">Alexandria</text>
+  <text x="440" y="420" font-size="8" fill="#5A6B7A">Montaza</text>
+  <text x="100" y="437" font-size="8" fill="#18212B">Seoudi</text>
+  <text x="280" y="437" font-size="8" fill="#5A6B7A">Casual Dining</text>
+  <text x="370" y="437" font-size="8" fill="#5A6B7A">Cairo</text>
+  <text x="440" y="437" font-size="8" fill="#5A6B7A">Nasr City</text>
+  <text x="100" y="454" font-size="8" fill="#18212B">Paul</text>
+  <text x="280" y="454" font-size="8" fill="#5A6B7A">Bakery</text>
+  <text x="370" y="454" font-size="8" fill="#5A6B7A">Alexandria</text>
+  <text x="440" y="454" font-size="8" fill="#5A6B7A">Sidi Gaber</text>
+  <text x="100" y="471" font-size="8" fill="#18212B">Mori Sushi</text>
+  <text x="280" y="471" font-size="8" fill="#5A6B7A">Asian Cuisine</text>
+  <text x="370" y="471" font-size="8" fill="#5A6B7A">Alexandria</text>
+  <text x="440" y="471" font-size="8" fill="#5A6B7A">Stanley</text>
+
+  <rect x="525" y="340" width="430" height="240" rx="8" fill="#FFF" filter="url(#shadow4)"/>
+  <text x="545" y="365" font-size="12" font-weight="600" fill="#18212B">📋 Landmark Details</text>
+  <line x1="545" y1="370" x2="935" y2="370" stroke="#EBF0F5" stroke-width="1"/>
+  <text x="545" y="385" font-size="9" font-weight="600" fill="#8895A5">Name</text>
+  <text x="720" y="385" font-size="9" font-weight="600" fill="#8895A5">Category</text>
+  <text x="830" y="385" font-size="9" font-weight="600" fill="#8895A5">City</text>
+  <text x="890" y="385" font-size="9" font-weight="600" fill="#8895A5">Score</text>
+  <text x="545" y="403" font-size="8" fill="#18212B">Great Pyramids of Giza</text>
+  <text x="720" y="403" font-size="8" fill="#5A6B7A">Historical</text>
+  <text x="830" y="403" font-size="8" fill="#5A6B7A">Giza</text>
+  <text x="890" y="403" font-size="8" font-weight="600" fill="#2ECC71">9.8</text>
+  <text x="545" y="420" font-size="8" fill="#18212B">Karnak Temple</text>
+  <text x="720" y="420" font-size="8" fill="#5A6B7A">Historical</text>
+  <text x="830" y="420" font-size="8" fill="#5A6B7A">Luxor</text>
+  <text x="890" y="420" font-size="8" font-weight="600" fill="#2ECC71">9.6</text>
+  <text x="545" y="437" font-size="8" fill="#18212B">Luxor Temple</text>
+  <text x="720" y="437" font-size="8" fill="#5A6B7A">Historical</text>
+  <text x="830" y="437" font-size="8" fill="#5A6B7A">Luxor</text>
+  <text x="890" y="437" font-size="8" font-weight="600" fill="#2ECC71">9.5</text>
+  <text x="545" y="454" font-size="8" fill="#18212B">Great Sphinx</text>
+  <text x="720" y="454" font-size="8" fill="#5A6B7A">Monument</text>
+  <text x="830" y="454" font-size="8" fill="#5A6B7A">Giza</text>
+  <text x="890" y="454" font-size="8" font-weight="600" fill="#2ECC71">9.4</text>
+  <text x="545" y="471" font-size="8" fill="#18212B">Bibliotheca Alexandrina</text>
+  <text x="720" y="471" font-size="8" fill="#5A6B7A">Cultural</text>
+  <text x="830" y="471" font-size="8" fill="#5A6B7A">Alex</text>
+  <text x="890" y="471" font-size="8" font-weight="600" fill="#2ECC71">9.2</text>
+</svg>
