@@ -1,0 +1,68 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# CI: Airflow DAG validation — ensures DAGs import cleanly, have tags,
+# retries ≥ 2, and no circular dependencies.
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Airflow DAG Validation
+
+on:
+  push:
+    branches: [master, main]
+    paths:
+      - "dags/**"
+      - "include/**"
+      - ".github/workflows/airflow-dag-ci.yml"
+  pull_request:
+    branches: [master, main]
+    paths:
+      - "dags/**"
+      - "include/**"
+
+jobs:
+  dag-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install apache-airflow==2.9.0
+          pip install apache-airflow-providers-microsoft-mssql
+          pip install apache-airflow-providers-snowflake
+          pip install snowflake-connector-python[pandas]
+          pip install pendulum pandas requests
+
+      - name: Set Airflow home
+        run: echo "AIRFLOW_HOME=${{ github.workspace }}" >> $GITHUB_ENV
+
+      - name: Validate DAG imports
+        run: |
+          python -c "
+          from airflow.models import DagBag
+          import os
+          os.environ['AIRFLOW_HOME'] = '${{ github.workspace }}'
+          dagbag = DagBag(dag_folder='dags', include_examples=False)
+          if dagbag.import_errors:
+              print('❌ DAG import errors:')
+              for k, v in dagbag.import_errors.items():
+                  print(f'  {k}: {v}')
+              exit(1)
+          print(f'✅ {len(dagbag.dags)} DAGs loaded successfully')
+          for dag_id, dag in dagbag.dags.items():
+              assert dag.tags, f'DAG {dag_id} has no tags'
+              assert dag.default_args.get('retries', 0) >= 2, f'DAG {dag_id} retries < 2'
+              print(f'  {dag_id}: tags={dag.tags}, retries={dag.default_args.get(\"retries\")}')
+          "
+
+      - name: Run pytest DAG tests
+        run: |
+          pip install pytest
+          pytest tests/dags/ -v

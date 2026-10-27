@@ -135,6 +135,18 @@ cp .env.example .env   # fill in Snowflake credentials
 streamlit run app.py
 ```
 
+## CI/CD (GitHub Actions)
+
+Three workflows run on every push / PR:
+
+| Workflow | Purpose |
+|----------|---------|
+| **Airflow DAG Validation** | DAG imports, tags, retries ≥ 2, pytest |
+| **dbt CI** | `dbt seed → run → test` against Snowflake + artifact upload |
+| **Python Lint** | Ruff lint + format on dags, include, dashboard |
+
+See [`.github/workflows/README.md`](.github/workflows/README.md) for setup instructions and required secrets.
+
 ## DAG tests (pytest)
 
 `tests/dags/test_dag_example.py` expects DAG `tags` and `retries >= 2`. Project DAGs are aligned (`retries: 2`, `tags` on each DAG).
