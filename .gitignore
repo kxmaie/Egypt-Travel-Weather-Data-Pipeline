@@ -1,5 +1,9 @@
 .git
 .env
+.claude/
+logs/
+dashboard/.env
+dashboard/venv/
 .DS_Store
 airflow_settings.yaml
 __pycache__/

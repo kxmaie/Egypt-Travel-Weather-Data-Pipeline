@@ -23,16 +23,16 @@ default_args = {
 with DAG(
   dag_id="transformation_dag",
   description="A DAG to transform data",
-  schedule="*/20 * * * *",
   default_args=default_args,
   catchup=False,
+  schedule_interval=timedelta(minutes=20),
   dagrun_timeout=timedelta(minutes=30),
   tags=["etl", "transform", "weather_hospitality"],
 ) as dag:
     wait_for_ingestion=ExternalTaskSensor(
     task_id="wait_for_ingestion",
     external_dag_id="ingestion_dag",
-    execution_delta=timedelta(minutes=7),
+    execution_delta=timedelta(minutes=0),
     external_task_id=None,
     mode="reschedule",
     poke_interval=60,

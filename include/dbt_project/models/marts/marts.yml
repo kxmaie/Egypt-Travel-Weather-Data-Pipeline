@@ -4,9 +4,44 @@ models:
   - name: mart_city_destination_profile
     description: >
       City-level profile: latest daily forecast, current conditions, landmark and
-      restaurant counts. Grain: one row per city string (see model comment on naming).
+      restaurant counts. Grain: one row per normalized city (uses city_name_mapping
+      seed to bridge Arabic weather names and English restaurant names).
     columns:
       - name: city
         tests:
           - not_null
           - unique
+
+  - name: mart_hotel_analysis
+    description: >
+      Hotel-level analysis: price tiers, value-for-money scores, amenity counts,
+      tax burden, and nearest-city weather context. Grain: one row per hotel
+      (deduplicated by stg_hotel_data).
+    columns:
+      - name: hotel_id
+        tests:
+          - not_null
+      - name: hotel_name
+        tests:
+          - not_null
+      - name: final_price
+        description: "Lowest nightly rate (numeric, extracted from string)."
+      - name: value_score
+        description: "Weighted review score divided by nightly price (higher = better value)."
+      - name: price_tier
+        description: "Budget / Mid-range / Upper-mid / Luxury / Unknown."
+
+  - name: mart_city_tourism_index
+    description: >
+      Composite tourism index per city. Combines weather comfort, wind, landmark
+      density, restaurant variety, and hotel value into a single 0–100 score
+      with a tier label (Top / Good / Emerging Destination).
+    columns:
+      - name: city
+        tests:
+          - not_null
+          - unique
+      - name: tourism_index
+        description: "Weighted composite score (0–100)."
+      - name: destination_tier
+        description: "Top Destination / Good Destination / Emerging Destination."

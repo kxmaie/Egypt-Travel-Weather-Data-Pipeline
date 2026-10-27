@@ -107,3 +107,7 @@ def load_hotels_csv_to_sql(file_path):
     df["ingested_at"]=datetime.now()
     df.to_sql("Bronze_hotel_data", mssql_hook.get_sqlalchemy_engine(), if_exists="append", index=False)
     print(" ✅تم نقل بيانات الفنادق من جدول Bronze إلى جدول Silver بنجاح.")
+
+
+
+

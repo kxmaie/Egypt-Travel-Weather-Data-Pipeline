@@ -12,6 +12,7 @@ cleaned_data AS (
         temp_max AS max_temp,
         temp_min AS min_temp,
         wind_speed_max AS max_wind_speed,
+        weather_code,
         TO_TIMESTAMP_NTZ(ingested_at / 1000000000) AS ingested_at
     FROM raw_data
 )
