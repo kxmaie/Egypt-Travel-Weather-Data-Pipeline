@@ -14,7 +14,7 @@ cleaned_data AS (
         TRIM(area) AS area,
         longitude,
         latitude,
-        TO_TIMESTAMP_NTZ(ingested_at / 1000000000) AS ingested_at
+        {{ normalize_timestamp_ntz('ingested_at') }} AS ingested_at
     FROM raw_data
 )
 
@@ -24,3 +24,4 @@ QUALIFY ROW_NUMBER() OVER (
     PARTITION BY restaurant_source_id, TRIM(city)
     ORDER BY ingested_at DESC NULLS LAST
 ) = 1
+
