@@ -1,4 +1,4 @@
-# Weather & Hospitality Data Pipeline
+# Weather & travel Data Pipeline
 
 End-to-end ELT built on **Astronomer Airflow**: ingest APIs and CSV files into **Microsoft SQL Server** (bronze/silver), load into **Snowflake**, then model with **dbt** (staging in `silver_layer`, marts in `gold_layer`).
 
