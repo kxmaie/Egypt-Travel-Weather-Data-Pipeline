@@ -13,3 +13,7 @@ airflow-webserver.pid
 webserver_config.py
 airflow.cfg
 airflow.db
+include/logs/
+dbt.log
+target/
+dbt_packages/

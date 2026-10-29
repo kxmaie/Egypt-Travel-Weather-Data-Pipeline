@@ -22,31 +22,30 @@ latest_daily AS (
     ) = 1
 ),
 
--- Approximate nearest city by coordinate distance (great-circle, km)
+-- Match hotels to the closest configured city using great-circle distance.
 hotel_with_city AS (
     SELECT
         h.*,
-        m.city_name_normalized AS nearest_city,
-        -- Haversine-ish distance using degree deltas (good enough for ranking)
-        SQRT(
-            POWER(h.latitude - m_lat.latitude, 2) +
-            POWER(h.longitude - m_lat.longitude, 2)
-        ) * 111.0 AS approx_distance_km
+        CASE
+            WHEN h.latitude IS NULL OR h.longitude IS NULL THEN NULL
+            ELSE m.city_name_normalized
+        END AS nearest_city,
+        CASE WHEN h.latitude IS NULL OR h.longitude IS NULL THEN NULL ELSE
+        6371.0 * 2 * ASIN(SQRT(
+            POWER(SIN(RADIANS(h.latitude - m_lat.latitude) / 2), 2) +
+            COS(RADIANS(m_lat.latitude)) * COS(RADIANS(h.latitude)) *
+            POWER(SIN(RADIANS(h.longitude - m_lat.longitude) / 2), 2)
+        )) END AS approx_distance_km
     FROM hotels h
     CROSS JOIN LATERAL (
         SELECT m.city_name_normalized,
-               w.latitude AS latitude,
-               w.longitude AS longitude
-        FROM {{ ref('stg_daily_weather_data') }} w
-        JOIN {{ ref('city_name_mapping') }} m ON TRIM(w.city) = TRIM(m.city_name_arabic)
-        QUALIFY ROW_NUMBER() OVER (
-            PARTITION BY m.city_name_normalized
-            ORDER BY w.ingested_at DESC
-        ) = 1
+               m.latitude,
+               m.longitude
+        FROM {{ ref('city_name_mapping') }} m
     ) m_lat
     QUALIFY ROW_NUMBER() OVER (
         PARTITION BY h.hotel_id
-        ORDER BY approx_distance_km ASC
+        ORDER BY approx_distance_km ASC NULLS LAST, nearest_city ASC NULLS LAST
     ) = 1
 ),
 

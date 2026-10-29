@@ -29,7 +29,7 @@ def create_famous_landmark_table():
             category NVARCHAR(100),
             landmark_name NVARCHAR(100),
             ingested_at DATETIME2
-            
+
         );
     END
     '''

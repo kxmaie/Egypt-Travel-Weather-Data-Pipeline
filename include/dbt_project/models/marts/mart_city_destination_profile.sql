@@ -38,7 +38,10 @@ landmark_counts AS (
 ),
 
 restaurant_counts AS (
-    SELECT m.city_name_normalized AS city, COUNT(*) AS restaurant_count
+    SELECT
+        m.city_name_normalized AS city,
+        COUNT(*) AS restaurant_count,
+        COUNT(DISTINCT r.category) AS restaurant_variety
     FROM {{ ref('stg_restaurant_data') }} r
     JOIN {{ ref('city_name_mapping') }} m ON TRIM(r.city) = TRIM(m.city_name_english)
     GROUP BY 1
@@ -54,7 +57,11 @@ SELECT
     c.humidity AS current_humidity_pct,
     c.avg_temperature AS city_avg_temp_c,
     COALESCE(l.landmark_count, 0) AS landmark_count,
+    (l.city IS NOT NULL) AS landmark_data_available,
     COALESCE(r.restaurant_count, 0) AS restaurant_count,
+    COALESCE(r.restaurant_variety, 0) AS restaurant_variety,
+    (r.city IS NOT NULL) AS restaurant_data_available,
+    (d.city IS NOT NULL OR c.city IS NOT NULL) AS weather_data_available,
     CURRENT_TIMESTAMP() AS profile_built_at
 FROM city_universe u
 LEFT JOIN latest_daily d ON u.city = d.city

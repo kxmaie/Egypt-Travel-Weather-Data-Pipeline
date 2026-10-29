@@ -40,4 +40,4 @@ Streamlit app  ──►  Snowflake (gold_layer + silver_layer)
 
 ## Data Freshness
 
-The pipeline runs every 20 minutes. Dashboard queries are cached for 5 minutes (`@st.cache_data(ttl=300)`).
+The pipeline runs daily. Dashboard queries are cached for 5 minutes (`@st.cache_data(ttl=300)`). The Tourism Index page also displays data coverage and explains that relative component scores compare cities within the same build.

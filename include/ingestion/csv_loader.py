@@ -1,6 +1,27 @@
 import pandas as pd
 from datetime import datetime
 from airflow.providers.microsoft.mssql.hooks.mssql import MsSqlHook
+
+
+def _replace_snapshot(mssql_hook, table_name, df):
+    """Atomically publish a complete CSV snapshot to its Bronze table."""
+    if df.empty:
+        raise ValueError(f"Refusing to replace {table_name} with an empty CSV snapshot")
+
+    engine = mssql_hook.get_sqlalchemy_engine()
+    # Keep truncate and insert in one transaction so a failed load leaves the
+    # previous complete snapshot available to downstream tasks.
+    with engine.begin() as connection:
+        connection.exec_driver_sql(f"TRUNCATE TABLE {table_name}")
+        df.to_sql(
+            table_name,
+            connection,
+            if_exists="append",
+            index=False,
+            chunksize=500,
+        )
+
+
 def load_resturants_csv_files_to_sql(file_path):
     mssql_hook = MsSqlHook(mssql_conn_id='sql_server_conn')
     create_table = '''
@@ -20,13 +41,6 @@ def load_resturants_csv_files_to_sql(file_path):
     END
     '''
     mssql_hook.run(create_table)
-    mssql_hook.run(
-        """
-        IF OBJECT_ID('Bronze_restaurant_data', 'U') IS NOT NULL
-            TRUNCATE TABLE Bronze_restaurant_data;
-        """
-    )
-
     df=pd.read_csv(file_path,encoding="utf-8")
     df=df.rename(columns={
         "Restaurant ID": "resturantid",
@@ -39,8 +53,8 @@ def load_resturants_csv_files_to_sql(file_path):
 
     })
     df["Ingested_At"]=datetime.now()
-    df.to_sql("Bronze_restaurant_data", mssql_hook.get_sqlalchemy_engine(), if_exists="append", index=False)
-    print(" ✅تم نقل بيانات المطاعم من جدول Bronze إلى جدول Silver بنجاح.")
+    _replace_snapshot(mssql_hook, "Bronze_restaurant_data", df)
+    print(f"✅ Published {len(df)} restaurant rows to the Bronze snapshot.")
 
 def load_hotels_csv_to_sql(file_path):
     mssql_hook = MsSqlHook(mssql_conn_id='sql_server_conn')
@@ -74,12 +88,6 @@ def load_hotels_csv_to_sql(file_path):
     END
     '''
     mssql_hook.run(create_table)
-    mssql_hook.run(
-        """
-        IF OBJECT_ID('Bronze_hotel_data', 'U') IS NOT NULL
-            TRUNCATE TABLE Bronze_hotel_data;
-        """
-    )
     df=pd.read_csv(file_path,encoding="utf-8")
     df=df.rename(columns={
         "Type":"type",
@@ -102,11 +110,11 @@ def load_hotels_csv_to_sql(file_path):
         "Rate per Night (Before Taxes and Fees)":"rate_per_night_before_taxes_and_fees",
         "Total Rate (Lowest)":"total_rate_lowest",
         "Total Rate (Before Taxes and Fees)":"total_rate_before_taxes_and_fees"
-       
+
     })
     df["ingested_at"]=datetime.now()
-    df.to_sql("Bronze_hotel_data", mssql_hook.get_sqlalchemy_engine(), if_exists="append", index=False)
-    print(" ✅تم نقل بيانات الفنادق من جدول Bronze إلى جدول Silver بنجاح.")
+    _replace_snapshot(mssql_hook, "Bronze_hotel_data", df)
+    print(f"✅ Published {len(df)} hotel rows to the Bronze snapshot.")
 
 
 

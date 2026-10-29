@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.sensors.external_task import ExternalTaskSensor
-from datetime import datetime, timedelta
+from datetime import timedelta
 import pendulum
 
 from include.transformations.weather_transform import create_silver_weather_daily_table,bronze_to_silver_daily_weather, create_silver_weather_hourly_table,bronze_to_silver_weather_hourly,create_silver_weather_current_table,bronze_to_silver_weather_current
@@ -25,7 +25,7 @@ with DAG(
   description="A DAG to transform data",
   default_args=default_args,
   catchup=False,
-  schedule_interval=timedelta(minutes=20),
+  schedule="@daily",
   dagrun_timeout=timedelta(minutes=30),
   tags=["etl", "transform", "weather_hospitality"],
 ) as dag:
@@ -42,7 +42,7 @@ with DAG(
         task_id="create_silver_daily_weather_table",
         python_callable=create_silver_weather_daily_table
     )
-    
+
     bronze_to_silver_daily_weather_task=PythonOperator(
         task_id="bronze_to_silver_daily_weather",
         python_callable=bronze_to_silver_daily_weather

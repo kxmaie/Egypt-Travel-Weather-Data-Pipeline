@@ -20,7 +20,7 @@ def get_snowflake_connection():
         user=os.getenv("SNOWFLAKE_USER"),
         password=os.getenv("SNOWFLAKE_PASSWORD"),
         warehouse=os.getenv("SNOWFLAKE_WAREHOUSE", "WEATHER_WH"),
-        database=os.getenv("SNOWFLAKE_DATABASE", "WEATHER_DB"),
+        database=os.getenv("SNOWFLAKE_DATABASE", "RENTAL_WEATHER_DB"),
         role=os.getenv("SNOWFLAKE_ROLE", "WEATHER_PROJECT_ROLE"),
     )
     return conn

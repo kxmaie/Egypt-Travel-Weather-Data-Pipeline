@@ -38,7 +38,7 @@ page = st.sidebar.radio(
 )
 st.sidebar.markdown("---")
 st.sidebar.caption("Data from Airflow → SQL Server → Snowflake → dbt")
-st.sidebar.caption("Pipeline runs every 20 minutes")
+st.sidebar.caption("Pipeline runs daily")
 
 
 # ─────────────────────────── Page 1: Tourism Index ─────────────────────────
@@ -50,12 +50,13 @@ def page_tourism_index():
     # Load data
     rows = run_query(f"""
         SELECT city, daily_max_temp_c, daily_min_temp_c, current_temp_c,
-               current_humidity_pct, landmark_count, restaurant_count,
+               current_humidity_pct, landmark_count, restaurant_count, restaurant_variety,
                hotel_count, avg_hotel_price_per_night, avg_hotel_score,
                weather_comfort_score, wind_score, landmark_score,
-               restaurant_score, hotel_value_score, tourism_index, destination_tier
+               restaurant_score, hotel_value_score, tourism_index,
+               data_coverage_pct, index_methodology_version, destination_tier
         FROM {GOLD}.mart_city_tourism_index
-        ORDER BY tourism_index DESC
+        ORDER BY tourism_index DESC NULLS LAST
     """)
 
     if not rows:
@@ -64,10 +65,11 @@ def page_tourism_index():
 
     cols = [
         "city", "daily_max_temp_c", "daily_min_temp_c", "current_temp_c",
-        "current_humidity_pct", "landmark_count", "restaurant_count",
+        "current_humidity_pct", "landmark_count", "restaurant_count", "restaurant_variety",
         "hotel_count", "avg_hotel_price_per_night", "avg_hotel_score",
         "weather_comfort_score", "wind_score", "landmark_score",
-        "restaurant_score", "hotel_value_score", "tourism_index", "destination_tier",
+        "restaurant_score", "hotel_value_score", "tourism_index",
+        "data_coverage_pct", "index_methodology_version", "destination_tier",
     ]
     df = pd.DataFrame(rows, columns=cols)
 
@@ -118,6 +120,12 @@ def page_tourism_index():
         height=400,
     )
     st.plotly_chart(fig2, use_container_width=True)
+    st.caption(
+        "Scores renormalize weights over available data. Coverage shows the share "
+        "of the index weight supported by data; restaurant variety counts distinct "
+        "categories. Relative components compare cities "
+        "within this build."
+    )
 
     # --- Data table ---
     with st.expander("📋 Detailed Table"):
@@ -134,6 +142,7 @@ def page_tourism_index():
             "restaurant_score": "{:.1f}",
             "hotel_value_score": "{:.1f}",
             "tourism_index": "{:.1f}",
+            "data_coverage_pct": "{:.1f}%",
         }), use_container_width=True)
 
 

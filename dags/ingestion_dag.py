@@ -1,6 +1,6 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime, timedelta
+from datetime import timedelta
 import pendulum
 from include.ingestion.weather_api import data_of_weather_api
 from include.ingestion.landmarks_api import famous_landmark_data
@@ -20,7 +20,7 @@ with DAG(
   description="A DAG to ingest weather data",
   default_args=default_args,
   catchup=False,
-  schedule_interval=timedelta(minutes=20),
+  schedule="@daily",
   dagrun_timeout=timedelta(minutes=30),
   tags=["etl", "ingestion", "weather_hospitality"],
 ) as dag:

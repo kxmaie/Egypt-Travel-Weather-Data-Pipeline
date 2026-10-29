@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.sensors.external_task import ExternalTaskSensor
-from datetime import datetime, timedelta
+from datetime import timedelta
 import pendulum
 
 from include.loaders.snowflake_loader import transfer_table_hotels_to_snowflake,transfer_tables_resturant_to_snowflake,transfer_table_famous_landmark_to_snowflake,transfer_table_current_weather_to_snowflake,transfer_table_daily_weather_to_snowflake,transfer_table_hourly_weather_to_snowflake
@@ -23,7 +23,7 @@ with DAG(
   description="A DAG to load data into the warehouse",
   default_args=default_args,
   catchup=False,
-  schedule_interval=timedelta(minutes=20),
+  schedule="@daily",
   dagrun_timeout=timedelta(minutes=30),
   tags=["etl", "load", "snowflake", "weather_hospitality"],
 ) as dag:

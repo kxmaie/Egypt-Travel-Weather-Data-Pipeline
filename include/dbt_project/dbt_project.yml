@@ -37,3 +37,10 @@ models:
     marts:
       +schema: gold_layer
       +materialized: table
+
+seeds:
+  dbt_project:
+    city_name_mapping:
+      +column_types:
+        latitude: float
+        longitude: float

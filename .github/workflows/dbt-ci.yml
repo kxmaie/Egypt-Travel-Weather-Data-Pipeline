@@ -1,8 +1,3 @@
-# ─────────────────────────────────────────────────────────────────────────────
-# CI: dbt tests + SQL lint on every push / PR
-# Runs dbt seed → dbt run → dbt test against Snowflake (using repo secrets).
-# ─────────────────────────────────────────────────────────────────────────────
-
 name: dbt CI
 
 on:
@@ -11,62 +6,31 @@ on:
     paths:
       - "include/dbt_project/**"
       - ".github/workflows/dbt-ci.yml"
+      - ".github/workflows/dbt-integration.yml"
   pull_request:
     branches: [master, main]
     paths:
       - "include/dbt_project/**"
+      - ".github/workflows/dbt-ci.yml"
+      - ".github/workflows/dbt-integration.yml"
+
+permissions:
+  contents: read
 
 jobs:
-  dbt-test:
+  dbt-parse:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
-    env:
-      DBT_PROFILES_DIR: ${{ github.workspace }}/include/dbt_project
-      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
-      SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_DATABASE }}
-      SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
-      SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_ROLE }}
-      SNOWFLAKE_SCHEMA: ${{ secrets.SNOWFLAKE_SCHEMA }}
-      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
-      SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_WAREHOUSE }}
-
+    timeout-minutes: 10
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
       - name: Install dbt-snowflake
-        run: pip install dbt-snowflake>=1.7
-
-      - name: dbt deps
+        run: pip install "dbt-snowflake>=1.7,<2.0"
+      - name: Resolve dbt packages
         working-directory: include/dbt_project
         run: dbt deps --profiles-dir .
-
-      - name: dbt seed
+      - name: Parse project without warehouse credentials
         working-directory: include/dbt_project
-        run: dbt seed --profiles-dir .
-
-      - name: dbt run (staging + marts)
-        working-directory: include/dbt_project
-        run: dbt run --profiles-dir .
-
-      - name: dbt test
-        working-directory: include/dbt_project
-        run: dbt test --profiles-dir .
-
-      - name: dbt docs generate
-        working-directory: include/dbt_project
-        run: dbt docs generate --profiles-dir .
-
-      - name: Upload dbt artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: dbt-artifacts
-          path: include/dbt_project/target/
-          retention-days: 7
+        run: dbt parse --no-partial-parse --profiles-dir .
