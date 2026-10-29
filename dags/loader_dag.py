@@ -23,7 +23,7 @@ with DAG(
   description="A DAG to load data into the warehouse",
   default_args=default_args,
   catchup=False,
-  schedule_interval=timedelta(minutes=20),
+  schedule="@daily",
   dagrun_timeout=timedelta(minutes=30),
   tags=["etl", "load", "snowflake", "weather_hospitality"],
 ) as dag:

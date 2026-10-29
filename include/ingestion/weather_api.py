@@ -1,5 +1,4 @@
 import requests
-import json
 from datetime import datetime
 from airflow.providers.microsoft.mssql.hooks.mssql import MsSqlHook
 
@@ -47,7 +46,7 @@ def data_of_weather_api():
         '''
         
        
-        result = mssql_hook.get_records(check_sql, parameters=(city_name))
+        result = mssql_hook.get_records(check_sql, parameters=(city_name,))
         
         
         if result and result[0][0] > 0:
@@ -63,26 +62,23 @@ def data_of_weather_api():
             "timezone": "Africa/Cairo"
         }
 
-        response = requests.get(url, params=params)
-        if response.status_code == 200:
-            raw_data = response.text
+        response = requests.get(url, params=params, timeout=(5, 30))
+        response.raise_for_status()
+        raw_data = response.text
             
             
-            insert_sql = '''
-            INSERT INTO Bronze_weather_raw (city, latitude, longitude, ingested_at, source, raw_data) 
-            VALUES (%s, %s, %s, %s, %s, %s)
-            '''
+        insert_sql = '''
+        INSERT INTO Bronze_weather_raw (city, latitude, longitude, ingested_at, source, raw_data)
+        VALUES (%s, %s, %s, %s, %s, %s)
+        '''
             
             
-            mssql_hook.run(insert_sql, parameters=(
-                city_name, 
-                loc["lat"], 
-                loc["lon"], 
-                datetime.now(), 
-                "open-meteo", 
-                raw_data
-            ))
-               
-            print(f"✅ تم تخزين بيانات {city_name} بنجاح.")
-        else:
-            print(f"❌ خطأ في جلب بيانات {city_name}: {response.status_code}")
+        mssql_hook.run(insert_sql, parameters=(
+            city_name,
+            loc["lat"],
+            loc["lon"],
+            datetime.now(),
+            "open-meteo",
+            raw_data,
+        ))
+        print(f"✅ تم تخزين بيانات {city_name} بنجاح.")

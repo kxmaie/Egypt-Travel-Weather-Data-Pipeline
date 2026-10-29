@@ -1,0 +1,24 @@
+version: 2
+
+seeds:
+  - name: city_name_mapping
+    description: City name aliases and reference coordinates used for source joins and nearest-city mapping.
+    columns:
+      - name: city_name_english
+        tests:
+          - not_null
+          - unique
+      - name: city_name_arabic
+        tests:
+          - not_null
+          - unique
+      - name: city_name_normalized
+        tests:
+          - not_null
+          - unique
+      - name: latitude
+        tests:
+          - not_null
+      - name: longitude
+        tests:
+          - not_null

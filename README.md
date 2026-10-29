@@ -17,7 +17,7 @@ CSV (hotels / restaurants) ─┘
 
 </details>
 
-**8 cities** · 947 hotels · ~1000 restaurants · 3 dbt marts · 4 Streamlit dashboards · 3 CI/CD workflows
+**8 cities** · 947 hotels · ~1000 restaurants · 3 dbt marts · 4 Streamlit dashboards · 4 CI/CD workflows
 
 ## Streamlit Dashboard Previews
 
@@ -25,7 +25,7 @@ CSV (hotels / restaurants) ─┘
 
 ![Tourism Index Dashboard](assets/dashboard_tourism.svg)
 
-Composite city scores (0–100) combining weather comfort, landmark density, restaurant variety, and hotel value — with component breakdown per city.
+Composite city scores (0–100) combining weather comfort, landmark count, restaurant category variety, and hotel value — with data coverage shown per city.
 
 ### 🏨 Hotel Analysis
 
@@ -49,9 +49,9 @@ Restaurant category distribution, landmarks by city, top landmarks by score, and
 
 ## How It Works
 
-Airflow DAGs (scheduled every 20 minutes):
+Airflow DAGs (scheduled daily in `Africa/Cairo`, matching the source ingestion guard):
 
-1. **`ingestion_dag`** — weather (Open-Meteo), landmarks (TomTom), restaurants CSV, hotels CSV → Bronze tables in SQL Server
+1. **`ingestion_dag`** — weather (Open-Meteo), landmarks (TomTom), restaurants CSV, hotels CSV → Bronze tables in SQL Server. CSV snapshots publish atomically; API errors fail the task so Airflow retries.
 2. **`transformation_dag`** — builds silver tables from bronze (Python + pandas), after `ExternalTaskSensor` on ingestion
 3. **`loader_dag`** — copies silver/bronze tables to Snowflake with `write_pandas`, after sensor on transformation
 
@@ -85,6 +85,7 @@ Airflow DAGs (scheduled every 20 minutes):
 - `mart_city_destination_profile` — city-level weather + landmark + restaurant profile (uses city_name_mapping seed)
 - `mart_hotel_analysis` — hotel price tiers, value-for-money scores, amenity counts, weather context
 - `mart_city_tourism_index` — composite tourism score (0–100) per city with tier label
+- The tourism score exposes data coverage and methodology version; relative count/value components are comparable within one build.
 
 ### Seeds
 - `city_name_mapping` — maps Arabic ↔ English city names for cross-source joins (8 cities)
@@ -93,6 +94,7 @@ Airflow DAGs (scheduled every 20 minutes):
 - `models/staging/staging.yml` — not_null tests on key columns
 - `models/marts/marts.yml` — not_null + unique on mart grains
 - `tests/staging/` — singular SQL dedup assertions (6 tests)
+- `tests/marts/` — tourism index range and coverage assertion
 
 ## Prerequisites
 
@@ -109,20 +111,21 @@ Configure in the Airflow UI or `airflow_settings.yaml` (local):
 | `sql_server_conn` | Microsoft SQL Server | Bronze/silver tables |
 | `conn_snowflake` | Snowflake | `RENTAL_WEATHER_DB.RAW_DATA` loads |
 
-**TomTom API key**: set Airflow Variable `TOMTOM_API_KEY` or environment variable `TOMTOM_API_KEY`. Never commit real keys.
+**TomTom API key**: set Airflow Variable `TOMTOM_API_KEY` or environment variable `AIRFLOW_VAR_TOMTOM_API_KEY`. Never commit real keys. API tasks use request timeouts and fail on non-success HTTP responses so Airflow retries instead of reporting a successful stale run.
 
 ## Environment variables (for dbt)
 
 | Variable | Description |
 |----------|-------------|
 | `SNOWFLAKE_ACCOUNT` | Snowflake account identifier |
-| `SNOWFLAKE_DATABASE` | Target database (default: WEATHER_DB) |
+| `SNOWFLAKE_DATABASE` | Target database (default: RENTAL_WEATHER_DB) |
 | `SNOWFLAKE_PASSWORD` | Snowflake password |
 | `SNOWFLAKE_ROLE` | Role (default: WEATHER_PROJECT_ROLE) |
-| `SNOWFLAKE_SCHEMA` | Schema (default: RAW_DATA) |
+| `SNOWFLAKE_SCHEMA` | Target schema (default: RAW_DATA) |
+| `SNOWFLAKE_SOURCE_DATABASE` | Database containing loader source tables (default: RENTAL_WEATHER_DB) |
 | `SNOWFLAKE_USER` | User (default: AIRFLOW_USER) |
 | `SNOWFLAKE_WAREHOUSE` | Warehouse (default: WEATHER_WH) |
-| `TOMTOM_API_KEY` | TomTom Search API key |
+| `AIRFLOW_VAR_TOMTOM_API_KEY` | TomTom Search API key (alternative to the Airflow Variable) |
 
 ## Local Airflow
 
@@ -144,7 +147,8 @@ dbt test          # staging + mart tests + singular dedup tests
 ```
 
 - **Profile**: `profiles.yml` uses `env_var()` for all secrets — never commit real credentials.
-- **Sources**: `models/sources.yml` → Snowflake `RENTAL_WEATHER_DB.RAW_DATA`.
+- **Sources**: `models/sources.yml` → Snowflake `RENTAL_WEATHER_DB.RAW_DATA` by default (`SNOWFLAKE_SOURCE_DATABASE` can override it).
+- The tourism index renormalizes component weights when a source is missing and publishes `data_coverage_pct` plus `index_methodology_version`. Landmark, restaurant, and hotel-value scores are relative to the current city cohort, so compare them within the same build.
 
 ## Streamlit Dashboards
 
@@ -176,19 +180,20 @@ See [`INSIGHTS_DASHBOARD.md`](INSIGHTS_DASHBOARD.md) for:
 
 ## CI/CD (GitHub Actions)
 
-Three workflows run on every push / PR:
+Three validation workflows run on pushes / pull requests. A separate Snowflake integration workflow is started manually and uses isolated CI schemas:
 
 | Workflow | Purpose |
 |----------|---------|
 | **Airflow DAG Validation** | DAG imports, tags, retries ≥ 2, pytest |
-| **dbt CI** | `dbt seed → run → test` against Snowflake + artifact upload |
+| **dbt CI** | Credential-free dbt dependency resolution and project parsing |
+| **dbt Snowflake Integration** | Manual `dbt build` against an isolated CI database/schema |
 | **Python Lint** | Ruff lint + format on dags, include, dashboard |
 
 See [`.github/workflows/README.md`](.github/workflows/README.md) for setup instructions and required secrets.
 
 ## DAG tests (pytest)
 
-`tests/dags/test_dag_example.py` expects DAG `tags` and `retries >= 2`. Project DAGs are aligned (`retries: 2`, `tags` on each DAG).
+`tests/dags/test_dag_example.py` checks DAG tags, retries, and shared daily scheduling. API ingestion tests confirm failures propagate instead of being treated as successful runs.
 
 ## License / contact
 

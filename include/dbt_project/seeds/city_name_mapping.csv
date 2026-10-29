@@ -1,9 +1,9 @@
-city_name_english,city_name_arabic,city_name_normalized
-Cairo,القاهرة,Cairo
-Giza,الجيزة,Giza
-Alexandria,الإسكندرية,Alexandria
-Luxor,الأقصر,Luxor
-Aswan,أسوان,Aswan
-Hurghada,الغردقة,Hurghada
-Sharm El Sheikh,شرم الشيخ,Sharm El Sheikh
-Marsa Alam,مرسى علم,Marsa Alam
+city_name_english,city_name_arabic,city_name_normalized,latitude,longitude
+Cairo,القاهرة,Cairo,30.0444,31.2357
+Giza,الجيزة,Giza,29.9773,31.1325
+Alexandria,الإسكندرية,Alexandria,31.2001,29.9187
+Luxor,الأقصر,Luxor,25.6872,32.6396
+Aswan,أسوان,Aswan,24.0889,32.8998
+Hurghada,الغردقة,Hurghada,27.2579,33.8116
+Sharm El Sheikh,شرم الشيخ,Sharm El Sheikh,27.9158,34.3300
+Marsa Alam,مرسى علم,Marsa Alam,25.0658,34.9039

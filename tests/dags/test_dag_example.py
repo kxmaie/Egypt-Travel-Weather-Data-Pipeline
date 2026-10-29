@@ -81,3 +81,13 @@ def test_dag_retries(dag_id, dag, fileloc):
     assert (
         dag.default_args.get("retries", None) >= 2
     ), f"{dag_id} in {fileloc} must have task retries >= 2."
+
+
+def test_pipeline_dags_share_daily_cadence():
+    """Daily source de-duplication and downstream sensors must use one cadence."""
+    dag_bag = DagBag(dag_folder="dags", include_examples=False)
+    pipeline_dag_ids = {"ingestion_dag", "transformation_dag", "loader_dag"}
+
+    assert pipeline_dag_ids <= dag_bag.dags.keys()
+    for dag_id in pipeline_dag_ids:
+        assert dag_bag.get_dag(dag_id).schedule_interval == "@daily"

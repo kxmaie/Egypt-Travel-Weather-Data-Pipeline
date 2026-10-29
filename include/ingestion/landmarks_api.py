@@ -7,7 +7,10 @@ def famous_landmark_data():
     url = "https://api.tomtom.com/search/2/search/Tourist Attraction.json"
     tomtom_api_key = Variable.get("TOMTOM_API_KEY", default_var="")
     if not tomtom_api_key:
-        raise ValueError("TOMTOM_API_KEY is not set. Configure it as an Airflow Variable or env var.")
+        raise ValueError(
+            "TOMTOM_API_KEY is not set. Configure the Airflow Variable or "
+            "AIRFLOW_VAR_TOMTOM_API_KEY environment variable."
+        )
     mssql_hook=MsSqlHook(mssql_conn_id='sql_server_conn')
     create_table = '''
     IF OBJECT_ID('Bronze_famous_landmark_data', 'U') IS NULL
@@ -47,7 +50,7 @@ def famous_landmark_data():
         '''
         
         
-        already_exists = mssql_hook.get_records(check_sql, parameters=(city_name))
+        already_exists = mssql_hook.get_records(check_sql, parameters=(city_name,))
             
         if already_exists[0][0] > 0:
                 print(f"⏭️ البيانات الخاصة بـ {city_name} موجودة بالفعل اليوم. تخطي...")
@@ -63,23 +66,21 @@ def famous_landmark_data():
                 "view": "Unified"
             }
             
-        response = requests.get(url, params=params)
+        response = requests.get(url, params=params, timeout=(5, 30))
+        response.raise_for_status()
             
-        if response.status_code == 200:
-                raw_data = response.text
-                insert_sql = '''
-                INSERT INTO Bronze_famous_landmark_data (city, latitude, longitude, ingested_at, source, raw_data)
-                VALUES (%s,%s,%s,%s,%s,%s)
-                '''
+        raw_data = response.text
+        insert_sql = '''
+        INSERT INTO Bronze_famous_landmark_data (city, latitude, longitude, ingested_at, source, raw_data)
+        VALUES (%s,%s,%s,%s,%s,%s)
+        '''
 
-                mssql_hook.run(insert_sql, parameters=(
-                    city_name,
-                    loc["lat"],
-                    loc["lon"],
-                    datetime.now(),
-                    "TomTom API",
-                    raw_data
-                    ))
-                print(f"✅ تم تخزين بيانات {city_name} بنجاح.")
-        else:
-                print(f"❌ خطأ في جلب بيانات {city_name}: {response.status_code}")
+        mssql_hook.run(insert_sql, parameters=(
+            city_name,
+            loc["lat"],
+            loc["lon"],
+            datetime.now(),
+            "TomTom API",
+            raw_data,
+        ))
+        print(f"✅ تم تخزين بيانات {city_name} بنجاح.")

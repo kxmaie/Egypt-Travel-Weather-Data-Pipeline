@@ -20,7 +20,7 @@ with DAG(
   description="A DAG to ingest weather data",
   default_args=default_args,
   catchup=False,
-  schedule_interval=timedelta(minutes=20),
+  schedule="@daily",
   dagrun_timeout=timedelta(minutes=30),
   tags=["etl", "ingestion", "weather_hospitality"],
 ) as dag:

@@ -1,7 +1,7 @@
 version: 2
 sources:
   - name: raw_data
-    database: RENTAL_WEATHER_DB
+    database: "{{ env_var('SNOWFLAKE_SOURCE_DATABASE', 'RENTAL_WEATHER_DB') }}"
     schema: RAW_DATA
     tables:
       - name: Silver_famous_landmark_data

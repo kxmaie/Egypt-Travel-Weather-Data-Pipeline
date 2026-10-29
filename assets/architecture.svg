@@ -210,6 +210,6 @@
   <text x="880" y="600" font-size="10" fill="#FFD700">⏱ triggers on push/PR to master</text>
 
   <!-- ── Footer ── -->
-  <text x="600" y="675" text-anchor="middle" font-size="10" fill="#8895A5">8 cities · 947 hotels · ~1000 restaurants · 3 dbt marts · 4 dashboards · 3 CI/CD workflows</text>
+  <text x="600" y="675" text-anchor="middle" font-size="10" fill="#8895A5">8 cities · 947 hotels · ~1000 restaurants · 3 dbt marts · 4 dashboards · 4 CI/CD workflows</text>
   <text x="600" y="695" text-anchor="middle" font-size="9" fill="#A0AEC0">https://github.com/kxmaie/Egypt-Travel-Weather-Data-Pipeline</text>
 </svg>

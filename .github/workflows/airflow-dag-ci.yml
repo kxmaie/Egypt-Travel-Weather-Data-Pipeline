@@ -11,12 +11,14 @@ on:
     paths:
       - "dags/**"
       - "include/**"
+      - "tests/**"
       - ".github/workflows/airflow-dag-ci.yml"
   pull_request:
     branches: [master, main]
     paths:
       - "dags/**"
       - "include/**"
+      - "tests/**"
 
 jobs:
   dag-validation:
@@ -65,4 +67,4 @@ jobs:
       - name: Run pytest DAG tests
         run: |
           pip install pytest
-          pytest tests/dags/ -v
+          pytest tests/ -v

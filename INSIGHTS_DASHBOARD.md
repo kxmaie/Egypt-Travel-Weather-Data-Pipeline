@@ -91,6 +91,8 @@
 | Restaurant Variety Score | 15% | تنوع المطاعم (مُعَدَّل نسبياً) |
 | Hotel Value Score | 10% | متوسط قيمة الفنادق (التقييم/السعر) |
 
+الأوزان المتاحة فقط تُعاد موازنتها عند غياب مصدر، لذلك لا يتحول نقص البيانات تلقائياً إلى درجة صفر. يعرض `data_coverage_pct` نسبة الأوزان التي لها بيانات، ويحدد `index_methodology_version` إصدار المعادلة. درجات المعالم والمطاعم وقيمة الفنادق نسبية إلى المدن المتاحة في نفس البناء؛ لا تقارنها بين تشغيلات مختلفة دون مراعاة تغيّر مجموعة البيانات.
+
 ### الكود المرجعي (SQL في Snowflake):
 
 ```sql
@@ -324,7 +326,7 @@ dbt test         # يشغّل كل الـ tests
 
 # 3. استعلم عن الـ dashboards في Snowflake
 USE WAREHOUSE WEATHER_WH;
-USE DATABASE WEATHER_DB;
+USE DATABASE RENTAL_WEATHER_DB;
 USE SCHEMA GOLD_LAYER;
 
 -- Tourism index

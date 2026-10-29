@@ -1,0 +1,50 @@
+name: dbt Snowflake Integration
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dbt-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      DBT_PROFILES_DIR: ${{ github.workspace }}/include/dbt_project
+      DBT_SCHEMA_PREFIX: CI_${{ github.run_id }}
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_CI_ACCOUNT }}
+      SNOWFLAKE_DATABASE: ${{ secrets.SNOWFLAKE_CI_DATABASE }}
+      SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_CI_PASSWORD }}
+      SNOWFLAKE_ROLE: ${{ secrets.SNOWFLAKE_CI_ROLE }}
+      SNOWFLAKE_SCHEMA: CI_${{ github.run_id }}
+      SNOWFLAKE_SOURCE_DATABASE: ${{ secrets.SNOWFLAKE_SOURCE_DATABASE }}
+      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_CI_USER }}
+      SNOWFLAKE_WAREHOUSE: ${{ secrets.SNOWFLAKE_CI_WAREHOUSE }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dbt-snowflake
+        run: pip install "dbt-snowflake>=1.7,<2.0"
+      - name: Resolve dbt packages
+        working-directory: include/dbt_project
+        run: dbt deps --profiles-dir .
+      - name: Seed reference data
+        working-directory: include/dbt_project
+        run: dbt seed --profiles-dir .
+      - name: Build and test models in isolated schemas
+        working-directory: include/dbt_project
+        run: dbt build --profiles-dir .
+      - name: Upload dbt artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dbt-artifacts-${{ github.run_id }}
+          path: include/dbt_project/target/
+          retention-days: 7
+      - name: Remove isolated CI schemas
+        if: always()
+        working-directory: include/dbt_project
+        run: dbt run-operation cleanup_ci_schemas --profiles-dir .

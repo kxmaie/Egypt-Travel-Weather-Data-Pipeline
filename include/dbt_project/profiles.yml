@@ -2,8 +2,8 @@ dbt_project:
   outputs:
     dev:
       account: "{{ env_var('SNOWFLAKE_ACCOUNT', 'RO04574.eu-central-2.aws') }}"
-      database: "{{ env_var('SNOWFLAKE_DATABASE', 'WEATHER_DB') }}"
-      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE', 'RENTAL_WEATHER_DB') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD', '') }}"
       role: "{{ env_var('SNOWFLAKE_ROLE', 'WEATHER_PROJECT_ROLE') }}"
       schema: "{{ env_var('SNOWFLAKE_SCHEMA', 'RAW_DATA') }}"
       threads: 1

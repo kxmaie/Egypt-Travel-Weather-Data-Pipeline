@@ -34,7 +34,7 @@ models:
   - name: mart_city_tourism_index
     description: >
       Composite tourism index per city. Combines weather comfort, wind, landmark
-      density, restaurant variety, and hotel value into a single 0–100 score
+      count, restaurant category variety, and hotel value into a 0–100 score
       with a tier label (Top / Good / Emerging Destination).
     columns:
       - name: city
@@ -43,5 +43,15 @@ models:
           - unique
       - name: tourism_index
         description: "Weighted composite score (0–100)."
+      - name: data_coverage_pct
+        description: "Percent of configured score weight supported by source data."
+        tests:
+          - not_null
+      - name: index_methodology_version
+        description: "Version identifier for the score calculation rules."
+        tests:
+          - not_null
+      - name: restaurant_variety
+        description: "Count of distinct restaurant categories available for the city."
       - name: destination_tier
         description: "Top Destination / Good Destination / Emerging Destination."

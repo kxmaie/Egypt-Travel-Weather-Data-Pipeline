@@ -25,7 +25,7 @@ with DAG(
   description="A DAG to transform data",
   default_args=default_args,
   catchup=False,
-  schedule_interval=timedelta(minutes=20),
+  schedule="@daily",
   dagrun_timeout=timedelta(minutes=30),
   tags=["etl", "transform", "weather_hospitality"],
 ) as dag:
