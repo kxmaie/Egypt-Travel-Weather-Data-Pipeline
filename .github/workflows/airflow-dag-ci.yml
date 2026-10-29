@@ -36,11 +36,14 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install apache-airflow==2.9.0
-          pip install apache-airflow-providers-microsoft-mssql
-          pip install apache-airflow-providers-snowflake
-          pip install snowflake-connector-python[pandas]
-          pip install pendulum pandas requests
+          CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-2.9.0/constraints-3.11.txt"
+          pip install "apache-airflow==2.9.0" --constraint "$CONSTRAINT_URL"
+          pip install \
+            apache-airflow-providers-microsoft-mssql \
+            apache-airflow-providers-snowflake \
+            "snowflake-connector-python[pandas]" \
+            pendulum pandas requests \
+            --constraint "$CONSTRAINT_URL"
 
       - name: Set Airflow home
         run: echo "AIRFLOW_HOME=${{ github.workspace }}" >> $GITHUB_ENV

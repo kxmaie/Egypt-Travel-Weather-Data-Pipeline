@@ -110,7 +110,7 @@ def load_hotels_csv_to_sql(file_path):
         "Rate per Night (Before Taxes and Fees)":"rate_per_night_before_taxes_and_fees",
         "Total Rate (Lowest)":"total_rate_lowest",
         "Total Rate (Before Taxes and Fees)":"total_rate_before_taxes_and_fees"
-       
+
     })
     df["ingested_at"]=datetime.now()
     _replace_snapshot(mssql_hook, "Bronze_hotel_data", df)

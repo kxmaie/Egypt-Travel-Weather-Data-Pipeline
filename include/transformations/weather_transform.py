@@ -48,7 +48,7 @@ def _delete_current_keys(mssql_hook, df: pd.DataFrame) -> None:
 
 def create_silver_weather_daily_table():
     mssql_hook=MsSqlHook(mssql_conn_id='sql_server_conn')
-    
+
     create_table='''
          IF OBJECT_ID('Silver_weather_daily_data','U') IS NULL
          BEGIN
@@ -210,7 +210,7 @@ def bronze_to_silver_weather_current():
             "precipitation": current["precipitation"],
             "ingested_at": row["ingested_at"]
         })
-    
+
     df_silver = pd.DataFrame(records)
     if not df_silver.empty:
         df_silver["date"] = pd.to_datetime(df_silver["date"])

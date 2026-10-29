@@ -1,7 +1,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.sensors.external_task import ExternalTaskSensor
-from datetime import datetime, timedelta
+from datetime import timedelta
 import pendulum
 
 from include.loaders.snowflake_loader import transfer_table_hotels_to_snowflake,transfer_tables_resturant_to_snowflake,transfer_table_famous_landmark_to_snowflake,transfer_table_current_weather_to_snowflake,transfer_table_daily_weather_to_snowflake,transfer_table_hourly_weather_to_snowflake

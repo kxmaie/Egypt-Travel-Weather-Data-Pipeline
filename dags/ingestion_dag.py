@@ -1,6 +1,6 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime, timedelta
+from datetime import timedelta
 import pendulum
 from include.ingestion.weather_api import data_of_weather_api
 from include.ingestion.landmarks_api import famous_landmark_data
