@@ -8,7 +8,7 @@ cleaned_data AS (
     SELECT
         id AS current_weather_id,
         TRIM(city) AS city,
-        TO_TIMESTAMP_NTZ("DATE" / 1000000000) AS observed_at,
+        {{ normalize_timestamp_ntz('"DATE"') }} AS observed_at,
         temperature::FLOAT AS temperature,
         is_day,
         rain,
@@ -16,7 +16,7 @@ cleaned_data AS (
         showers,
         wind_speed::FLOAT AS wind_speed,
         humidity::FLOAT AS humidity,
-        TO_TIMESTAMP_NTZ(ingested_at / 1000000000) AS ingested_at
+        {{ normalize_timestamp_ntz('ingested_at') }} AS ingested_at
     FROM raw_data
 ),
 
@@ -34,3 +34,4 @@ QUALIFY ROW_NUMBER() OVER (
     PARTITION BY TRIM(city)
     ORDER BY ingested_at DESC NULLS LAST
 ) = 1
+
