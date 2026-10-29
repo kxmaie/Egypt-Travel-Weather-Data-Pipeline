@@ -44,4 +44,3 @@ QUALIFY ROW_NUMBER() OVER (
     PARTITION BY TRIM(LOWER(hotel_name)), latitude, longitude
     ORDER BY ingested_at DESC NULLS LAST
 ) = 1
-

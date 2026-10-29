@@ -33,4 +33,3 @@ SELECT
         ORDER BY landmark_id
     ) AS rank_in_category
 FROM deduped
-

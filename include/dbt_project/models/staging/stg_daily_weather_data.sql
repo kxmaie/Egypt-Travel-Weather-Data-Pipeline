@@ -23,4 +23,3 @@ QUALIFY ROW_NUMBER() OVER (
     PARTITION BY TRIM(city), daily_date
     ORDER BY ingested_at DESC NULLS LAST
 ) = 1
-

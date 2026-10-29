@@ -24,4 +24,3 @@ QUALIFY ROW_NUMBER() OVER (
     PARTITION BY restaurant_source_id, TRIM(city)
     ORDER BY ingested_at DESC NULLS LAST
 ) = 1
-

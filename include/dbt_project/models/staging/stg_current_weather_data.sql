@@ -34,4 +34,3 @@ QUALIFY ROW_NUMBER() OVER (
     PARTITION BY TRIM(city)
     ORDER BY ingested_at DESC NULLS LAST
 ) = 1
-
