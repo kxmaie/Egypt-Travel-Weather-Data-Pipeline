@@ -90,4 +90,5 @@ def test_pipeline_dags_share_daily_cadence():
 
     assert pipeline_dag_ids <= dag_bag.dags.keys()
     for dag_id in pipeline_dag_ids:
-        assert dag_bag.get_dag(dag_id).schedule_interval == "@daily"
+        assert dag_bag.dags[dag_id].schedule_interval == "@daily"
+
