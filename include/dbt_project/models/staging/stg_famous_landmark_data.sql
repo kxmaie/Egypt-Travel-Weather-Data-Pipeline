@@ -13,7 +13,7 @@ cleaned_data AS (
         address,
         latitude,
         longitude,
-        TO_TIMESTAMP_NTZ(ingested_at / 1000000000) AS ingested_at
+        {{ normalize_timestamp_ntz('ingested_at') }} AS ingested_at
     FROM raw_data
 ),
 

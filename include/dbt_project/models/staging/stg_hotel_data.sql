@@ -26,7 +26,7 @@ cleaned_data AS (
             CAST(REGEXP_REPLACE(rate_per_night_before_taxes_and_fees, '[^0-9.]', '') AS FLOAT),
             0
         ) AS base_price,
-        TO_TIMESTAMP_NTZ(ingested_at / 1000000000) AS ingested_at
+        {{ normalize_timestamp_ntz('ingested_at') }} AS ingested_at
     FROM raw_data
 ),
 

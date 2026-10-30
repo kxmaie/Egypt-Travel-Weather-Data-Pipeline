@@ -9,10 +9,7 @@ cleaned_data AS (
         id AS hourly_weather_id,
         TRIM(city) AS city,
         
-        COALESCE(
-            TRY_CAST(CAST("DATE" AS VARCHAR) AS TIMESTAMP_NTZ),
-            TO_TIMESTAMP_NTZ(CAST(TRY_TO_DOUBLE(CAST("DATE" AS VARCHAR)) / 1000000000 AS BIGINT))
-        ) AS date,
+        {{ normalize_timestamp_ntz('"DATE"') }} AS date,
 
         CAST(temp AS FLOAT) AS temp,
         CAST(humidity AS FLOAT) AS humidity,
@@ -21,10 +18,7 @@ cleaned_data AS (
         showers,
         snowfall,
 
-        COALESCE(
-            TRY_CAST(CAST(ingested_at AS VARCHAR) AS TIMESTAMP_NTZ),
-            TO_TIMESTAMP_NTZ(CAST(TRY_TO_DOUBLE(CAST(ingested_at AS VARCHAR)) / 1000000000 AS BIGINT))
-        ) AS ingested_at
+        {{ normalize_timestamp_ntz('ingested_at') }} AS ingested_at
 
     FROM raw_data
 )
