@@ -1,15 +1,25 @@
+import logging
+
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.sensors.external_task import ExternalTaskSensor
 from datetime import timedelta
 import pendulum
 
-from include.transformations.weather_transform import create_silver_weather_daily_table,bronze_to_silver_daily_weather, create_silver_weather_hourly_table,bronze_to_silver_weather_hourly,create_silver_weather_current_table,bronze_to_silver_weather_current
-from include.transformations.landmark_transform import create_famous_landmark_table,bronze_to_silver_famous_landmark
+from include.transformations.weather_transform import (
+    create_silver_weather_daily_table,
+    bronze_to_silver_daily_weather,
+    create_silver_weather_hourly_table,
+    bronze_to_silver_weather_hourly,
+    create_silver_weather_current_table,
+    bronze_to_silver_weather_current,
+)
+from include.transformations.landmark_transform import (
+    create_famous_landmark_table,
+    bronze_to_silver_famous_landmark,
+)
 
-
-
-
+log = logging.getLogger(__name__)
 
 local_tz = pendulum.timezone("Africa/Cairo")
 default_args = {
@@ -20,74 +30,76 @@ default_args = {
     "retry_delay": timedelta(minutes=5),
 }
 
+# FIX #2: جميع الـ task dependencies جوه الـ `with DAG` block صح
 with DAG(
-  dag_id="transformation_dag",
-  description="A DAG to transform data",
-  default_args=default_args,
-  catchup=False,
-  schedule="@daily",
-  dagrun_timeout=timedelta(minutes=30),
-  tags=["etl", "transform", "weather_hospitality"],
+    dag_id="transformation_dag",
+    description="A DAG to transform data from Bronze to Silver layer",
+    default_args=default_args,
+    catchup=False,
+    schedule="@daily",
+    dagrun_timeout=timedelta(minutes=30),
+    tags=["etl", "transform", "weather_hospitality"],
 ) as dag:
-    wait_for_ingestion=ExternalTaskSensor(
-    task_id="wait_for_ingestion",
-    external_dag_id="ingestion_dag",
-    execution_delta=timedelta(minutes=0),
-    external_task_id=None,
-    mode="reschedule",
-    poke_interval=60,
-    timeout=1500
-)
-    create_silver_daily_weather_table_task= PythonOperator(
+
+    wait_for_ingestion = ExternalTaskSensor(
+        task_id="wait_for_ingestion",
+        external_dag_id="ingestion_dag",
+        execution_delta=timedelta(minutes=0),
+        external_task_id=None,
+        mode="reschedule",
+        poke_interval=60,
+        timeout=1500,
+    )
+
+    create_silver_daily_weather_table_task = PythonOperator(
         task_id="create_silver_daily_weather_table",
-        python_callable=create_silver_weather_daily_table
+        python_callable=create_silver_weather_daily_table,
     )
 
-    bronze_to_silver_daily_weather_task=PythonOperator(
+    bronze_to_silver_daily_weather_task = PythonOperator(
         task_id="bronze_to_silver_daily_weather",
-        python_callable=bronze_to_silver_daily_weather
+        python_callable=bronze_to_silver_daily_weather,
     )
 
-    create_silver_weather_hourly_table_task=PythonOperator(
+    create_silver_weather_hourly_table_task = PythonOperator(
         task_id="create_silver_weather_hourly_table",
-        python_callable=create_silver_weather_hourly_table
+        python_callable=create_silver_weather_hourly_table,
     )
 
-    bronze_to_silver_weather_hourly_task=PythonOperator(
+    bronze_to_silver_weather_hourly_task = PythonOperator(
         task_id="bronze_to_silver_weather_hourly",
-        python_callable=bronze_to_silver_weather_hourly
+        python_callable=bronze_to_silver_weather_hourly,
     )
 
-    create_silver_weather_current_table_task=PythonOperator(
+    create_silver_weather_current_table_task = PythonOperator(
         task_id="create_silver_weather_current_table",
-        python_callable=create_silver_weather_current_table
+        python_callable=create_silver_weather_current_table,
     )
 
-    bronze_to_silver_weather_current_task=PythonOperator(
+    bronze_to_silver_weather_current_task = PythonOperator(
         task_id="bronze_to_silver_weather_current",
-        python_callable=bronze_to_silver_weather_current
+        python_callable=bronze_to_silver_weather_current,
     )
 
-    create_famous_landmark_table_task=PythonOperator(
+    create_famous_landmark_table_task = PythonOperator(
         task_id="create_famous_landmark_table",
-        python_callable=create_famous_landmark_table
+        python_callable=create_famous_landmark_table,
     )
 
-    bronze_to_silver_famous_landmark_task=PythonOperator(
+    bronze_to_silver_famous_landmark_task = PythonOperator(
         task_id="bronze_to_silver_famous_landmark",
-        python_callable=bronze_to_silver_famous_landmark
+        python_callable=bronze_to_silver_famous_landmark,
     )
-wait_for_ingestion >> [
-    create_silver_daily_weather_table_task,
-    create_silver_weather_hourly_table_task,
-    create_silver_weather_current_table_task,
-    create_famous_landmark_table_task
-]
 
-create_silver_daily_weather_table_task >> bronze_to_silver_daily_weather_task
+    # Task dependencies — داخل الـ context manager
+    wait_for_ingestion >> [
+        create_silver_daily_weather_table_task,
+        create_silver_weather_hourly_table_task,
+        create_silver_weather_current_table_task,
+        create_famous_landmark_table_task,
+    ]
 
-create_silver_weather_hourly_table_task >> bronze_to_silver_weather_hourly_task
-
-create_silver_weather_current_table_task >> bronze_to_silver_weather_current_task
-
-create_famous_landmark_table_task >> bronze_to_silver_famous_landmark_task
+    create_silver_daily_weather_table_task >> bronze_to_silver_daily_weather_task
+    create_silver_weather_hourly_table_task >> bronze_to_silver_weather_hourly_task
+    create_silver_weather_current_table_task >> bronze_to_silver_weather_current_task
+    create_famous_landmark_table_task >> bronze_to_silver_famous_landmark_task

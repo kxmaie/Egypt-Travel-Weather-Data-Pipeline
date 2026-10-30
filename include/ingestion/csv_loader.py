@@ -1,16 +1,21 @@
+import logging
 import pandas as pd
 from datetime import datetime
 from airflow.providers.microsoft.mssql.hooks.mssql import MsSqlHook
 
+log = logging.getLogger(__name__)
+
 
 def _replace_snapshot(mssql_hook, table_name, df):
-    """Atomically publish a complete CSV snapshot to its Bronze table."""
+    """Atomically publish a complete CSV snapshot to its Bronze table.
+
+    Truncates then re-inserts all rows in a single transaction so a failed
+    load leaves the previous complete snapshot available to downstream tasks.
+    """
     if df.empty:
         raise ValueError(f"Refusing to replace {table_name} with an empty CSV snapshot")
 
     engine = mssql_hook.get_sqlalchemy_engine()
-    # Keep truncate and insert in one transaction so a failed load leaves the
-    # previous complete snapshot available to downstream tasks.
     with engine.begin() as connection:
         connection.exec_driver_sql(f"TRUNCATE TABLE {table_name}")
         df.to_sql(
@@ -41,20 +46,20 @@ def load_resturants_csv_files_to_sql(file_path):
     END
     '''
     mssql_hook.run(create_table)
-    df=pd.read_csv(file_path,encoding="utf-8")
-    df=df.rename(columns={
+    df = pd.read_csv(file_path, encoding="utf-8")
+    df = df.rename(columns={
         "Restaurant ID": "resturantid",
         "Restaurant Name": "Restaurant_Name",
         "Category": "Category",
         "City": "City",
         "Area": "Area",
         "Longitude": "Longitude",
-        "Latitude": "Latitude"
-
+        "Latitude": "Latitude",
     })
-    df["Ingested_At"]=datetime.now()
+    df["Ingested_At"] = datetime.now()
     _replace_snapshot(mssql_hook, "Bronze_restaurant_data", df)
-    print(f"✅ Published {len(df)} restaurant rows to the Bronze snapshot.")
+    log.info("Published %d restaurant rows to the Bronze snapshot.", len(df))
+
 
 def load_hotels_csv_to_sql(file_path):
     mssql_hook = MsSqlHook(mssql_conn_id='sql_server_conn')
@@ -88,34 +93,29 @@ def load_hotels_csv_to_sql(file_path):
     END
     '''
     mssql_hook.run(create_table)
-    df=pd.read_csv(file_path,encoding="utf-8")
-    df=df.rename(columns={
-        "Type":"type",
-        "Name":"name",
-        "Link":"link",
-        "Latitude":"latitude",
-        "Longitude":"longitude",
-        "Check-In Time":"check_in_time",
-        "Check-Out Time":"check_out_time",
-        "Overall Rating":"overall_rating",
-        "Reviews":"reviews",
-        "Location Rating":"location_rating",
-        "Amenities":"amenities",
-        "Excluded Amenities":"excluded_amenities",
-        "Essential Info":"essential_info",
-        "Nearby Places":"nearby_places",
-        "Ratings Breakdown":"ratings_breakdown",
-        "Reviews Breakdown":"reviews_breakdown",
-        "Rate per Night (Lowest)":"rate_per_night_lowest",
-        "Rate per Night (Before Taxes and Fees)":"rate_per_night_before_taxes_and_fees",
-        "Total Rate (Lowest)":"total_rate_lowest",
-        "Total Rate (Before Taxes and Fees)":"total_rate_before_taxes_and_fees"
-
+    df = pd.read_csv(file_path, encoding="utf-8")
+    df = df.rename(columns={
+        "Type": "type",
+        "Name": "name",
+        "Link": "link",
+        "Latitude": "latitude",
+        "Longitude": "longitude",
+        "Check-In Time": "check_in_time",
+        "Check-Out Time": "check_out_time",
+        "Overall Rating": "overall_rating",
+        "Reviews": "reviews",
+        "Location Rating": "location_rating",
+        "Amenities": "amenities",
+        "Excluded Amenities": "excluded_amenities",
+        "Essential Info": "essential_info",
+        "Nearby Places": "nearby_places",
+        "Ratings Breakdown": "ratings_breakdown",
+        "Reviews Breakdown": "reviews_breakdown",
+        "Rate per Night (Lowest)": "rate_per_night_lowest",
+        "Rate per Night (Before Taxes and Fees)": "rate_per_night_before_taxes_and_fees",
+        "Total Rate (Lowest)": "total_rate_lowest",
+        "Total Rate (Before Taxes and Fees)": "total_rate_before_taxes_and_fees",
     })
-    df["ingested_at"]=datetime.now()
+    df["ingested_at"] = datetime.now()
     _replace_snapshot(mssql_hook, "Bronze_hotel_data", df)
-    print(f"✅ Published {len(df)} hotel rows to the Bronze snapshot.")
-
-
-
-
+    log.info("Published %d hotel rows to the Bronze snapshot.", len(df))
